@@ -131,8 +131,8 @@ vendor.hw.fm.init=0
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Graphics
-debug.egl.hw=0
-debug.sf.hw=0
+debug.egl.hw=1
+debug.sf.hw=1
 debug.renderengine.backend=skiaglthreaded
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
