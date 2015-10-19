@@ -442,6 +442,18 @@ void set_interactive(struct power_module* module, int on) {
     saved_interactive_mode = !!on;
 }
 
+void set_feature(struct power_module* module, feature_t feature, int state) {
+    switch (feature) {
+#ifdef TAP_TO_WAKE_NODE
+        case POWER_FEATURE_DOUBLE_TAP_TO_WAKE:
+            sysfs_write(TAP_TO_WAKE_NODE, state ? "1" : "0");
+            break;
+#endif
+        default:
+            break;
+    }
+}
+
 static int power_device_open(const hw_module_t* module, const char* name, hw_device_t** device) {
     int status = -EINVAL;
     if (module && name && device) {
@@ -453,13 +465,13 @@ static int power_device_open(const hw_module_t* module, const char* name, hw_dev
 
                 if (dev) {
                     /* initialize the fields */
-                    dev->common.module_api_version = POWER_MODULE_API_VERSION_0_2;
+                    dev->common.module_api_version = POWER_MODULE_API_VERSION_0_3;
                     dev->common.tag = HARDWARE_DEVICE_TAG;
                     dev->init = power_init;
                     dev->powerHint = power_hint;
                     dev->setInteractive = set_interactive;
-                    /* At the moment we support 0.2 APIs */
-                    dev->setFeature = NULL,
+                    /* At the moment we support 0.3 APIs */
+                    dev->setFeature = set_feature;
                     dev->get_number_of_platform_modes = NULL;
                     dev->get_platform_low_power_stats = NULL;
                     dev->get_voter_list = NULL;
@@ -481,7 +493,7 @@ struct power_module HAL_MODULE_INFO_SYM = {
     .common =
         {
             .tag = HARDWARE_MODULE_TAG,
-            .module_api_version = POWER_MODULE_API_VERSION_0_2,
+            .module_api_version = POWER_MODULE_API_VERSION_0_3,
             .hal_api_version = HARDWARE_HAL_API_VERSION,
             .id = POWER_HARDWARE_MODULE_ID,
             .name = "QCOM Power HAL",
@@ -492,4 +504,5 @@ struct power_module HAL_MODULE_INFO_SYM = {
     .init = power_init,
     .powerHint = power_hint,
     .setInteractive = set_interactive,
+    .setFeature = set_feature
 };
