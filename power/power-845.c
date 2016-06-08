@@ -201,11 +201,11 @@ static int process_activity_launch_hint(void* data) {
 }
 
 static int process_interaction_hint(void* data) {
-    struct timeval cur_boost_timeval = {0, 0};
-    static unsigned long long previous_boost_time = 0;
-    static unsigned long long previous_duration = 0;
-    unsigned long long cur_boost_time;
-    double elapsed_time;
+    static struct timespec s_previous_boost_timespec;
+    static int s_previous_duration = 0;
+
+    struct timespec cur_boost_timespec;
+    long long elapsed_time;
     int duration = kMinInteractiveDuration;
 
     if (current_mode != NORMAL_MODE) {
@@ -221,15 +221,15 @@ static int process_interaction_hint(void* data) {
         }
     }
 
-    gettimeofday(&cur_boost_timeval, NULL);
-    cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
-    elapsed_time = (double) (cur_boost_time - previous_boost_time);
+    clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+
+    elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
     // don't hint if previous hint's duration covers this hint's duration
-    if ((previous_duration * 1000) > (elapsed_time + duration * 1000)) {
+    if ((s_previous_duration * 1000) > (elapsed_time + duration * 1000)) {
         return HINT_HANDLED;
     }
-    previous_boost_time = cur_boost_time;
-    previous_duration = duration;
+    s_previous_boost_timespec = cur_boost_timespec;
+    s_previous_duration = duration;
 
     if (duration >= kMinFlingDuration) {
         perf_hint_enable_with_type(VENDOR_HINT_SCROLL_BOOST, -1, SCROLL_PREFILING);
