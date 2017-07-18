@@ -331,8 +331,8 @@ on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
-    # Change ownership to system
-    chown system system /data/vendor/tombstones
+    # Create directory for tftp
+    mkdir /data/vendor/tombstones 0771 system system
 
     mkdir /data/vendor/ramdump 0771 root system
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
