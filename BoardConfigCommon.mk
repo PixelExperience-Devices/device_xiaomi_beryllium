@@ -62,6 +62,9 @@ ifeq ($(HOST_OS),linux)
 endif
 WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+
 # Graphics
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
 TARGET_USES_HWC2 := true
