@@ -472,9 +472,7 @@ system/lib/libmmosal.so
 system/lib/libmmparser_lite.so
 vendor/bin/vppservice
 vendor/etc/init/vppservice.rc
-vendor/lib64/libI420colorconvert.so
 vendor/lib64/libOmxVpp.so
-vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmosal_proprietary.so
 vendor/lib64/libmmparser_lite_proprietary.so
 vendor/lib64/libswvdec.so
@@ -485,13 +483,11 @@ vendor/lib64/libvpplibrary.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so
 vendor/lib/libFileMux_proprietary.so
-vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxDsdDec.so
 vendor/lib/libOmxMux_proprietary.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libdsd2pcm.so
-vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal_proprietary.so
 vendor/lib/libmmparser_lite_proprietary.so
 vendor/lib/libswvdec.so
