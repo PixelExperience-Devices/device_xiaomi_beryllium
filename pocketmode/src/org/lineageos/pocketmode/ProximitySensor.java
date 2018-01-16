@@ -55,17 +55,20 @@ public class ProximitySensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] < mSensor.getMaximumRange();
-        try {
-            FileUtils.stringToFile(FP_PROX_NODE, isNear ? "1" : "0");
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to write to " + FP_PROX_NODE, e);
-        }
+        setFPProximityState(event.values[0] < mSensor.getMaximumRange());
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         /* Empty */
+    }
+
+    private void setFPProximityState(boolean isNear) {
+        try {
+            FileUtils.stringToFile(FP_PROX_NODE, isNear ? "1" : "0");
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to write to " + FP_PROX_NODE, e);
+        }
     }
 
     protected void enable() {
@@ -81,5 +84,7 @@ public class ProximitySensor implements SensorEventListener {
         submit(() -> {
             mSensorManager.unregisterListener(this, mSensor);
         });
+        // Ensure FP is left enabled
+        setFPProximityState(/* isNear */ false);
     }
 }
