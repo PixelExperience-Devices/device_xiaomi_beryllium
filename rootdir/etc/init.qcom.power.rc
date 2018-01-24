@@ -65,6 +65,20 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
 
+    # Lock to lowest frequency on charger mode
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave
+
+    # Offline all cores except cpu0
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
+    wait /dev/block/bootdevice
+
     write /sys/module/msm_thermal/parameters/enabled "N"
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
     mkdir /mnt/vendor/persist
