@@ -190,6 +190,45 @@
             Id="0x00001312" Enable="true" Target="sdm845"
             Resources="0x40800000, 0x4F3, 0x40804000, 0x82C, 0x40800100, 0x506, 0x40804100, 0x6AC,
             0x42804000, 0x1, 0x42808000, 0x0, 0x41000000, 0x4"/>
+
+        <!-- camera general -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU - Disable schedutil PL -->
+        <!--B CPU - Disable schedutil PL -->
+        <!--L CPU - Set hispeed load 99 -->
+        <!--B CPU - Set hispeed load 99 -->
+        <!--BWMON - Set sample_ms 10 -->
+        <Config
+            Id="0x00001331" Enable="true" Target="sdm845"
+            Resources="0x40C68100, 0xFFFFFFF6, 0x40C68110, 0xFFFFFFF6, 0x40C68120, 0xFFFFFFF6,
+            0x40C68130, 0xFFFFFFF6,0x41444100, 0, 0x41444000, 0, 0x41440100, 0x63,
+            0x41440000, 0x63, 0x41820000, 0xA"/>
+
+        <!-- camera 60 FPS -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU - Disable schedutil PL -->
+        <!--B CPU - Disable schedutil PL -->
+        <!--L CPU - Set hispeed load 99 -->
+        <!--B CPU - Set hispeed load 99 -->
+        <!--BWMON - Set sample_ms 10 -->
+        <Config
+            Id="0x00001332" Enable="true" Target="sdm845"
+            Resources="0x40C68100, 0xFFFFFFF6, 0x40C68110, 0xFFFFFFF6, 0x40C68120, 0xFFFFFFF6,
+            0x40C68130, 0xFFFFFFF6, 0x41444100, 0, 0x41444000, 0, 0x41440100, 0x63,
+            0x41440000, 0x63, 0x41820000, 0xA"/>
+
+        <!-- camera HFR -->
+        <!--BWMON - Set sample_ms 10 -->
+        <Config
+            Id="0x00001333" Enable="true" Target="sdm845"
+            Resources="0x41820000, 0xA"/>
+
     </Powerhint>
 </HintConfigs>
 
