@@ -23,4 +23,7 @@
 
     <!-- Whether to allow network traffic on statusbar -->
     <bool name="config_supportsNetworkTrafficOnStatusBar">false</bool>
+
+    <!-- Whether the new Auto Selection Network UI should be shown -->
+    <bool name="config_enableNewAutoSelectNetworkUI">true</bool>
 </resources>
