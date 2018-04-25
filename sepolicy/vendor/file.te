@@ -5,6 +5,7 @@ type gps_data_file, data_file_type, file_type;
 type gps_socket, file_type;
 type thermal_data_file, data_file_type, file_type;
 
+type proc_sysctl_autogroup, proc_type, fs_type;
 type proc_tp, proc_type, fs_type;
 
 type sysfs_fod, sysfs_type, fs_type;

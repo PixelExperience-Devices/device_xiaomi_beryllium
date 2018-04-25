@@ -97,6 +97,10 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
+on post-fs
+    # Disable sched autogroup
+    write /proc/sys/kernel/sched_autogroup_enabled 0
+
 on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
 
