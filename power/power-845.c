@@ -36,6 +36,8 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <pthread.h>
+#include <unistd.h>
 
 #define LOG_TAG "QTI PowerHAL"
 #include <hardware/hardware.h>

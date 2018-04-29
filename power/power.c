@@ -36,6 +36,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 #define LOG_TAG "QCOM PowerHAL"
 #include <hardware/hardware.h>
