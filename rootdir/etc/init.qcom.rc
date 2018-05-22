@@ -22,10 +22,15 @@ on init
     write /sys/block/sdf/queue/nr_requests 256
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/dm-2/queue/read_ahead_kb 2048
 
 on boot
     chown system system /proc/touchpanel/wake_gesture
     chmod 0660 /proc/touchpanel/wake_gesture
+
+on late-fs
+    # Boot time FS tune
+    write /sys/block/dm-3/queue/read_ahead_kb 2048
 
 service vendor.ss_ramdump_local /vendor/bin/subsystem_ramdump
     class late_start
@@ -44,7 +49,9 @@ on property:sys.boot_completed=1
     stop vendor.ipacm-diag
     stop vendor.ss_ramdump
 
-    # Run time FS tune
+    # Runtime FS tuning: as we have init boottime setting and kernel patch setting
+    # default readahead to 2048KB. We should adjust the setting upon boot_complete
+    # for runtime performance
     write /sys/block/sda/queue/read_ahead_kb 1024
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
@@ -53,5 +60,7 @@ on property:sys.boot_completed=1
     write /sys/block/sdf/queue/iostats 1
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
+    write /sys/block/dm-2/queue/read_ahead_kb 512
+    write /sys/block/dm-3/queue/read_ahead_kb 512
     write /sys/block/sda/queue/scheduler deadline
     write /sys/block/sdf/queue/scheduler deadline
