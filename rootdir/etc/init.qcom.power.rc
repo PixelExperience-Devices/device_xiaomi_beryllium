@@ -61,19 +61,14 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
-on charger
+on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
     load_system_props
 
-    # Lock to lowest frequency on charger mode
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave
-
-    # Offline all cores except cpu0
+    # Keep one LITTLE and one big
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/devices/system/cpu/cpu4/online 0
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu6/online 0
     write /sys/devices/system/cpu/cpu7/online 0
@@ -231,7 +226,7 @@ on property:sys.boot_completed=1
 on property:init.svc.recovery=running
     trigger enable-low-power
 
-service charger /sbin/chargeonlymode
+service vendor.charger /sbin/chargeonlymode
     class charger
     group system graphics
     seclabel u:r:healthd:s0
