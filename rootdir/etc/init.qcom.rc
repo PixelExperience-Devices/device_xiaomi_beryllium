@@ -62,5 +62,3 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 512
     write /sys/block/dm-2/queue/read_ahead_kb 512
     write /sys/block/dm-3/queue/read_ahead_kb 512
-    write /sys/block/sda/queue/scheduler deadline
-    write /sys/block/sdf/queue/scheduler deadline
