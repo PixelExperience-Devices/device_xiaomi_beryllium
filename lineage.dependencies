@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_kernel_xiaomi_sdm845",
+    "target_path": "kernel/xiaomi/sdm845"
+  }
+]
