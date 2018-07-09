@@ -1,3 +1,6 @@
+# Custom HALs
+/system/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845    u:object_r:hal_light_sdm845_exec:s0
+
 # Files in rootfs
 /bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
 /dsp(/.*)?               u:object_r:adsprpcd_file:s0
