@@ -27,6 +27,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default
 
+# Common init scripts
+PRODUCT_PACKAGES += \
+    init.qcom.rc
+
 # Display
 PRODUCT_PACKAGES += \
     libvulkan
