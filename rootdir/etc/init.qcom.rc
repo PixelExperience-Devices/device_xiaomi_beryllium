@@ -52,13 +52,13 @@ on property:sys.boot_completed=1
     # Runtime FS tuning: as we have init boottime setting and kernel patch setting
     # default readahead to 2048KB. We should adjust the setting upon boot_complete
     # for runtime performance
-    write /sys/block/sda/queue/read_ahead_kb 1024
+    write /sys/block/sda/queue/read_ahead_kb 128
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
-    write /sys/block/sdf/queue/read_ahead_kb 1024
+    write /sys/block/sdf/queue/read_ahead_kb 128
     write /sys/block/sdf/queue/nr_requests 128
     write /sys/block/sdf/queue/iostats 1
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/dm-1/queue/read_ahead_kb 512
-    write /sys/block/dm-2/queue/read_ahead_kb 512
-    write /sys/block/dm-3/queue/read_ahead_kb 512
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/dm-2/queue/read_ahead_kb 128
+    write /sys/block/dm-3/queue/read_ahead_kb 128
