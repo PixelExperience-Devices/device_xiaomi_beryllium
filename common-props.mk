@@ -53,7 +53,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.ssr.enable_ramdumps=1 \
+    persist.vendor.ssr.enable_ramdumps=0 \
     persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # WFD
