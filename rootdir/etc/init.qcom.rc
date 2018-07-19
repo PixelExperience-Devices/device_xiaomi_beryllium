@@ -1,2 +1,4 @@
 on init
+    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
+    mount none /system/lib/hw/power.qcom.so /vendor/lib/hw/power.qcom.so bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules/qca_cld3_wlan.ko bind
