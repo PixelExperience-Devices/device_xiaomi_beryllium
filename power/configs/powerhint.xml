@@ -202,7 +202,7 @@
         <!--B CPU - Set hispeed load 99 -->
         <!--BWMON - Set sample_ms 10 -->
         <Config
-            Id="0x00001331" Enable="true" Target="sdm845"
+            Id="0x00001331" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40C68100, 0xFFFFFFF6, 0x40C68110, 0xFFFFFFF6, 0x40C68120, 0xFFFFFFF6,
             0x40C68130, 0xFFFFFFF6,0x41444100, 0, 0x41444000, 0, 0x41440100, 0x63,
             0x41440000, 0x63, 0x41820000, 0xA"/>
@@ -218,7 +218,7 @@
         <!--B CPU - Set hispeed load 99 -->
         <!--BWMON - Set sample_ms 10 -->
         <Config
-            Id="0x00001332" Enable="true" Target="sdm845"
+            Id="0x00001332" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40C68100, 0xFFFFFFF6, 0x40C68110, 0xFFFFFFF6, 0x40C68120, 0xFFFFFFF6,
             0x40C68130, 0xFFFFFFF6, 0x41444100, 0, 0x41444000, 0, 0x41440100, 0x63,
             0x41440000, 0x63, 0x41820000, 0xA"/>
@@ -226,7 +226,7 @@
         <!-- camera HFR -->
         <!--BWMON - Set sample_ms 10 -->
         <Config
-            Id="0x00001333" Enable="true" Target="sdm845"
+            Id="0x00001333" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x41820000, 0xA"/>
 
     </Powerhint>
