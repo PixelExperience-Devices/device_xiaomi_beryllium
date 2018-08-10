@@ -58,6 +58,7 @@ static inline const char *BtmGetDefaultName()
 }
 
 #define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
+#undef PROPERTY_VALUE_MAX
 // Disables read remote device feature
 #define MAX_ACL_CONNECTIONS   16
 #define MAX_L2CAP_CHANNELS    16
