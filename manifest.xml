@@ -539,7 +539,7 @@
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.ims</name>
         <transport>hwbinder</transport>
-        <version>1.3</version>
+        <version>1.4</version>
         <interface>
             <name>IImsRadio</name>
             <instance>imsradio0</instance>
