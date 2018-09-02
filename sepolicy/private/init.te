@@ -1,3 +1,6 @@
+# Allow init to chown/chmod on pseudo files in /sys
+allow init sysfs_type:file { open read setattr };
+
 # Allow init to mount wlan kernel module
 allow init vendor_file:file mounton;
 
