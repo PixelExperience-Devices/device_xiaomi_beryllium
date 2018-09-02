@@ -15,7 +15,10 @@ on boot
     chmod 660 /sys/class/leds/white/ramp_step_ms
     chmod 660 /sys/class/leds/white/start_idx
 
-service light-hal-2-0 /system/bin/hw/android.hardware.light@2.0-service.xiaomi_sdm845
+service vendor.light-hal-2-0 /system/bin/hw/android.hardware.light@2.0-service.xiaomi_sdm845
+    interface android.hardware.light@2.0::ILight default
     class hal
     user system
     group system
+    # shutting off lights while powering-off
+    shutdown critical
