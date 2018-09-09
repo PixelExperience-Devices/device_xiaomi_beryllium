@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2013, 2018-2019 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2019, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
- * *    * Redistributions of source code must retain the above copyright
+ *     * Redistributions of source code must retain the above copyright
  *       notice, this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above
  *       copyright notice, this list of conditions and the following
@@ -26,43 +26,56 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- 
-#ifndef __POWER_COMMON_H__
-#define __POWER_COMMON_H__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define LOG_TAG "android.hardware.power@1.2-service.xiaomi_sdm845"
 
-#define NODE_MAX (64)
-
-#define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
-#define DCVS_CPU0_SLACK_MAX_NODE "/sys/module/msm_dcvs/cores/cpu0/slack_time_max_us"
-#define DCVS_CPU0_SLACK_MIN_NODE "/sys/module/msm_dcvs/cores/cpu0/slack_time_min_us"
-#define MPDECISION_SLACK_MAX_NODE "/sys/module/msm_mpdecision/slack_time_max_us"
-#define MPDECISION_SLACK_MIN_NODE "/sys/module/msm_mpdecision/slack_time_min_us"
-#define SCALING_MIN_FREQ "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq"
-#define ONDEMAND_GOVERNOR "ondemand"
-#define INTERACTIVE_GOVERNOR "interactive"
-#define MSMDCVS_GOVERNOR "msm-dcvs"
-
-#define HINT_HANDLED (0)
-#define HINT_NONE (-1)
-
-#define INPUT_EVENT_WAKUP_MODE_OFF 4
-#define INPUT_EVENT_WAKUP_MODE_ON 5
-
+#include <android/log.h>
+#include <hidl/HidlTransportSupport.h>
 #include <hardware/power.h>
+#include "Power.h"
 
-enum CPU_GOV_CHECK { CPU0 = 0, CPU1 = 1, CPU2 = 2, CPU3 = 3 };
+using android::sp;
+using android::status_t;
+using android::OK;
 
-void power_init(void);
-void power_hint(power_hint_t hint, void *data);
-void set_interactive(int on);
-void set_feature(feature_t feature, int state);
+// libhwbinder:
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
 
-#ifdef __cplusplus
+// Generated HIDL files
+using android::hardware::power::V1_2::IPower;
+using android::hardware::power::V1_2::implementation::Power;
+
+int main() {
+
+    status_t status;
+    android::sp<IPower> service = nullptr;
+
+    ALOGI("Power HAL Service 1.2 is starting.");
+
+    service = new Power();
+    if (service == nullptr) {
+        ALOGE("Can not create an instance of Power HAL interface.");
+
+        goto shutdown;
+    }
+
+    configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    status = service->registerAsService();
+    if (status != OK) {
+        ALOGE("Could not register service for Power HAL(%d).", status);
+        goto shutdown;
+    }
+
+    ALOGI("Power Service is ready");
+    joinRpcThreadpool();
+    //Should not pass this line
+
+shutdown:
+    // In normal operation, we don't expect the thread pool to exit
+
+    ALOGE("Power Service is shutting down");
+    return 1;
 }
-#endif
 
-#endif //__POWER_COMMON_H___

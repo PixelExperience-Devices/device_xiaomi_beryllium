@@ -6,8 +6,8 @@ ifneq ($(TARGET_TAP_TO_WAKE_NODE),)
     LOCAL_CFLAGS += -DTAP_TO_WAKE_NODE=\"$(TARGET_TAP_TO_WAKE_NODE)\"
 endif
 
-LOCAL_MODULE := power.sdm845
-LOCAL_INIT_RC := android.hardware.power@1.0-service.xiaomi_sdm845.rc
+LOCAL_MODULE := android.hardware.power@1.2-service.xiaomi_sdm845
+LOCAL_INIT_RC := android.hardware.power@1.2-service.xiaomi_sdm845.rc
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_TAGS := optional
 
@@ -18,14 +18,25 @@ LOCAL_SRC_FILES := \
     list.c \
     metadata-parser.c \
     power-845.c \
-    power.c \
+    power-common.c \
     powerhintparser.c \
+    Power.cpp \
+    service.cpp \
     utils.c
 
 LOCAL_C_INCLUDES := external/libxml2/include \
                     external/icu/icu4c/source/common
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libxml2
+LOCAL_SHARED_LIBRARIES := \
+    android.hardware.power@1.2 \
+    libbase \
+    libcutils \
+    libdl \
+    libhidlbase \
+    libhidltransport \
+    liblog \
+    libutils \
+    libxml2
 
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 LOCAL_HEADER_LIBRARIES += libutils_headers
@@ -34,4 +45,4 @@ LOCAL_HEADER_LIBRARIES += libhardware_headers
 LOCAL_CFLAGS += -Werror -Wall -Wno-unused-parameter
 LOCAL_CFLAGS += -DINTERACTION_BOOST
 
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_EXECUTABLE)
