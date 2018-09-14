@@ -6,6 +6,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter dipper polaris ursa,$(TARGET_DEVICE)),)
+ifneq ($(filter beryllium dipper polaris ursa,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
