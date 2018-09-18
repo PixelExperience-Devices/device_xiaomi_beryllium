@@ -26,7 +26,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "polaris"
+write_headers "dipper polaris"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
