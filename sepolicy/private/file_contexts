@@ -8,7 +8,7 @@
 /persist(/.*)?           u:object_r:persist_file:s0
 
 # Input nodes
-/sys/devices/platform/soc/a98000\.i2c/i2c-3/3-[0-9a-f]+/input/input[0-9]+/wake_gesture u:object_r:sysfs_touchpanel:s0
+/sys/devices/platform/soc/a98000\.i2c/i2c-3/3-[0-9a-f]+(/input/input[0-9])?/wake_gesture u:object_r:sysfs_touchpanel:s0
 
 # Modules
 /system/lib/modules/wlan\.ko    u:object_r:vendor_file:s0
