@@ -62,10 +62,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
-# Offmode charging
-PRODUCT_PACKAGES += \
-    chargeonlymode
-
 # Power
 PRODUCT_PACKAGES += \
     power.qcom

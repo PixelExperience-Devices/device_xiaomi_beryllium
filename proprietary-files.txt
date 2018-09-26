@@ -1,6 +1,9 @@
 # Power-off alarms
 etc/permissions/vendor-qti-hardware-alarm.xml
 
+# Power-off charging daemon
+-sbin/charger:sbin/chargeonlymode;rootfs|f048d2cc20783ba1a608b73d440b3053af6ec9fd
+
 # QMI
 etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
