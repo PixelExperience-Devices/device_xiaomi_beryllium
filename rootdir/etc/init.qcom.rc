@@ -20,3 +20,6 @@ on property:persist.vendor.sys.ssr.enable_ramdumps=1
 on property:persist.vendor.sys.ssr.enable_ramdumps=0
     stop vendor.ss_ramdump
     stop vendor.ss_ramdump_local
+
+on property:sys.boot_completed=1
+    stop vendor.ss_ramdump
