@@ -24,6 +24,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_inline_rotator=1 \
     sdm.debug.disable_inline_rotator_secure=1
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.video=true
+
 # Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q845-05000-1
