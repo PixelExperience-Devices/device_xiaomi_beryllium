@@ -6,12 +6,6 @@
 # Custom HALs
 /system/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845    u:object_r:hal_light_sdm845_exec:s0
 
-# Files in rootfs
-/bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
-/dsp(/.*)?               u:object_r:adsprpcd_file:s0
-/firmware(/.*)?          u:object_r:firmware_file:s0
-/persist(/.*)?           u:object_r:persist_file:s0
-
 # Input nodes
 /sys/devices/platform/soc/a98000\.i2c/i2c-3/3-[0-9a-f]+(/input/input[0-9])?/wake_gesture u:object_r:sysfs_touchpanel:s0
 
