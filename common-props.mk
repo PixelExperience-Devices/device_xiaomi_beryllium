@@ -1,3 +1,8 @@
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.deep_buffer.media=true \
+    ro.af.client_heap_size_kbyte=7168
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.bluetooth.soc=cherokee
