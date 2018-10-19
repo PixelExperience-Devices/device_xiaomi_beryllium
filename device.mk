@@ -40,6 +40,10 @@ $(call inherit-product, device/xiaomi/sdm845-common/sdm845.mk)
 PRODUCT_PACKAGES += \
     Playground
 
+# GoogleCamera
+PRODUCT_PACKAGES += \
+    GoogleCameraMod
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
