@@ -30,3 +30,7 @@ TARGET_KERNEL_CONFIG := beryllium_defconfig
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/beryllium/BoardConfigVendor.mk
+
+# Vendor init
+TARGET_INIT_VENDOR_LIB := libinit_beryllium
+TARGET_RECOVERY_DEVICE_MODULES := libinit_beryllium
