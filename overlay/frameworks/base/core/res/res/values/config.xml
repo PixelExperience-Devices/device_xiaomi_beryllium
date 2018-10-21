@@ -226,4 +226,19 @@
     <!-- Whether auto face unlock is enabled by default -->
     <bool name="config_autoFaceUnlockEnabledByDefault">true</bool>
 
+    <!-- Vibration -->
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>7</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="config_virtualKeyVibePattern">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+    </integer-array>
+    <integer-array name="config_keyboardTapVibePattern">
+        <item>10</item>
+    </integer-array>
+
 </resources>
