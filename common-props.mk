@@ -18,16 +18,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.dpm.feature=1 \
+    persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0 \
+    persist.vendor.data.profile_update=true \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_backpressure=1 \
     debug.sf.enable_hwc_vds=1 \
     sdm.debug.disable_inline_rotator=1 \
     sdm.debug.disable_inline_rotator_secure=1
@@ -45,7 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.core_ctl_min_cpu=2 \
     ro.vendor.qti.core_ctl_max_cpu=4 \
-    vendor.iop.enable_prefetch_ofr=1 \
+    vendor.iop.enable_prefetch_ofr=0 \
     vendor.iop.enable_uxe=0
 
 # RCS and IMS
@@ -56,10 +59,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
-    persist.radio.flexmap_type=none \
     persist.vendor.radio.atfwd.start=true \
+    persist.vendor.radio.flexmap_type=none \
     persist.vendor.radio.force_on_dc=true \
     persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.report_codec=1 \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=22,22 \
     telephony.lteOnCdmaDevice=1
