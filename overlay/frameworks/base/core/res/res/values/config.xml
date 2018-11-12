@@ -318,10 +318,6 @@
     <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
     <bool name="config_supportAudioSourceUnprocessed">true</bool>
 
-    <!-- Allow the gesture to double tap the power button twice to start the camera while the device
-         is non-interactive. -->
-    <bool name="config_cameraDoubleTapPowerGestureEnabled">false</bool>
-
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
 
