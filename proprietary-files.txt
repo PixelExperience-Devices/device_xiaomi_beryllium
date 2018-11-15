@@ -110,6 +110,7 @@ lib64/vendor.xiaomi.hardware.mlipay@1.0.so
 lib64/vendor.xiaomi.hardware.mlipay@1.1.so
 lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
 lib64/vendor.xiaomi.hardware.mtdservice@1.1.so
+lib64/vendor.xiaomi.hardware.mtdservice@1.2.so
 lib64/vendor.xiaomi.hardware.tidaservice@1.0.so
 lib64/vendor.xiaomi.hardware.tidaservice@1.1.so
 lib/android.hardware.soundtrigger@2.0-core.so
@@ -120,6 +121,7 @@ lib/vendor.xiaomi.hardware.mlipay@1.0.so
 lib/vendor.xiaomi.hardware.mlipay@1.1.so
 lib/vendor.xiaomi.hardware.mtdservice@1.0.so
 lib/vendor.xiaomi.hardware.mtdservice@1.1.so
+lib/vendor.xiaomi.hardware.mtdservice@1.2.so
 lib/vendor.xiaomi.hardware.tidaservice@1.0.so
 lib/vendor.xiaomi.hardware.tidaservice@1.1.so
 lib/vendor.xiaomi.hardware.vsimapp@1.0.so
