@@ -140,8 +140,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.core_ctl_min_cpu=2 \
-    ro.vendor.qti.core_ctl_max_cpu=4 \
     ro.vendor.qti.sys.fw.bg_apps_limit=60 \
     vendor.iop.enable_prefetch_ofr=0 \
     vendor.iop.enable_uxe=0
