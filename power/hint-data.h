@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2013, 2015, 2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012, 2013, 2015, 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -50,7 +50,15 @@
 #define LAUNCH_HINT AOSP_DELTA + POWER_HINT_LAUNCH
 #define DISABLE_TOUCH_HINT AOSP_DELTA + POWER_HINT_DISABLE_TOUCH
 
+//update NUM_HINTS if hints are added to AOSP
+#define NUM_HINTS                       (POWER_HINT_DISABLE_TOUCH +1)
+
 #define VR_MODE_SUSTAINED_PERF_HINT (0x1301)
+
+struct hint_handles{
+    int handle;
+    int ref_count;
+};
 
 struct hint_data {
     unsigned long hint_id; /* This is our key. */
