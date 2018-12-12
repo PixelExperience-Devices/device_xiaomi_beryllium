@@ -51,6 +51,10 @@
 #define CHECK_HANDLE(x) ((x) > 0)
 #define NUM_PERF_MODES 3
 
+const int kMaxInteractiveDuration = 5000; /* ms */
+const int kMinInteractiveDuration = 100; /* ms */
+const int kMinFlingDuration = 1500; /* ms */
+
 typedef enum {
     NORMAL_MODE = 0,
     SUSTAINED_MODE = 1,
@@ -187,8 +191,53 @@ static int process_video_encode_hint(void* metadata) {
     return HINT_NONE;
 }
 
-/* Declare function before use */
-void interaction(int duration, int num_args, int opt_list[]);
+static int process_activity_launch_hint(void* data) {
+    if (current_mode != NORMAL_MODE) {
+        ALOGV("%s: ignoring due to other active perf hints", __func__);
+    } else {
+        perf_hint_enable_with_type(VENDOR_HINT_FIRST_LAUNCH_BOOST, -1, LAUNCH_BOOST_V1);
+    }
+    return HINT_HANDLED;
+}
+
+static int process_interaction_hint(void* data) {
+    struct timeval cur_boost_timeval = {0, 0};
+    static unsigned long long previous_boost_time = 0;
+    static unsigned long long previous_duration = 0;
+    unsigned long long cur_boost_time;
+    double elapsed_time;
+    int duration = kMinInteractiveDuration;
+
+    if (current_mode != NORMAL_MODE) {
+        ALOGV("%s: ignoring due to other active perf hints", __func__);
+        return HINT_HANDLED;
+    }
+
+    if (data) {
+        int input_duration = *((int*)data);
+        if (input_duration > duration) {
+            duration = (input_duration > kMaxInteractiveDuration) ?
+                    kMaxInteractiveDuration : input_duration;
+        }
+    }
+
+    gettimeofday(&cur_boost_timeval, NULL);
+    cur_boost_time = cur_boost_timeval.tv_sec * 1000000 + cur_boost_timeval.tv_usec;
+    elapsed_time = (double) (cur_boost_time - previous_boost_time);
+    // don't hint if previous hint's duration covers this hint's duration
+    if ((previous_duration * 1000) > (elapsed_time + duration * 1000)) {
+        return HINT_HANDLED;
+    }
+    previous_boost_time = cur_boost_time;
+    previous_duration = duration;
+
+    if (duration >= kMinFlingDuration) {
+        perf_hint_enable_with_type(VENDOR_HINT_SCROLL_BOOST, -1, SCROLL_PREFILING);
+    } else {
+        perf_hint_enable_with_type(VENDOR_HINT_SCROLL_BOOST, duration, SCROLL_VERTICAL);
+    }
+    return HINT_HANDLED;
+}
 
 int power_hint_override(struct power_module* module, power_hint_t hint, void* data) {
     int ret_val = HINT_NONE;
@@ -202,12 +251,12 @@ int power_hint_override(struct power_module* module, power_hint_t hint, void* da
         case POWER_HINT_VR_MODE:
             ret_val = process_perf_hint(data, VR_MODE);
             break;
-        case POWER_HINT_INTERACTION: {
-            int resources[] = {0x40800100, 0x514};
-            int duration = 100;
-            interaction(duration, sizeof(resources) / sizeof(resources[0]), resources);
-            ret_val = HINT_HANDLED;
-        } break;
+        case POWER_HINT_INTERACTION:
+            ret_val = process_interaction_hint(data);
+            break;
+        case POWER_HINT_LAUNCH:
+            ret_val = process_activity_launch_hint(data);
+            break;
         default:
             break;
     }
