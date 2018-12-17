@@ -33,7 +33,7 @@
     <Powerhint>
         <!--video encode 30 fps-->
         <Config
-            Id="0x00001203" Enable="true" Target="sdm845"
+            Id="0x00001203" Enable="true" Timeout="0" Target="sdm845"
             Resources="" />
 
         <!-- sustained performance -->
@@ -45,7 +45,7 @@
         <!-- GPU - max pwrlevel 3 (freq 425 MHz)-->
         <!-- GPUBW freq uncapped -->
         <Config
-            Id="0x00001206" Enable="true" Target="sdm845"
+            Id="0x00001206" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x0, 0x40800100, 0x0, 0x40804000, 0x4F3, 0x40804100, 0x506,
             0X42804000, 0x4, 0X42808000, 0x3, 0x42814000, 0x0"/>
         <!-- vr mode -->
@@ -57,7 +57,7 @@
         <!-- GPU - max pwrlevel 0 (freq 600 MHz)-->
         <!-- GPUBW freq 775 Mhz-->
         <Config
-            Id="0x00001207" Enable="true" Target="sdm845"
+            Id="0x00001207" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40800100, 0x386, 0x40804000, 0x7A6, 0x40804100, 0x6AC,
             0X42804000, 0x5, 0X42808000, 0x0, 0x42814000, 0x1E4F"/>
 
@@ -70,7 +70,7 @@
         <!-- GPU - max pwrlevel 3 (freq 425 MHz)-->
         <!-- GPUBW freq 775 Mhz -->
         <Config
-            Id="0x00001301" Enable="true" Target="sdm845"
+            Id="0x00001301" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4F3, 0x40800100, 0x506, 0x40804000, 0x4F3, 0x40804100, 0x506,
             0X42804000, 0x3, 0X42808000, 0x3, 0x42814000, 0x1E4F"/>
 
@@ -83,7 +83,7 @@
         <!-- GPU - max pwrlevel 3 (freq 425 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130A" Enable="true" Target="sdm845"
+            Id="0x0000130A" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x386, 0x40804100, 0x6AC,
             0x42804000, 0x5, 0x42808000, 0x3, 0x41000000, 0x4"/>
 
@@ -96,7 +96,7 @@
         <!-- GPU - max pwrlevel 1 (freq 548 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130B" Enable="true" Target="sdm845"
+            Id="0x0000130B" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x386, 0x40804100, 0x6AC,
             0x42804000, 0x3, 0x42808000, 0x1, 0x41000000, 0x4"/>
 
@@ -109,7 +109,7 @@
         <!-- GPU - max pwrlevel 0 (freq 600 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130C" Enable="true" Target="sdm845"
+            Id="0x0000130C" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x386, 0x40804100, 0x6AC,
             0x42804000, 0x1, 0x42808000, 0x0, 0x41000000, 0x4"/>
 
@@ -122,7 +122,7 @@
         <!-- GPU - max pwrlevel 3 (freq 425 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130D" Enable="true" Target="sdm845"
+            Id="0x0000130D" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x46C, 0x40804100, 0x6AC,
             0x42804000, 0x5, 0x42808000, 0x3, 0x41000000, 0x4"/>
 
@@ -135,7 +135,7 @@
         <!-- GPU - max pwrlevel 1 (freq 548 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130E" Enable="true" Target="sdm845"
+            Id="0x0000130E" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x46C, 0x40804100, 0x6AC,
             0x42804000, 0x3, 0x42808000, 0x1, 0x41000000, 0x4"/>
 
@@ -148,7 +148,7 @@
         <!-- GPU - max pwrlevel 0 (freq 600 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x0000130F" Enable="true" Target="sdm845"
+            Id="0x0000130F" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4A6, 0x40804000, 0x82C, 0x40800100, 0x46c, 0x40804100, 0x6AC,
             0x42804000, 0x1, 0x42808000, 0x0, 0x41000000, 0x4"/>
 
@@ -161,7 +161,7 @@
         <!-- GPU - max pwrlevel 3 (freq 425 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x00001310" Enable="true" Target="sdm845"
+            Id="0x00001310" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4F3, 0x40804000, 0x82C, 0x40800100, 0x506, 0x40804100, 0x6AC,
             0x42804000, 0x5, 0x42808000, 0x3, 0x41000000, 0x4"/>
 
@@ -174,7 +174,7 @@
         <!-- GPU - max pwrlevel 1 (freq 548 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x00001311" Enable="true" Target="sdm845"
+            Id="0x00001311" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4F3, 0x40804000, 0x82C, 0x40800100, 0x506, 0x40804100, 0x6AC,
             0x42804000, 0x3, 0x42808000, 0x1, 0x41000000, 0x4"/>
 
@@ -187,7 +187,7 @@
         <!-- GPU - max pwrlevel 0 (freq 600 Mhz) -->
         <!-- Min Big CPUs 4 -->
         <Config
-            Id="0x00001312" Enable="true" Target="sdm845"
+            Id="0x00001312" Enable="true" Timeout="0" Target="sdm845"
             Resources="0x40800000, 0x4F3, 0x40804000, 0x82C, 0x40800100, 0x506, 0x40804100, 0x6AC,
             0x42804000, 0x1, 0x42808000, 0x0, 0x41000000, 0x4"/>
 
