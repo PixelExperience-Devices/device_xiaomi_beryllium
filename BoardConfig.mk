@@ -28,6 +28,7 @@ BOARD_HAVE_QCOM_FM := true
 # Kernel
 TARGET_KERNEL_CONFIG := beryllium_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/beryllium
+TARGET_KERNEL_CLANG_VERSION := 8.0.7
 
 # Partitions
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
