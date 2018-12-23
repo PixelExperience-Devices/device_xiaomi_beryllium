@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.qcom:64
 
 # QTI
 PRODUCT_COPY_FILES += \

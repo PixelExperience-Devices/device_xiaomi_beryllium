@@ -11,4 +11,3 @@
 
 # Power HAL
 /system/lib64/hw/power\.qcom\.so    u:object_r:vendor_file:s0
-/system/lib/hw/power\.qcom\.so      u:object_r:vendor_file:s0
