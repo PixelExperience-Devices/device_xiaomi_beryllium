@@ -1,0 +1,2 @@
+type hal_display_color_hwservice, hwservice_manager_type;
+type shal_lineage_livedisplay_hwservice, hwservice_manager_type;

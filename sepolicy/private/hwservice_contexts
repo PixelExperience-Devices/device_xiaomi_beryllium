@@ -1,0 +1,2 @@
+vendor.display.color::IDisplayColor      u:object_r:hal_display_color_hwservice:s0
+vendor.lineage.livedisplay::IColor       u:object_r:shal_lineage_livedisplay_hwservice:s0

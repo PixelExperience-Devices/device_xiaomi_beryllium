@@ -1,0 +1,2 @@
+allow system_server shal_lineage_livedisplay_hwservice:hwservice_manager find;
+binder_call(system_server, shal_livedisplay_default)
