@@ -1,0 +1,5 @@
+type xiaomiparts_app, domain;
+
+app_domain(xiaomiparts_app)
+
+allow xiaomiparts_app audioserver_service:service_manager find;
