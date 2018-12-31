@@ -31,6 +31,9 @@ TARGET_KERNEL_CONFIG := beryllium_defconfig
 # Inherit from the proprietary version
 -include vendor/xiaomi/beryllium/BoardConfigVendor.mk
 
+# Sepolicy
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_beryllium
 TARGET_RECOVERY_DEVICE_MODULES := libinit_beryllium
