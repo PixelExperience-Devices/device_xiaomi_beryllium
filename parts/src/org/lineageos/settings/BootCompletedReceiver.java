@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2018 The LineageOS Project
+ *               2017-2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,10 +31,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (DozeUtils.isDozeEnabled(context) && DozeUtils.sensorsEnabled(context)) {
-            if (DEBUG) Log.d(TAG, "Starting Doze service");
-            DozeUtils.startService(context);
-        }
+        if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        DozeUtils.checkDozeService(context);
     }
-
 }
