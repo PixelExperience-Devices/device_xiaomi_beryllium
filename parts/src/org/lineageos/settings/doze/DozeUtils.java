@@ -100,7 +100,7 @@ public final class DozeUtils {
                 DOZE_ALWAYS_ON, enable ? 1 : 0, UserHandle.USER_CURRENT);
     }
 
-    private static boolean isAlwaysOnEnabled(Context context) {
+    protected static boolean isAlwaysOnEnabled(Context context) {
         return Settings.Secure.getIntForUser(context.getContentResolver(),
                 DOZE_ALWAYS_ON, 1, UserHandle.USER_CURRENT) != 0;
     }
