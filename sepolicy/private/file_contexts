@@ -6,6 +6,12 @@
 # Data files
 /data/display(/.*)?                 u:object_r:display_data_file:s0
 
+# Files in rootfs
+/bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
+/dsp(/.*)?               u:object_r:adsprpcd_file:s0
+/firmware(/.*)?          u:object_r:firmware_file:s0
+/persist(/.*)?           u:object_r:persist_file:s0
+
 # Graphics nodes
 /sys/devices/platform/soc/ae00000\.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status     u:object_r:sysfs_graphics:s0
 
