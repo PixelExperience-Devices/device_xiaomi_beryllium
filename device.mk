@@ -47,7 +47,7 @@ $(call inherit-product, device/xiaomi/sdm845-common/sdm845.mk)
 
 # Playground for GoogleCamera
 PRODUCT_PACKAGES += \
-    Playground
+    PlaygroundMod
 
 # GoogleCamera
 PRODUCT_PACKAGES += \
