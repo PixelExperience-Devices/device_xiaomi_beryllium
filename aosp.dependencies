@@ -4,6 +4,10 @@
     "target_path": "device/xiaomi/sdm845-common"
   },
   {
+    "repository": "kernel_xiaomi_beryllium",
+    "target_path": "kernel/xiaomi/beryllium"
+  },
+  {
     "repository": "packages_apps_Playground",
     "target_path": "packages/apps/Playground",
     "branch": "pie",
