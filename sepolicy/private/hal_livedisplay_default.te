@@ -20,3 +20,6 @@ allow shal_livedisplay_default display_data_file:file create_file_perms;
 # Allow LiveDisplay to access pps socket
 type mm-pp-daemon, domain;
 unix_socket_connect(shal_livedisplay_default, pps, mm-pp-daemon)
+
+# Allow LiveDisplay to read display props
+get_prop(shal_livedisplay_default, vendor_display_prop)
