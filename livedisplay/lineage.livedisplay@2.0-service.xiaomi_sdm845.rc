@@ -1,0 +1,8 @@
+on boot
+    chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param
+    chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status
+
+service livedisplay-hal-2-0 /system/bin/hw/lineage.livedisplay@2.0-service.xiaomi_sdm845
+    class hal
+    user system
+    group system

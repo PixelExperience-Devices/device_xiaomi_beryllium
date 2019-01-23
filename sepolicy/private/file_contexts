@@ -20,6 +20,7 @@
 
 # LiveDisplay HAL
 /system/bin/hw/lineage\.livedisplay@2\.0-service-sdm                   u:object_r:shal_livedisplay_default_exec:s0
+/system/bin/hw/lineage\.livedisplay@2\.0-service\.xiaomi_sdm845        u:object_r:shal_livedisplay_default_exec:s0
 
 # Power HAL
 /system/lib64/hw/power\.qcom\.so    u:object_r:vendor_file:s0

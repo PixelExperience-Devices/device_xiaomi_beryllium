@@ -24,3 +24,6 @@ unix_socket_connect(shal_livedisplay_default, pps, mm-pp-daemon)
 
 # Allow LiveDisplay to read display props
 get_prop(shal_livedisplay_default, vendor_display_prop)
+
+# Grant LiveDisplay access over the control nodes
+allow shal_livedisplay_default sysfs_graphics:file rw_file_perms;

@@ -73,7 +73,8 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service-sdm
+    lineage.livedisplay@2.0-service-sdm \
+    lineage.livedisplay@2.0-service.xiaomi_sdm845
 
 # Media
 PRODUCT_COPY_FILES += \
