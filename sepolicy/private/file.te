@@ -6,6 +6,5 @@ type ipacm-diag_exec, exec_type, vendor_file_type, file_type;
 type persist_file, file_type;
 type pps_socket, file_type;
 type sysfs_graphics, sysfs_type, fs_type;
-type sysfs_touchpanel, sysfs_type, fs_type;
 type sysfs_white_led, sysfs_type, fs_type;
 type wcnss_service_exec, exec_type, vendor_file_type, file_type;

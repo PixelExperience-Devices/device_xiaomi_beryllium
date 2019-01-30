@@ -15,9 +15,6 @@
 # Graphics nodes
 /sys/devices/platform/soc/ae00000\.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status     u:object_r:sysfs_graphics:s0
 
-# Input nodes
-/sys/devices/platform/soc/a98000\.i2c/i2c-3/3-[0-9a-f]+(/input/input[0-9])?/wake_gesture u:object_r:sysfs_touchpanel:s0
-
 # Lights HAL
 /system/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845    u:object_r:hal_light_sdm845_exec:s0
 
