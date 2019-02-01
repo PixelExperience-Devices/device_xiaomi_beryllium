@@ -1,11 +1,8 @@
 type shal_livedisplay_default, domain;
-hwbinder_use(shal_livedisplay_default)
+hal_server_domain(shal_livedisplay_default, hal_lineage_livedisplay)
 
 type shal_livedisplay_default_exec, exec_type, file_type;
 init_daemon_domain(shal_livedisplay_default)
-
-# Add vendor.lineage.livedisplay::IColor service to hwservicemanager
-add_hwservice(shal_livedisplay_default, shal_lineage_livedisplay_hwservice)
 
 # Allow LiveDisplay to perform binder IPC to vendor.display.color::IDisplayColor
 type hal_display_color_default, domain;
@@ -15,9 +12,6 @@ allow shal_livedisplay_default hal_display_color_hwservice:hwservice_manager fin
 
 # Talk to the binder device node
 allow shal_livedisplay_default binder_device:chr_file rw_file_perms;
-
-# Check if hwservicemanager is ready
-get_prop(shal_livedisplay_default, hwservicemanager_prop)
 
 # Allow LiveDisplay to store files under /data/display and access them
 allow shal_livedisplay_default display_data_file:dir rw_dir_perms;

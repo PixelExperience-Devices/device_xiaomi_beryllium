@@ -1,6 +1,3 @@
-allow system_server shal_lineage_livedisplay_hwservice:hwservice_manager find;
-binder_call(system_server, shal_livedisplay_default)
-
 allow system_server sysfs_graphics:file rw_file_perms;
 
 get_prop(system_server, vendor_camera_prop)
