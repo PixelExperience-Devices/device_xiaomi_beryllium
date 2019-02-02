@@ -95,6 +95,15 @@
             android:permission="ThermalService">
         </service>
 
+        <activity
+            android:name=".TileEntryActivity"
+            android:label="@string/device_settings_app_name"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".thermal.ThermalTileService"
             android:icon="@drawable/ic_thermal"
@@ -103,6 +112,16 @@
             <intent-filter>
                 <action
                     android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".dirac.DiracTileService"
+            android:icon="@drawable/ic_headphone"
+            android:label="@string/dirac_qs_tile_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
 

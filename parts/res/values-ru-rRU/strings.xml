@@ -66,4 +66,6 @@
     <string name="thermal_dialer">Звонки</string>
     <string name="thermal_gaming">Игры</string>
     <string name="thermal_streaming">Стриминг</string>
+    <!-- Dirac : QS tile title -->
+    <string name="dirac_qs_tile_title">Dirac звук</string>
 </resources>
