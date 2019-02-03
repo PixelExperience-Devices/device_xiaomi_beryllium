@@ -1,5 +1,7 @@
 # Allow init to chown/chmod on pseudo files in /sys
-allow init sysfs_type:file { open read setattr };
+allow init {
+    sysfs_graphics
+}:file { open read setattr };
 
 # Allow init to mount soundfx libs
 allow init vendor_file:file mounton;
