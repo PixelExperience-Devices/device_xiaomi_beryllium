@@ -1,4 +1,4 @@
-type shal_livedisplay_default, domain;
+type shal_livedisplay_default, coredomain, domain;
 hal_server_domain(shal_livedisplay_default, hal_lineage_livedisplay)
 
 type shal_livedisplay_default_exec, exec_type, file_type;
@@ -19,6 +19,7 @@ allow shal_livedisplay_default display_data_file:file create_file_perms;
 
 # Allow LiveDisplay to access pps socket
 type mm-pp-daemon, domain;
+typeattribute mm-pp-daemon socket_between_core_and_vendor_violators;
 unix_socket_connect(shal_livedisplay_default, pps, mm-pp-daemon)
 
 # Allow LiveDisplay to read display props
