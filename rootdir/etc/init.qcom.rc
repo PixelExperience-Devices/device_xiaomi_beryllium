@@ -600,7 +600,7 @@ service vendor.dataadpl /system/vendor/bin/adpl
     user radio
     group radio oem_2901 diag usb net_admin
 
-service vendor.sensors /vendor/bin/sscrpcd
+service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class core
     user system
     group system
