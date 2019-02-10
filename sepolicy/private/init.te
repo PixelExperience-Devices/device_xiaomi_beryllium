@@ -9,7 +9,3 @@ allow init rootfs:file mounton;
 
 # Allow init to mount vendor configs
 allow init vendor_configs_file:file mounton;
-
-# Allow init to mount diag services
-allow init wcnss_service_exec:file mounton;
-allow init ipacm-diag_exec:file mounton;

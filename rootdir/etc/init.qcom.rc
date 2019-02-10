@@ -1,6 +1,4 @@
 on init
-    mount none /dev/null /vendor/bin/cnss_diag bind
-    mount none /dev/null /vendor/bin/ipacm-diag bind
     mount none /sbin/chargeonlymode /sbin/charger bind
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
@@ -32,6 +30,12 @@ service vendor.ss_ramdump_local /vendor/bin/subsystem_ramdump
     group system
     disabled
 
+on property:init.svc.vendor.cnss_diag=running
+    stop vendor.cnss_diag
+
+on property:init.svc.vendor.ipacm-diag=running
+    stop vendor.ipacm-diag
+
 on property:persist.vendor.sys.ssr.enable_ramdumps=1
     start vendor.ss_ramdump_local
 
@@ -40,7 +44,6 @@ on property:persist.vendor.sys.ssr.enable_ramdumps=0
     stop vendor.ss_ramdump_local
 
 on property:sys.boot_completed=1
-    stop vendor.ipacm-diag
     stop vendor.ss_ramdump
 
     # Runtime FS tuning: as we have init boottime setting and kernel patch setting
