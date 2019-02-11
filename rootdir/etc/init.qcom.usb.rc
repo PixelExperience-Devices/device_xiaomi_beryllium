@@ -73,6 +73,7 @@ on boot
     mkdir /config/usb_gadget/g1/functions/ffs.adb
     mkdir /config/usb_gadget/g1/functions/diag.diag
     mkdir /config/usb_gadget/g1/functions/diag.diag_mdm
+    mkdir /config/usb_gadget/g1/functions/diag.diag_mdm2
     mkdir /config/usb_gadget/g1/functions/cser.dun.0
     mkdir /config/usb_gadget/g1/functions/cser.nmea.1
     mkdir /config/usb_gadget/g1/functions/cser.dun.2
