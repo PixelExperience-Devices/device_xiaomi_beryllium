@@ -226,7 +226,7 @@ on enable-low-power
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
 
     write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/watermark_scale_factor 120
+    write /proc/sys/vm/watermark_scale_factor 1
 
     # Post-setup services
     setprop vendor.post_boot.parsed 1
