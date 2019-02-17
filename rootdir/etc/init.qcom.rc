@@ -89,15 +89,34 @@ on init
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
 
+    chown system camera /dev/mi-camera-vendor2hal
+    chown system camera /dev/mi-camera-hal2vendor
+    chmod 0660 /dev/mi-camera-vendor2hal
+    chmod 0660 /dev/mi-camera-hal2vendor
+
 on fs
     wait /dev/block/platform/soc/1d84000.ufshc
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
     mount_all /vendor/etc/fstab.qcom
+    mkdir /mnt/vendor/persist 0771 root system
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     swapon_all /vendor/etc/fstab.qcom
     restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/audio 0755 system system
     mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/fdsd 0777 root root
+    mkdir /mnt/vendor/persist/stability 0755 system system
+    mkdir /mnt/vendor/persist/wlan_bt 0755 system system
+
+    chown system system /persist/rfs
+    chown system system /persist/rfs/msm
+    chown system system /persist/rfs/msm/adsp
+    chown system system /persist/rfs/msm/slpi
+    chown system system /persist/rfs/msm/mpss
+    chown system system /persist/rfs/msm/mpss/server_check.txt
+    chown system system /persist/rfs/shared
+    chown system system /persist/rfs/shared/server_info.txt
 
 on late-fs
     # Boot time FS tune
@@ -268,6 +287,9 @@ on boot
     chown system system /sys/class/sensors/apds9930-proximity/enable
     chown system system /sys/class/sensors/apds9930-proximity/poll_delay
 
+    # Create camera directory
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+
     # Create directory used for display
     # for backward compatibility
     mkdir /persist/display 0770 system graphics
@@ -319,6 +341,18 @@ on boot
     setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/blink
+    chown system system /sys/class/leds/ir_torch/brightness
+    chown cameraserver system /sys/class/leds/ir/brightness
+    chmod 0664 /sys/class/leds/ir/brightness
+
+    chown system system /sys/class/drm/card0-DSI-1/disp_param
+    chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
+
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chown root system /sys/bus/i2c/devices/3-0050/pressure
+
 # MSM specific files that need to be created on /data
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -327,9 +361,15 @@ on post-fs-data
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
 
+    mkdir /data/vendor/diag 2771 root log
+    mkdir /data/vendor/mac_addr 0770 system wifi
     mkdir /data/vendor/misc 01771 system system
+    mkdir /data/vendor/misc/display 0771 system system
+    mkdir /data/vendor/misc/touch 0771 root system
     mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/tloc 0700 system drmrpc
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
 
     # Create directory used for dump collection
     mkdir /data/vendor/ssrdump 0770 root system
@@ -501,6 +541,9 @@ on post-fs-data
     # Create dir for TUI
     mkdir /data/vendor/tui 0700 system system
 
+    # Make MTU adjusting
+    write /proc/sys/net/ipv4/tcp_mtu_probing 1
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -535,6 +578,9 @@ service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
     user system
     group system
     disabled
+
+on property:ro.boot.dp=0x0
+    write  /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm8998@0:qcom,power-on@800/pshold_reboot 7
 
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
@@ -797,14 +843,20 @@ service wifi_ftmd /system/vendor/bin/wifi_ftmd
 on property:vendor.wifi.ftmd.load=true
     insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
 
-service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
+service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet net_admin wifi
     capabilities NET_ADMIN
 
 on property:sys.shutdown.requested=*
-    stop cnss-daemon
+    stop vendor.cnss-daemon
+
+service vendor.nv_mac /vendor/bin/nv_mac
+    class late_start
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
 
 service ssgqmigd /vendor/bin/ssgqmigd
     class late_start
@@ -883,6 +935,11 @@ service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
+service mmbn-daemon /vendor/bin/mmbn-daemon
+    class main
+    disabled
+    oneshot
+
 service charger /charger
     class charger
     group system graphics
@@ -920,8 +977,18 @@ on charger
     load_system_props
     start qcom-post-boot
 
+    write /sys/module/msm_thermal/parameters/enabled "N"
+    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    mkdir /mnt/vendor/persist
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+
     start vendor.hvdcp_opti
     start vendor.power_off_alarm
+    start vendor.poweroffm64
+    mount tmpfs tmpfs /data
+    start vendor.thermal-engine
     setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
@@ -930,6 +997,11 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     disabled
     oneshot
+
+service vendor.poweroffm64 /vendor/bin/poweroffm64
+    class late_start
+    oneshot
+    seclabel u:r:poweroffm64:s0
 
 # Mixed HWC versions among targets
 on property:init.svc.surfaceflinger=restarting
@@ -983,13 +1055,14 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     class hal
     user audioserver
     # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 system wakelock
     capabilities BLOCK_SUSPEND
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     # audioflinger restarts itself when it loses connection with the hal
     # and its .rc file has an "onrestart restart audio-hal" rule, thus
     # an additional auto-restart from the init process isn't needed.
+    socket audio_hw_socket seqpacket 0666 system system
     oneshot
     interface android.hardware.audio@4.0::IDevicesFactory default
     interface android.hardware.audio@2.0::IDevicesFactory default
@@ -1049,7 +1122,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-recv-client stream 0660 system system
     socket thermal-recv-passive-client stream 0666 system system
     socket thermal-send-rule stream 0660 system system
-    group root
+    group system root
 
 service adsprpcd /vendor/bin/adsprpcd
     class main
@@ -1102,6 +1175,15 @@ service ppd /vendor/bin/mm-pp-dpps
     socket pps stream 0660 system system
     disabled
 
+on property:init.svc.zygote=stopped
+    stop ppd
+
+on property:init.svc.zygote=running
+    start ppd
+
+on property:init.svc.zygote=restarting
+    stop ppd
+
 on property:init.svc.vendor.hwcomposer-2-1=stopped
     stop ppd
 
@@ -1110,6 +1192,12 @@ on property:init.svc.vendor.hwcomposer-2-1=running
 
 on property:init.svc.vendor.hwcomposer-2-1=restarting
     stop ppd
+
+on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=block && property:persist.ppd.fde.config=0
+    stop displayfeature-hal-1-0
+    start displayfeature-hal-1-0
+    setprop persist.ppd.fde.config 1
+    start ppd
 
 service energy-awareness /system/vendor/bin/energy-awareness
     class main
