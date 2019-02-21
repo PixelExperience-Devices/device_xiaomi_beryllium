@@ -8,6 +8,14 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.gnss</name>
+        <version>1.0</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>android.hardware.health</name>
         <version>2.0</version>
         <interface>
@@ -554,8 +562,16 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.mlipay</name>
+        <name>vendor.xiaomi.hardware.misys</name>
         <version>1.0</version>
+        <interface>
+            <name>IMiSys</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.mlipay</name>
+        <version>1.0-1</version>
         <interface>
             <name>IMlipayService</name>
             <instance>default</instance>
@@ -563,7 +579,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.xiaomi.hardware.mtdservice</name>
-        <version>1.0-1</version>
+        <version>1.0-2</version>
         <interface>
             <name>IMTService</name>
             <instance>default</instance>
