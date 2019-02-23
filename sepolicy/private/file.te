@@ -1,2 +1,0 @@
-type display_data_file, data_file_type, core_data_file_type, file_type;
-type sysfs_white_led, sysfs_type, fs_type;
