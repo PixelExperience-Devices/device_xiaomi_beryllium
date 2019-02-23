@@ -115,7 +115,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm845
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Power
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
