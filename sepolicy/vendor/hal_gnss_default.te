@@ -1,0 +1,2 @@
+allow hal_gnss_default gps_data_file:dir rw_dir_perms;
+allow hal_gnss_default gps_data_file:fifo_file create_file_perms;

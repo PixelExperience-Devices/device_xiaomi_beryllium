@@ -1,0 +1,1 @@
+allow healthd sysfs_wireless_supply:file r_file_perms;

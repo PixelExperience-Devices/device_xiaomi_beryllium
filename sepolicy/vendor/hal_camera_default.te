@@ -1,0 +1,14 @@
+allow hal_camera_default gpu_device:chr_file rw_file_perms;
+
+allow hal_camera_default remosaic_daemon_service:service_manager find;
+
+allow hal_camera_default sysfs_kgsl:dir search;
+allow hal_camera_default sysfs_kgsl:file r_file_perms;
+
+allow hal_camera_default sysfs_leds:dir r_dir_perms;
+allow hal_camera_default sysfs_leds:file rw_file_perms;
+allow hal_camera_default sysfs_leds:lnk_file read;
+
+get_prop(hal_camera_default, vendor_camera_prop)
+
+r_dir_file(hal_camera_default, persist_camera_file)

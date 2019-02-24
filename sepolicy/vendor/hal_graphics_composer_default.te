@@ -1,0 +1,5 @@
+get_prop(hal_graphics_composer_default, vendor_displayfeature_prop)
+
+hal_client_domain(hal_graphics_composer_default, hal_displayfeature)
+
+binder_call(hal_graphics_composer_default, hal_configstore_default)

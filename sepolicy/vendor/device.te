@@ -1,0 +1,5 @@
+type fingerprint_device, dev_type;
+
+type gps_device, dev_type;
+
+type sound_device, dev_type;
