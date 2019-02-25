@@ -7,6 +7,7 @@ ifneq ($(TARGET_TAP_TO_WAKE_NODE),)
 endif
 
 LOCAL_MODULE := power.qcom
+LOCAL_INIT_RC := android.hardware.power@1.0-service.rc
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_TAGS := optional
 
