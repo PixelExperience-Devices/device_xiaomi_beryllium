@@ -355,10 +355,6 @@ on post-fs-data
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
 
-    # Create ipacm log dir
-    mkdir /data/vendor/ipa 0770 radio radio
-    chmod 0770 /data/vendor/ipa
-
     # Create QTI dir for logs
     mkdir /data/vendor/dataqti 0770 radio radio
     chmod 0770 /data/vendor/dataqti
@@ -582,11 +578,6 @@ service vendor.port-bridge /system/vendor/bin/port-bridge
 
 service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
-
-service vendor.ipacm /system/vendor/bin/ipacm
-    class main
-    user radio
-    group radio inet
 
 service vendor.dataqti /system/vendor/bin/qti
     class main
