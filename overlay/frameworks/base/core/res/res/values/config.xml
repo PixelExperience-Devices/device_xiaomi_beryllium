@@ -241,4 +241,7 @@
         <item>10</item>
     </integer-array>
 
+    <!-- Whether to enable smart clock feature -->
+    <bool name="config_enableSmartClock">true</bool>
+
 </resources>
