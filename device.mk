@@ -67,3 +67,7 @@ PRODUCT_COPY_FILES += \
 # Wallpapers
 PRODUCT_PACKAGES += \
     WallpapersBReel2018
+
+# PocketMode
+PRODUCT_PACKAGES += \
+    XiaomiPocketMode
