@@ -26,6 +26,8 @@ on boot
     chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/screen_status
     chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/vreg_op_cnt
 
+    chown system system /sys/devices/platform/soc/soc:fingerprint_goodix/proximity_state
+
     chown system system /sys/class/drm/card0-DSI-1/disp_param
     chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
 

@@ -12,6 +12,9 @@
 /firmware(/.*)?          u:object_r:firmware_file:s0
 /persist(/.*)?           u:object_r:persist_file:s0
 
+# Fingerprint related nodes
+/sys/devices/platform/soc/soc:fingerprint_goodix/proximity_state       u:object_r:sysfs_fp_proximity:s0
+
 # Graphics nodes
 /sys/devices/platform/soc/ae00000\.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status     u:object_r:sysfs_graphics:s0
 

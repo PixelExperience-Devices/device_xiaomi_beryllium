@@ -4,5 +4,6 @@ type display_data_file, data_file_type, core_data_file_type, file_type;
 type firmware_file, file_type;
 type persist_file, file_type;
 type pps_socket, file_type;
+type sysfs_fp_proximity, sysfs_type, fs_type;
 type sysfs_graphics, sysfs_type, fs_type;
 type sysfs_white_led, sysfs_type, fs_type;
