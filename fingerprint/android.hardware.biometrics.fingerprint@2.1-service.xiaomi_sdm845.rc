@@ -1,0 +1,53 @@
+on init
+    # Goodix fingerprint
+    chown system system /dev/goodix_fp
+
+    # Synaptics fingerpint
+    chown system system /dev/vfsspi
+
+on boot
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/fingerdown_wait
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/regulator_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/screen_status
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vreg_op_cnt
+
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/irq
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
+    chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
+    chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/regulator_enable
+    chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/screen_status
+    chmod 0660 /sys/bus/platform/devices/soc:fingerprint_fpc/vreg_op_cnt
+
+    chown system system /sys/class/drm/card0-DSI-1/disp_param
+    chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
+
+    chmod 0666 /dev/input/event2
+
+on post-fs-data
+    mkdir /data/vendor/fpc 0770 system system
+    mkdir /data/vendor/goodix 0770 system system
+    mkdir /data/vendor/goodix/gf_data/authenticate 0770 system system
+    mkdir /data/vendor/goodix/gf_data/enroll 0770 system system
+    mkdir /data/vendor/syna 0770 system system
+    mkdir /data/vendor/syna/ist/ 0770 system system
+    chown system system /data/vendor
+    chgrp system system /data/vendor
+
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input
+
+on property:vendor.fps_hal.restartimes=max
+    stop vendor.fps_hal
