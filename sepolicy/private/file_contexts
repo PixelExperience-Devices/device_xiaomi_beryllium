@@ -1,8 +1,3 @@
-# Audio
-/system/etc/audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
-/system/lib64/soundfx/libvolumelistener\.so   u:object_r:vendor_file:s0
-/system/lib/soundfx/libvolumelistener\.so     u:object_r:vendor_file:s0
-
 # Data files
 /data/display(/.*)?                 u:object_r:display_data_file:s0
 
@@ -24,9 +19,6 @@
 # LiveDisplay HAL
 /system/bin/hw/lineage\.livedisplay@2\.0-service-sdm                   u:object_r:shal_livedisplay_default_exec:s0
 /system/bin/hw/lineage\.livedisplay@2\.0-service\.xiaomi_sdm845        u:object_r:shal_livedisplay_default_exec:s0
-
-# Power HAL
-/system/lib64/hw/power\.qcom\.so    u:object_r:vendor_file:s0
 
 # Trust HAL
 /system/bin/hw/lineage\.trust@1\.0-service                             u:object_r:shal_lineage_trust_default_exec:s0
