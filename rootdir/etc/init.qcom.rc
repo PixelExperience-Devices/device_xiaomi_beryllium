@@ -690,11 +690,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
 
-service time_daemon /system/vendor/bin/time_daemon
-    class main
-    user root
-    group root
-
 service vendor.vppservice /vendor/bin/vppservice
     class main
     user media
