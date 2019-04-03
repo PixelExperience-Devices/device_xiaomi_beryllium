@@ -250,4 +250,7 @@
     <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
+    <!-- Whether to show multiuser icon on keyguard -->
+    <bool name="config_showMultiuserIconKeyguard">false</bool>
+
 </resources>
