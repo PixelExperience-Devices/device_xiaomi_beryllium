@@ -2,9 +2,6 @@ on init
     # Goodix fingerprint
     chown system system /dev/goodix_fp
 
-    # Synaptics fingerpint
-    chown system system /dev/vfsspi
-
 on boot
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
@@ -35,10 +32,7 @@ on post-fs-data
     mkdir /data/vendor/goodix 0770 system system
     mkdir /data/vendor/goodix/gf_data/authenticate 0770 system system
     mkdir /data/vendor/goodix/gf_data/enroll 0770 system system
-    mkdir /data/vendor/syna 0770 system system
-    mkdir /data/vendor/syna/ist/ 0770 system system
     chown system system /data/vendor
-    chgrp system system /data/vendor
 
 service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845
     # "class hal" causes a race condition on some devices due to files created
@@ -48,6 +42,3 @@ service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.
     user system
     group system input uhid
     writepid /dev/cpuset/system-background/tasks
-
-on property:vendor.fps_hal.restartimes=max
-    stop vendor.fps_hal
