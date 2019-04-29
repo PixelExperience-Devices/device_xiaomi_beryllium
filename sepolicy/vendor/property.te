@@ -1,3 +1,5 @@
+type camera_ro_prop, property_type;
+
 type thermal_engine_prop, property_type;
 
 type vendor_dpps_prop, property_type;
