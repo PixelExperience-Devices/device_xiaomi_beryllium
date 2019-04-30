@@ -59,3 +59,6 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 128
     write /sys/block/dm-2/queue/read_ahead_kb 128
     write /sys/block/dm-3/queue/read_ahead_kb 128
+
+on property:vold.decrypt=trigger_restart_framework
+    restart vendor.audio-hal-2-0
