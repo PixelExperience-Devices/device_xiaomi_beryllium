@@ -9,13 +9,13 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.radio.atcmdfwd</name>
+        <name>vendor.qti.hardware.wifi.keystore</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IAtCmdFwd</name>
-            <instance>AtCmdFwdService</instance>
+            <name>IKeystoreExt</name>
+            <instance>default</instance>
         </interface>
-        <fqname>@1.0::IAtCmdFwd/AtCmdFwdService</fqname>
+        <fqname>@1.0::IKeystoreExt/default</fqname>
     </hal>
 </manifest>
