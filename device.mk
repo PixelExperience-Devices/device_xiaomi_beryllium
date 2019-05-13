@@ -47,8 +47,7 @@ PRODUCT_PACKAGES += \
     PlaygroundMod
 
 # GoogleCamera
-PRODUCT_PACKAGES += \
-    GoogleCameraMod
+$(call inherit-product, packages/apps/GoogleCameraMod/config.mk)
 
 # Device fstab
 PRODUCT_PACKAGES += \
