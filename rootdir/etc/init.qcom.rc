@@ -871,13 +871,13 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-on property:init.svc.vendor.hwcomposer-2-1=stopped
+on property:init.svc.vendor.hwcomposer-2-3=stopped
     stop ppd
 
-on property:init.svc.vendor.hwcomposer-2-1=running
+on property:init.svc.vendor.hwcomposer-2-3=running
     start ppd
 
-on property:init.svc.vendor.hwcomposer-2-1=restarting
+on property:init.svc.vendor.hwcomposer-2-3=restarting
     stop ppd
 
 on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=block && property:persist.ppd.fde.config=0
