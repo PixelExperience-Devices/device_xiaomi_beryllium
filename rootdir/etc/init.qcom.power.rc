@@ -98,7 +98,6 @@ on property:init.svc.vendor.charger=running
     chmod 0771 /mnt/vendor/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
 
-    start vendor.hvdcp_opti
     start vendor.power_off_alarm
     start vendor.poweroffm64
     mount tmpfs tmpfs /data
@@ -255,11 +254,6 @@ service vendor.charger /system/bin/chargeonlymode
     group system graphics input
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
-
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
