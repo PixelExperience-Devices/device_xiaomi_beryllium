@@ -53,10 +53,11 @@ char scaling_gov_path[4][80] = {"sys/devices/system/cpu/cpu0/cpufreq/scaling_gov
 
 #define PERF_HAL_PATH "libqti-perfd-client.so"
 static void* qcopt_handle;
-static int (*perf_lock_acq)(unsigned long handle, int duration, int list[], int numArgs);
-static int (*perf_lock_rel)(unsigned long handle);
-static int (*perf_hint)(int, char*, int, int);
+static int (*perf_lock_acq)(int handle, int duration, int list[], int numArgs);
+static int (*perf_lock_rel)(int handle);
+static int (*perf_hint)(int, const char*, int, int);
 static struct list_node active_hint_list_head;
+const char *pkg = "QTI PowerHAL";
 
 static void* get_qcopt_handle() {
     void* handle = NULL;
@@ -230,7 +231,7 @@ int perf_hint_enable(int hint_id, int duration) {
 
     if (qcopt_handle) {
         if (perf_hint) {
-            lock_handle = perf_hint(hint_id, NULL, duration, -1);
+            lock_handle = perf_hint(hint_id, pkg, duration, -1);
             if (lock_handle == -1)
                 ALOGE("Failed to acquire lock for hint_id: %X.", hint_id);
         }
