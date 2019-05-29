@@ -190,7 +190,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.2</version>
         <interface>
             <name>IDevice</name>
-            <instance>default</instance>
             <instance>qti-default</instance>
             <instance>qti-dsp</instance>
             <instance>qti-gpu</instance>
