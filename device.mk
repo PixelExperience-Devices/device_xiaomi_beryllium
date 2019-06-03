@@ -47,7 +47,7 @@ PRODUCT_PACKAGES += \
     PlaygroundMod
 
 # GoogleCamera
-$(call inherit-product, packages/apps/GoogleCameraMod/config.mk)
+$(call inherit-product, packages/apps/GoogleCameraMod/xiaomi-sdm845/config.mk)
 
 # Device fstab
 PRODUCT_PACKAGES += \

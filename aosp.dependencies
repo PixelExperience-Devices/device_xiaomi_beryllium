@@ -18,7 +18,7 @@
   {
     "repository": "packages_apps_GoogleCameraMod",
     "target_path": "packages/apps/GoogleCameraMod",
-    "branch": "pie-beryllium",
+    "branch": "pie",
     "remote": "pixel-gitlab"
   },
   {
