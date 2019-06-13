@@ -817,16 +817,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-send-rule stream 0660 system system
     group system root
 
-service adsprpcd /vendor/bin/adsprpcd
-    class main
-    user media
-    group media
-
-service cdsprpcd /vendor/bin/cdsprpcd
-    class main
-    user system
-    group system
-
 # imsdatadaemon starts with root and UID will be downgraded to RADIO.
 service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
