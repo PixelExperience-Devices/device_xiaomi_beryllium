@@ -18,7 +18,8 @@ ro.hardware.fp             u:object_r:vendor_fp_prop:s0
 vendor.fps_hal.            u:object_r:vendor_fp_prop:s0
 
 # Google camera hal read only props
-ro.camera.                               u:object_r:camera_ro_prop:s0
+ro.camera.res.fmq.size                   u:object_r:camera_ro_prop:s0
+ro.camera.req.fmq.size                   u:object_r:camera_ro_prop:s0
 ro.vendor.camera.                        u:object_r:camera_ro_prop:s0
 
 # Mlipay
