@@ -2,7 +2,7 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
-    audio.offload.min.duration.secs=20 \
+    audio.offload.min.duration.secs=30 \
     persist.vendor.audio.button_jack.profile=volume \
     persist.vendor.audio.button_jack.switch=0 \
     persist.vendor.audio.fluence.speaker=true \
