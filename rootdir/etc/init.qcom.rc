@@ -278,6 +278,10 @@ on boot
     chown system system /sys/class/thermal/thermal_message/sconfig
     chown root system /sys/bus/i2c/devices/3-0050/pressure
 
+    # Sensors log dir
+    mkdir /data/vendor/sensors
+    chown system system /data/vendor/sensors
+
 # MSM specific files that need to be created on /data
 on post-fs-data
     mkdir /data/tombstones 0771 system system
