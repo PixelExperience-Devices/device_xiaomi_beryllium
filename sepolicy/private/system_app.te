@@ -1,1 +1,0 @@
-allow system_app sysfs_fp_proximity:file { w_file_perms getattr };
