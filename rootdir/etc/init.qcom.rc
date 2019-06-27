@@ -109,8 +109,6 @@ on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    start vendor.qseecomd
-    exec - system system -- /vendor/bin/init.qti.qseecomd.sh
     write /dev/ipa 1
 
 on early-boot
@@ -797,11 +795,6 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
     stop vendor.ims_rtp_daemon
-
-service vendor.qseecomd /vendor/bin/qseecomd
-    class core
-    user root
-    group root
 
 service spdaemon /vendor/bin/spdaemon
     class core
