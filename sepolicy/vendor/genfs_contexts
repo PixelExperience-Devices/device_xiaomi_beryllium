@@ -15,5 +15,7 @@ genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/fingerdown_wait       u
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/irq                   u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable         u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix/proximity_state    u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/fod_hbm      u:object_r:sysfs_fod:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys2/restart_level    u:object_r:sysfs_ssr_toggle:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/restart_level   u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/virtual/touch/tp_dev/fod_status                        u:object_r:sysfs_fod:s0

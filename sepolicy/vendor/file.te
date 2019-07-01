@@ -7,6 +7,7 @@ type thermal_data_file, data_file_type, file_type;
 
 type proc_tp, proc_type, fs_type;
 
+type sysfs_fod, sysfs_type, fs_type;
 type sysfs_gps, sysfs_type, fs_type;
 type sysfs_wireless_supply, sysfs_type, fs_type;
 

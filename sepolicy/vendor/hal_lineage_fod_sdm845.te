@@ -1,0 +1,13 @@
+type hal_lineage_fod_sdm845, domain;
+hal_server_domain(hal_lineage_fod_sdm845, hal_lineage_fod)
+
+type hal_lineage_fod_sdm845_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_fod_sdm845)
+
+allow hal_lineage_fod_sdm845 sysfs_fod:file rw_file_perms;
+allow hal_lineage_fod_sdm845 sysfs_graphics:dir r_dir_perms;
+allow hal_lineage_fod_sdm845 sysfs_graphics:file rw_file_perms;
+
+binder_call(hal_lineage_fod_sdm845, hal_fingerprint_default)
+
+hal_client_domain(hal_lineage_fod_sdm845, hal_fingerprint)
