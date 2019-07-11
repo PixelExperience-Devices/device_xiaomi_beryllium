@@ -1,9 +1,17 @@
 genfscon proc /tp_fw_version       u:object_r:proc_tp:s0
 genfscon proc /tp_lockdown_info    u:object_r:proc_tp:s0
 
+genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/subsys4/restart_level u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/188101c.qcom,spss/subsys0/restart_level   u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/4080000.qcom,mss/subsys7/restart_level    u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/subsys5/restart_level    u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/8300000.qcom,turing/subsys6/restart_level u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/aae0000.qcom,venus/subsys1/restart_level  u:object_r:sysfs_ssr_toggle:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pmi8998@3:qcom,leds@d000/leds/white    u:object_r:sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/device_prepare        u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/fingerdown_wait       u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/irq                   u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable         u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix/proximity_state    u:object_r:sysfs_fingerprint:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys2/restart_level    u:object_r:sysfs_ssr_toggle:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys3/restart_level   u:object_r:sysfs_ssr_toggle:s0

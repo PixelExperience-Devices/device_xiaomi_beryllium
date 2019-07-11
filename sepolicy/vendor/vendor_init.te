@@ -1,0 +1,2 @@
+# Allow vendor_init to write to sysfs_ssr_toggle
+allow vendor_init sysfs_ssr_toggle:file w_file_perms;
