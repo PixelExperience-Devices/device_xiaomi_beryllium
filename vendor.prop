@@ -84,6 +84,9 @@ persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 vendor.qcom.bluetooth.soc=cherokee
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Display post-processing
 ro.vendor.display.cabl=2
 
