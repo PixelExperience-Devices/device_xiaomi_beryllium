@@ -51,6 +51,7 @@ if [ -d /config/usb_gadget ]; then
         serialno=1234567
         echo $serialno > /config/usb_gadget/g1/strings/0x409/serialnumber
     fi
+    setprop vendor.usb.configfs 1
 fi
 
 #

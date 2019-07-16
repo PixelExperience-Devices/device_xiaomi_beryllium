@@ -118,6 +118,9 @@ on property:persist.vendor.usb.config=*
 on boot && property:ro.boot.usbconfigfs=true
         setprop sys.usb.configfs 1
 
+on property:vendor.usb.configfs=1 && property:sys.usb.configfs=0
+        setprop sys.usb.configfs 1
+
 # Following are the parameters required for usb functionality. They provide configurable options like
 # product_id/vendor id and allows specifying required functions:
 #
