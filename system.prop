@@ -56,6 +56,8 @@ sdm.debug.disable_inline_rotator_secure=1
 persist.vendor.ims.disableUserAgent=0
 
 # Media
+debug.stagefright.omx_default_rank.sw-audio=1
+debug.stagefright.omx_default_rank=0
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Memory optimizations
