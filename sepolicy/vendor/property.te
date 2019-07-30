@@ -1,6 +1,5 @@
 type thermal_engine_prop, property_type;
 
-type vendor_displayfeature_prop, property_type;
 type vendor_dpps_prop, property_type;
 
 type vendor_fp_prop, property_type;

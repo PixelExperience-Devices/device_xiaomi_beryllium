@@ -74,11 +74,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
-# Display features
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.df.extcolor.proc=0 \
-    persist.vendor.max.brightness=0
-
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=0 \

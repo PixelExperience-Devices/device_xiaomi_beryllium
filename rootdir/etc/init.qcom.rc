@@ -899,7 +899,5 @@ on property:init.svc.vendor.hwcomposer-2-1=restarting
     stop ppd
 
 on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=block && property:persist.ppd.fde.config=0
-    stop displayfeature-hal-1-0
-    start displayfeature-hal-1-0
     setprop persist.ppd.fde.config 1
     start ppd

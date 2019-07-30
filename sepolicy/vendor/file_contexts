@@ -50,7 +50,6 @@
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845                                     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power@1\.2-service\.xiaomi_sdm845                                     u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm845                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.displayfeature@1\.0-service                                    u:object_r:hal_displayfeature_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0

@@ -5,20 +5,6 @@ persist.vendor.camera.      u:object_r:camera_prop:s0
 vendor.camera.              u:object_r:camera_prop:s0
 vidhance.                   u:object_r:camera_prop:s0
 
-# Display feature
-init.svc.displayfeature-hal-1-0          u:object_r:vendor_displayfeature_prop:s0
-persist.vendor.df.extcolor.proc          u:object_r:vendor_displayfeature_prop:s0
-persist.vendor.max.brightness            u:object_r:vendor_displayfeature_prop:s0
-ro.displayfeature.histogram.enable       u:object_r:vendor_displayfeature_prop:s0
-ro.eyecare.brightness.threshold          u:object_r:vendor_displayfeature_prop:s0
-ro.eyecare.brightness.level              u:object_r:vendor_displayfeature_prop:s0
-ro.hist.brightness.threshold             u:object_r:vendor_displayfeature_prop:s0
-ro.resolution_switch.enabled             u:object_r:vendor_displayfeature_prop:s0
-ro.vendor.df.effect.conflict             u:object_r:vendor_displayfeature_prop:s0
-ro.whitepoint_calibration_enable         u:object_r:vendor_displayfeature_prop:s0
-sys.displayfeature.entry.enable          u:object_r:vendor_displayfeature_prop:s0
-sys.displayfeature.hbm.enable            u:object_r:vendor_displayfeature_prop:s0
-
 # Display post processing
 init.svc.ppd                             u:object_r:vendor_dpps_prop:s0
 ro.vendor.display.ad                     u:object_r:vendor_dpps_prop:s0
