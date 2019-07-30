@@ -883,10 +883,6 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
 
-# Thermal
-vendor/lib64/hw/thermal.sdm845.so
-vendor/lib/hw/thermal.sdm845.so
-
 # Thermal engine
 vendor/bin/thermal-engine
 vendor/lib64/libthermalclient.so
@@ -924,10 +920,6 @@ vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
-
-# VR
-vendor/lib64/hw/vr.sdm845.so
-vendor/lib/hw/vr.sdm845.so
 
 # WiFi
 vendor/bin/hw/hostapd
