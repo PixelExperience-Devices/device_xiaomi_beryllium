@@ -32,5 +32,8 @@ ro.boot.fpsensor           u:object_r:vendor_fp_prop:s0
 ro.hardware.fp             u:object_r:vendor_fp_prop:s0
 vendor.fps_hal.            u:object_r:vendor_fp_prop:s0
 
+# Mlipay
+persist.vendor.sys.pay.ifaa              u:object_r:vendor_tee_listener_prop:s0
+
 # Thermal
 sys.thermal.               u:object_r:thermal_engine_prop:s0
