@@ -920,6 +920,7 @@ vendor/bin/hw/hostapd
 vendor/bin/hw/wpa_supplicant
 vendor/bin/cnss-daemon
 vendor/bin/nv_mac
+vendor/etc/init/hostapd.android.rc
 vendor/etc/wifi/p2p_supplicant_overlay.conf
 vendor/etc/wifi/WCNSS_qcom_cfg.ini
 vendor/etc/wifi/wpa_supplicant_overlay.conf
