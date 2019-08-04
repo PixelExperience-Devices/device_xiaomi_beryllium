@@ -131,6 +131,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/seemplog             0660   system     system
 /dev/pft                  0660   system     drmrpc
 /dev/spcom                0660   system     system
+/dev/spss_utils           0660   system     system
 /dev/sp_kernel            0660   system     system
 /dev/sp_ssr               0660   system     system
 /dev/sp_keymaster         0660   system     system
