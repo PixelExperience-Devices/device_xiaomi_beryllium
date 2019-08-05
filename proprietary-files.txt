@@ -24,7 +24,6 @@ vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 # Audio
 vendor/lib64/hw/audio.primary.sdm845.so
 vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
@@ -37,7 +36,6 @@ vendor/lib64/libqtigef.so
 vendor/lib64/libtinycompress_vendor.so
 vendor/lib/hw/audio.primary.sdm845.so
 vendor/lib/libacdb-fts.so
-vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
