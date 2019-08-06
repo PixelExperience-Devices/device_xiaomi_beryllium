@@ -27,6 +27,7 @@
 #
 #
 
+import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc
@@ -44,7 +45,6 @@ on early-init
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
-    write /proc/sys/kernel/sched_boost 1
     symlink /data/tombstones /tombstones
 
 on init
@@ -54,8 +54,6 @@ on init
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
-
-    mount none /sbin/chargeonlymode /sbin/charger bind
 
     # Boot time FS tune
     write /sys/block/sda/queue/iostats 0
@@ -71,23 +69,6 @@ on init
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     write /sys/block/dm-2/queue/read_ahead_kb 2048
-
-    write /dev/stune/foreground/schedtune.sched_boost_no_override 1
-    write /dev/stune/top-app/schedtune.sched_boost_no_override 1
-    write /dev/stune/schedtune.colocate 0
-    write /dev/stune/background/schedtune.colocate 0
-    write /dev/stune/system-background/schedtune.colocate 0
-    write /dev/stune/foreground/schedtune.colocate 0
-    write /dev/stune/top-app/schedtune.colocate 1
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
-    # Add a cpuset for the camera daemon
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
 
     chown system camera /dev/mi-camera-vendor2hal
     chown system camera /dev/mi-camera-hal2vendor
@@ -303,17 +284,6 @@ on boot
 
     start rmt_storage
     start rfs_access
-    write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/audio-app/cpus 1-2
-    write /dev/cpuset/foreground/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 0-3
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-7
-    write /dev/cpuset/system-background/cpus 0-7
 
     # Regionalization config and prop files
     chmod 0644 /persist/speccfg/spec
@@ -549,13 +519,6 @@ service nqnfcinfo /system/vendor/bin/nqnfcinfo
     group nfc
     user system
     oneshot
-
-service iop /system/vendor/bin/iop
-    class main
-    user root
-    group root
-    disabled
-    socket iop seqpacket 0666 root system
 
 service qcomsysd /system/vendor/bin/qcom-system-daemon
     class main
@@ -927,22 +890,6 @@ service mmbn-daemon /vendor/bin/mmbn-daemon
     disabled
     oneshot
 
-service charger /charger
-    class charger
-    group system graphics
-    seclabel u:r:healthd:s0
-
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
@@ -958,37 +905,6 @@ service esepmdaemon /system/vendor/bin/esepmdaemon
     class core
     user system
     group nfc
-
-on charger
-    setprop persist.sys.usb.config mass_storage
-    load_system_props
-    start qcom-post-boot
-
-    write /sys/module/msm_thermal/parameters/enabled "N"
-    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
-    mkdir /mnt/vendor/persist
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
-
-    start vendor.hvdcp_opti
-    start vendor.power_off_alarm
-    start vendor.poweroffm64
-    mount tmpfs tmpfs /data
-    start vendor.thermal-engine
-    setprop vendor.usb.controller a600000.dwc3
-    setprop sys.usb.configfs 1
-
-service vendor.power_off_alarm /vendor/bin/power_off_alarm
-    class core
-    group system
-    disabled
-    oneshot
-
-service vendor.poweroffm64 /vendor/bin/poweroffm64
-    class late_start
-    oneshot
-    seclabel u:r:poweroffm64:s0
 
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
@@ -1186,17 +1102,6 @@ on property:vold.decrypt=trigger_restart_framework && property:ro.crypto.type=bl
     start displayfeature-hal-1-0
     setprop persist.ppd.fde.config 1
     start ppd
-
-service energy-awareness /system/vendor/bin/energy-awareness
-    class main
-    user system
-    group system
-    oneshot
-
-service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
 
 service vendor.tlocd /vendor/bin/tloc_daemon
     class late_start

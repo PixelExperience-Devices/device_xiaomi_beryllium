@@ -1,0 +1,242 @@
+# Copyright (c) 2016, Code Aurora Forum. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of Code Aurora nor
+#       the names of its contributors may be used to endorse or promote
+#       products derived from this software without specific prior written
+#       permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+on early-init
+    write /proc/sys/kernel/sched_boost 1
+
+on init
+    mount none /sbin/chargeonlymode /sbin/charger bind
+
+    write /dev/stune/foreground/schedtune.sched_boost_no_override 1
+    write /dev/stune/top-app/schedtune.sched_boost_no_override 1
+    write /dev/stune/schedtune.colocate 0
+    write /dev/stune/background/schedtune.colocate 0
+    write /dev/stune/system-background/schedtune.colocate 0
+    write /dev/stune/foreground/schedtune.colocate 0
+    write /dev/stune/top-app/schedtune.colocate 1
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+
+    # Add a cpuset for the camera daemon
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+on boot
+    # For cpusets initialize for Silver only first and then Silver + Gold
+    # Silver only configuration cannot work with 0-7
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/audio-app/cpus 1-2
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 0-7
+    write /dev/cpuset/system-background/cpus 0-7
+
+on charger
+    setprop persist.sys.usb.config mass_storage
+    load_system_props
+    trigger enable-low-power
+
+    write /sys/module/msm_thermal/parameters/enabled "N"
+    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    mkdir /mnt/vendor/persist
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+
+    start vendor.hvdcp_opti
+    start vendor.power_off_alarm
+    start vendor.poweroffm64
+    mount tmpfs tmpfs /data
+    start vendor.thermal-engine
+    setprop vendor.usb.controller a600000.dwc3
+    setprop sys.usb.configfs 1
+
+on enable-low-power
+    # Set the default IRQ affinity to the silver cluster.
+    # When a CPU is isolated/hotplugged, the IRQ affinity is adjusted
+    # to one of the CPU from the default IRQ affinity mask.
+    write /proc/irq/default_smp_affinity "f"
+
+    # Core control parameters
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+
+    # Setting b.L scheduler parameters
+    write /proc/sys/kernel/sched_upmigrate 95
+    write /proc/sys/kernel/sched_downmigrate 85
+    write /proc/sys/kernel/sched_group_upmigrate 100
+    write /proc/sys/kernel/sched_group_downmigrate 95
+    write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/rate_limit_us 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1209600
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/pl 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 576000
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/rate_limit_us 0
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 1574400
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/pl 1
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 120
+
+    # Set up powerkey boost freq
+    write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:0"
+    write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 400
+
+    # Limit the min frequency to 825MHz
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 825000
+
+    # Enable oom_reaper
+    write /sys/module/lowmemorykiller/parameters/oom_reaper 1
+
+    # Enable bus-dcvs
+    write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
+    write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
+    write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1525
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "2288 4577 6500 8132 9155 10681"
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 50
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory 20
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length 10
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 0
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
+    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
+
+    write /sys/class/devfreq/soc:qcom,llccbw/governor "bw_hwmon"
+    write /sys/class/devfreq/soc:qcom,llccbw/polling_interval 50
+    write /sys/class/devfreq/soc:qcom,llccbw/min_freq 1525
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/mbps_zones "1720 2929 3879 5931 6881"
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/sample_ms 4
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/io_percent 80
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/hist_memory 20
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/hyst_length 10
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/guard_band_mbps 0
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/up_scale 250
+    write /sys/class/devfreq/soc:qcom,llccbw/bw_hwmon/idle_mbps 1600
+
+    # Enable mem_latency governor for DDR scaling
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
+
+    write /sys/class/devfreq/soc:qcom,memlat-cpu4/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,memlat-cpu4/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,memlat-cpu4/mem_latency/ratio_ceil 400
+
+    # Enable mem_latency governor for L3 scaling
+    write /sys/class/devfreq/soc:qcom,l3-cpu0/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,l3-cpu0/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,l3-cpu0/mem_latency/ratio_ceil 400
+
+    write /sys/class/devfreq/soc:qcom,l3-cpu4/governor "mem_latency"
+    write /sys/class/devfreq/soc:qcom,l3-cpu4/polling_interval 10
+    write /sys/class/devfreq/soc:qcom,l3-cpu4/mem_latency/ratio_ceil 400
+
+    # Enable userspace governor for L3 cdsp nodes
+    write /sys/class/devfreq/soc:qcom,l3-cdsp/governor "userspace"
+    chown system /sys/class/devfreq/soc:qcom,l3-cdsp/userspace/set_freq
+
+    # Gold L3 ratio ceil
+    write /sys/class/devfreq/soc:qcom,l3-cpu4/mem_latency/ratio_ceil 4000
+
+    write /sys/class/devfreq/soc:qcom,mincpubw/governor "compute"
+    write /sys/class/devfreq/soc:qcom,mincpubw/polling_interval 10
+
+    # Set cpuset parameters
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/foreground/boost/cpus 4-7
+    write /dev/cpuset/foreground/cpus 0-2,4-7
+    write /dev/cpuset/top-app/cpus 0-7
+
+    # Turn off scheduler boost at the end
+    write /proc/sys/kernel/sched_boost 0
+
+    # Disable CPU Retention
+    write /sys/module/lpm_levels/L3/cpu0/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu1/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu2/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu3/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu4/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu5/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu6/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/cpu7/ret/idle_enabled "N"
+    write /sys/module/lpm_levels/L3/l3-dyn-ret/idle_enabled "N"
+
+    # Turn on sleep modes
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    write /proc/sys/vm/swappiness 100
+    write /proc/sys/vm/watermark_scale_factor 120
+
+    # Set LMK minfree
+    write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,85296,120640"
+
+    # Post-setup services
+    setprop vendor.post_boot.parsed 1
+
+on property:sys.boot_completed=1
+    trigger enable-low-power
+
+on property:init.svc.recovery=running
+    trigger enable-low-power
+
+service charger /charger
+    class charger
+    group system graphics
+    seclabel u:r:healthd:s0
+
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
+
+service vendor.power_off_alarm /vendor/bin/power_off_alarm
+    class core
+    group system
+    disabled
+    oneshot
+
+service vendor.poweroffm64 /vendor/bin/poweroffm64
+    class late_start
+    oneshot
+    seclabel u:r:poweroffm64:s0
