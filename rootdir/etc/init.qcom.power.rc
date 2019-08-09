@@ -64,7 +64,6 @@ on boot
 on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
-    trigger enable-low-power
 
     write /sys/module/msm_thermal/parameters/enabled "N"
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
