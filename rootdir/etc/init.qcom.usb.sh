@@ -40,18 +40,8 @@ if [ -f /sys/class/android_usb/f_mass_storage/lun/nofua ]; then
     echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 fi
 
-#
-# Override USB default composition
-#
-# If USB persist config not set, set default configuration
-if [ "$(getprop persist.vendor.usb.config)" == "" -a \
-	"$(getprop init.svc.vendor.usb-gadget-hal-1-0)" != "running" ]; then
-    if [ "$esoc_name" != "" ]; then
-        setprop persist.vendor.usb.config diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl,rmnet,adb
-    else
-        setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
-    fi
-fi
+# Clear vendor USB config because it is only needed for debugging
+setprop persist.vendor.usb.config ""
 
 # Check configfs is mounted or not
 if [ -d /config/usb_gadget ]; then
