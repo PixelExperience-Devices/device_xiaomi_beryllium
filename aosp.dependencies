@@ -1,11 +1,13 @@
 [
   {
     "repository": "device_xiaomi_sdm845-common",
-    "target_path": "device/xiaomi/sdm845-common"
+    "target_path": "device/xiaomi/sdm845-common",
+    "branch": "pie-plus"
   },
   {
     "repository": "kernel_xiaomi_beryllium",
-    "target_path": "kernel/xiaomi/beryllium"
+    "target_path": "kernel/xiaomi/beryllium",
+    "branch": "pie"
   },
   {
     "repository": "packages_apps_GoogleCameraMod",
