@@ -261,4 +261,10 @@
     <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
+    <!-- Whether device has a big physical display cutout -->
+    <bool name="config_physicalDisplayCutout">true</bool>
+
+    <!-- Whether device has a big physical display cutout -->
+    <bool name="config_bigPhysicalDisplayCutout">true</bool>
+
 </resources>
