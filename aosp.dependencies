@@ -6,5 +6,11 @@
   {
     "repository": "kernel_xiaomi_beryllium",
     "target_path": "kernel/xiaomi/beryllium"
+  },
+  {
+    "repository": "packages_apps_GoogleCameraMod",
+    "target_path": "packages/apps/GoogleCameraMod",
+    "branch": "pie",
+    "remote": "pixel-gitlab"
   }
 ]
