@@ -642,7 +642,6 @@ vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/perfboostsconfigmi.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
-vendor/etc/powerhint.xml
 vendor/lib64/libfeedbackhandler.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libqti-perfd-client.so
