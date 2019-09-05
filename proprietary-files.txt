@@ -583,11 +583,11 @@ vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
-vendor/bin/spdaemon
+vendor/bin/spdaemon|9921cb33d021fb5e7b2c89512bbc00346d6b8559
 vendor/lib64/libperipheral_client.so
-vendor/lib64/libspcom.so
+vendor/lib64/libspcom.so|f840d243517c9d837e1fd34f05458310d312983c
 vendor/lib/libperipheral_client.so
-vendor/lib/libspcom.so
+vendor/lib/libspcom.so|23ec643a462306d18b154ce305dbb3daf3665722
 
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
