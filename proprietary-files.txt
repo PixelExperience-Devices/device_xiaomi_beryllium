@@ -30,7 +30,7 @@ vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioparsers.so
-vendor/lib64/libaudioroute_ext.so
+vendor/lib64/libaudioroute_ext.so|cc01f7a0548e335d9ef7db1970b99e4ad8184ffd
 vendor/lib64/libcsd-client.so
 vendor/lib64/libqtigef.so
 vendor/lib64/libtinycompress_vendor.so
@@ -43,7 +43,7 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioparsers.so
-vendor/lib/libaudioroute_ext.so
+vendor/lib/libaudioroute_ext.so|b0b8df2d9adde86399893d95b5fe83533c3f841c
 vendor/lib/libcsd-client.so
 vendor/lib/libqtigef.so
 vendor/lib/libtinycompress_vendor.so
