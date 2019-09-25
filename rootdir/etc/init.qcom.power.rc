@@ -249,10 +249,10 @@ on property:sys.boot_completed=1
 on property:init.svc.recovery=running
     trigger enable-low-power
 
-service vendor.charger /sbin/chargeonlymode
+service vendor.charger /system/bin/chargeonlymode
     class charger
     group system graphics
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
