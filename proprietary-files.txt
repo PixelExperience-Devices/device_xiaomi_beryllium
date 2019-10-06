@@ -626,16 +626,13 @@ vendor/lib/libqti-perfd.so
 vendor/lib/libqti-util.so
 vendor/lib/vendor.qti.hardware.perf@1.0.so
 
-# Power-off alarm
--vendor/app/PowerOffAlarm/PowerOffAlarm.apk
-vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
-vendor/bin/power_off_alarm
-vendor/bin/poweroffm64
-vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.alarm@1.0.so
-vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
-vendor/lib/vendor.qti.hardware.alarm@1.0.so
+# Power-off alarm - from Z01R - QKQ1.190723.002
+-product/app/PowerOffAlarm/PowerOffAlarm.apk|21fea777e448b96e936f4f85fed1f6938aef7c7c
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|b6cb42f6134073b86f9980233382990d35f82b2a
+vendor/bin/power_off_alarm|b53aa4a998dbc51d7a8ca98ba87eeee2d1c182ea
+vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|c9877b6cae0353d5fdea5bc23dba77101b3d6980
+vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|f5fe26b078a4e2f5443818fccdbdaba8f9885815
+vendor/lib64/vendor.qti.hardware.alarm@1.0.so|d09b7895f8b30d069c7a46ac10870d5334b6ea02
 
 # Power-off charging daemon
 -sbin/charger:bin/chargeonlymode|f048d2cc20783ba1a608b73d440b3053af6ec9fd
