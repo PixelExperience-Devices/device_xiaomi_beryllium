@@ -56,11 +56,6 @@
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0
 /mnt/vendor/persist/camera(/.*)?              u:object_r:persist_camera_file:s0
 
-# Rootfs files
-/bt_firmware(/.*)?                            u:object_r:bt_firmware_file:s0
-/firmware(/.*)?                               u:object_r:firmware_file:s0
-/persist(/.*)?                                u:object_r:persist_file:s0
-
 # Sockets
 /dev/socket/audio_hw_socket                   u:object_r:audio_socket:s0
 /dev/socket/gps                               u:object_r:gps_socket:s0
