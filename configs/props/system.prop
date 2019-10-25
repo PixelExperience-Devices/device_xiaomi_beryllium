@@ -62,7 +62,7 @@ ro.vendor.qti.sys.fw.bservice_enable=true
 ro.vendor.qti.va_aosp.support=1
 
 # RCS
-persist.rcs.supported=0
+persist.rcs.supported=1
 
 # Recovery
 ro.recovery.ui.margin_height=87
