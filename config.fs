@@ -91,7 +91,7 @@ user: AID_GPS
 group: AID_SYSTEM
 caps: BLOCK_SUSPEND
 
-[vendor/bin/ignss_1_1]
+[vendor/bin/ignss_2_0]
 mode: 0755
 user: AID_GPS
 group: AID_SYSTEM
