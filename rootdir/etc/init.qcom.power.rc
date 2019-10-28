@@ -151,6 +151,15 @@ on enable-low-power
     # to one of the CPU from the default IRQ affinity mask.
     write /proc/irq/default_smp_affinity "f"
 
+    # msm_drm
+    write /proc/irq/7/smp_affinity_list 2
+
+    # synaptics,s3320
+    # write /proc/irq/377/smp_affinity_list 0
+
+    # kgsl-3d0
+    write /proc/irq/489/smp_affinity_list 1
+
     # Core control parameters
     write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
     write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
