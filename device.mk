@@ -79,4 +79,4 @@ PRODUCT_PACKAGES += \
 
 # Wallpapers
 PRODUCT_PACKAGES += \
-    WallpapersBReel2018
+    WallpapersBReel2019
