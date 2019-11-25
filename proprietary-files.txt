@@ -878,26 +878,8 @@ vendor/lib64/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # WiFi
-vendor/bin/hw/hostapd
-vendor/bin/hw/wpa_supplicant
 vendor/bin/cnss-daemon
 vendor/bin/nv_mac
-vendor/etc/init/hostapd.android.rc
-vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/WCNSS_qcom_cfg.ini
-vendor/etc/wifi/wpa_supplicant_overlay.conf
-vendor/etc/wifi/wpa_supplicant.conf
-vendor/lib64/libcert_parse.wpa_s.so
-vendor/lib64/libcld80211.so
-vendor/lib64/libkeystore-engine-wifi-hidl.so
-vendor/lib64/libkeystore-wifi-hidl.so
-vendor/lib64/libqsap_sdk.so
-vendor/lib64/libwapi_cert.so
-vendor/lib64/libwifi-hal-qcom.so
-vendor/lib64/libwifi-hal.so
-vendor/lib64/libwpa_client.so
-vendor/lib64/vendor.qti.hardware.wifi.hostapd@1.0.so
-vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
 
 # WiFi Display
 bin/wfdservice
