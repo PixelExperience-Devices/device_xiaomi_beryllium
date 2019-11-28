@@ -253,6 +253,9 @@ on enable-low-power
     # Post-setup services
     setprop vendor.post_boot.parsed 1
 
+    # ZRAM parameters
+    write /sys/block/zram0/disksize 1073741824
+
 on property:sys.boot_completed=1
     trigger enable-low-power
 
