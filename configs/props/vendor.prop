@@ -7,6 +7,7 @@ persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.ras.enabled=false
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 ro.vendor.audio.soundfx.usb=true
