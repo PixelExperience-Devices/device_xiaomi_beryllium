@@ -1,0 +1,1 @@
+dontaudit init { bt_firmware_file firmware_file }:filesystem getattr;
