@@ -1,4 +1,4 @@
-allow radio hal_datafactory_hwservice:hwservice_manager find;
+allow radio { hal_datafactory_hwservice hal_iwlan_hwservice }:hwservice_manager find;
 allow radio { cameraserver_service mediaextractor_service mediaserver_service mediametrics_service drmserver_service audioserver_service }:service_manager find;
 
 binder_call(radio, cnd)
