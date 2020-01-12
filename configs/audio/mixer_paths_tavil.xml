@@ -2561,6 +2561,10 @@
         <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
     </path>
 
+    <path name="headphones-hifi-filter">
+        <path name="headphones" />
+    </path>
+
     <path name="hph-highquality-mode">
         <ctl name="RX HPH Mode" value="CLS_H_LOHIFI" />
     </path>
@@ -2644,6 +2648,11 @@
 
     <path name="voice-headset-mic">
         <path name="headset-mic" />
+    </path>
+
+    <path name="speaker-and-headphones-hifi-filter">
+        <path name="headphones" />
+        <path name="speaker" />
     </path>
 
     <path name="speaker-and-headphones">
