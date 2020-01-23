@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 #include <fstream>
 
 #define COMMAND_NIT 10
-#define PARAM_NIT_FOD 3
+#define PARAM_NIT_630_FOD 1
 #define PARAM_NIT_NONE 0
 
 #define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
@@ -83,7 +83,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
-    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
+    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
     return Void();
 }
 
