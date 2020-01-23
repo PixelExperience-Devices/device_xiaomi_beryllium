@@ -1,4 +1,4 @@
-# Copyright (c) 2011-2016, 2018-2019 The Linux Foundation. All rights reserved.
+# Copyright (c) 2011-2016, 2018-2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -71,6 +71,7 @@ on boot
     mkdir /config/usb_gadget/g1/functions/audio_source.gs3
     mkdir /config/usb_gadget/g1/functions/midi.gs5
     mkdir /config/usb_gadget/g1/functions/ffs.adb
+    mkdir /config/usb_gadget/g1/functions/ffs.diag
     mkdir /config/usb_gadget/g1/functions/diag.diag
     mkdir /config/usb_gadget/g1/functions/diag.diag_mdm
     mkdir /config/usb_gadget/g1/functions/diag.diag_mdm2
@@ -102,6 +103,8 @@ on boot
     mkdir /dev/usb-ffs 0775 shell system
     mkdir /dev/usb-ffs/adb 0770 shell system
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000,rmode=0770,fmode=0660
+    mkdir /dev/ffs-diag 0770 shell system
+    mount functionfs diag /dev/ffs-diag uid=2000,gid=1000,rmode=0770,fmode=0660,no_disconnect=1
     write /sys/class/android_usb/android0/f_ffs/aliases adb
     setprop sys.usb.mtp.device_type 2
     setprop vendor.usb.controller ${sys.usb.controller}
