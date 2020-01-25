@@ -20,14 +20,6 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-function blob_fixup() {
-    case "${1}" in
-    vendor/lib/camera/components/com.vidhance.node.eis.so)
-        patchelf --add-needed "libui_shim.so" "${2}"
-        ;;
-    esac
-}
-
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
