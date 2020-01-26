@@ -5,7 +5,7 @@
     "branch": "ten-beryllium"
   },
   {
-    "repository": "kernel_xiaomi_beryllium",
+    "repository": "kernel_xiaomi_dipper",
     "target_path": "kernel/xiaomi/beryllium",
     "branch": "ten"
   },
