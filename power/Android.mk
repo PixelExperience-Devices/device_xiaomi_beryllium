@@ -2,10 +2,6 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-ifneq ($(TARGET_TAP_TO_WAKE_NODE),)
-    LOCAL_CFLAGS += -DTAP_TO_WAKE_NODE=\"$(TARGET_TAP_TO_WAKE_NODE)\"
-endif
-
 LOCAL_MODULE := android.hardware.power@1.2-service.xiaomi_sdm845
 LOCAL_INIT_RC := android.hardware.power@1.2-service.xiaomi_sdm845.rc
 LOCAL_MODULE_RELATIVE_PATH := hw
