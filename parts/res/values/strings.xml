@@ -75,4 +75,9 @@
     <string name="thermal_dialer">Dialer</string>
     <string name="thermal_gaming">Gaming</string>
     <string name="thermal_streaming">Streaming</string>
+  
+     <!-- Raise to wake strings-->
+    <string name="raise_to_wake_gesture_title">Raise to wake</string>
+    <string name="raise_to_wake_gesture_summary">Wake up the device instead of pulsing notification</string>
+    
 </resources>

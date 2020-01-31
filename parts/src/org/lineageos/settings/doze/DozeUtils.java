@@ -1,4 +1,4 @@
-/*
+    /*
  * Copyright (C) 2015 The CyanogenMod Project
  *               2017-2019 The LineageOS Project
  *
@@ -45,6 +45,7 @@ public final class DozeUtils {
 
     protected static final String DOZE_ENABLE = "doze_enable";
     protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up";
+    protected static final String GESTURE_RAISE_TO_WAKE_KEY = "gesture_raise_to_wake";
     protected static final String GESTURE_HAND_WAVE_KEY = "gesture_hand_wave";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
 
@@ -121,6 +122,10 @@ public final class DozeUtils {
     protected static boolean isPickUpEnabled(Context context) {
         return isGestureEnabled(context, GESTURE_PICK_UP_KEY);
     }
+    
+    public static boolean isRaiseToWakeEnabled(Context context) {
+        return isGestureEnabled(context, GESTURE_RAISE_TO_WAKE_KEY);
+    }
 
     protected static boolean isHandwaveGestureEnabled(Context context) {
         return isGestureEnabled(context, GESTURE_HAND_WAVE_KEY);
@@ -131,8 +136,8 @@ public final class DozeUtils {
     }
 
     public static boolean sensorsEnabled(Context context) {
-        return isPickUpEnabled(context) || isHandwaveGestureEnabled(context)
-                || isPocketGestureEnabled(context);
+        return isPickUpEnabled(context) || isRaiseToWakeEnabled(context) ||
+                isHandwaveGestureEnabled(context) || isPocketGestureEnabled(context);
     }
 
     protected static Sensor getSensor(SensorManager sm, String type) {
