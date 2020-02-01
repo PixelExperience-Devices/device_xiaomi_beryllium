@@ -6,8 +6,6 @@
 
 BOARD_VENDOR := xiaomi
 
-BUILD_BROKEN_DUP_RULES := true
-
 COMMON_PATH := device/xiaomi/sdm845-common
 
 # Architecture
