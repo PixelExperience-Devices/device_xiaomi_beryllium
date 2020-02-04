@@ -258,7 +258,6 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.controller a600000.dwc3
-    setprop sys.usb.configfs 1
 
     chown system system /sys/class/leds/white/brightness
     chown system system /sys/class/leds/white/blink
