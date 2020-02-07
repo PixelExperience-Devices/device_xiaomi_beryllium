@@ -150,7 +150,8 @@ int open_ts_input() {
                 fd = open(absolute_path, O_RDWR);
                 if (ioctl(fd, EVIOCGNAME(sizeof(name) - 1), &name) > 0) {
                     if (strcmp(name, "atmel_mxt_ts") == 0 || strcmp(name, "fts_ts") == 0 ||
-                            strcmp(name, "ft5x46") == 0 || strcmp(name, "synaptics_dsx") == 0 ||
+                            strcmp(name, "fts") == 0 || strcmp(name, "ft5x46") == 0 ||
+                            strcmp(name, "synaptics_dsx") == 0 ||
                             strcmp(name, "NVTCapacitiveTouchScreen") == 0)
                         break;
                 }
