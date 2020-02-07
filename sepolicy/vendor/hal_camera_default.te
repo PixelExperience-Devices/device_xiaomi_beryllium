@@ -12,3 +12,7 @@ allow hal_camera_default sysfs_leds:lnk_file read;
 r_dir_file(hal_camera_default, persist_camera_file)
 
 get_prop(hal_camera_default, camera_ro_prop)
+
+userdebug_or_eng(`
+  get_prop(hal_camera_default, sensors_dbg_prop)
+')
