@@ -4,7 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-<<<<<<< HEAD
 # Sourced by the common device repo when extracting device-specific blobs
 function blob_fixup() {
     case "${1}" in
