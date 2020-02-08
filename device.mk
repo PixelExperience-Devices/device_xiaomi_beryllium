@@ -55,6 +55,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.target.rc
 
+# GoogleCamera
+$(call inherit-product, packages/apps/GoogleCameraMod/xiaomi-sdm845/config.mk)
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
