@@ -141,10 +141,6 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800"
     write /sys/module/cpu_boost/parameters/input_boost_ms 120
 
-    # Set up powerkey boost freq
-    write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:0"
-    write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 400
-
     # Limit the min frequency to 825MHz
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 825000
 
