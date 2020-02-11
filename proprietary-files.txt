@@ -697,7 +697,7 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Power-off charging daemon
--sbin/charger:bin/chargeonlymode|f048d2cc20783ba1a608b73d440b3053af6ec9fd
+system/bin/charger:system/bin/chargeonlymode|69b29c2c7b7c65a0d8fd26c2a56f6211e2795fc5
 
 # QMI
 system/etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
