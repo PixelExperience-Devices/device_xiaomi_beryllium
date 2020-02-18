@@ -1,0 +1,93 @@
+# Audio
+audio.deep_buffer.media=true
+audio.offload.min.duration.secs=30
+audio.offload.video=true
+ro.af.client_heap_size_kbyte=7168
+ro.config.media_vol_steps=25
+ro.config.vc_call_vol_steps=11
+
+# Bluetooth
+vendor.bluetooth.soc=cherokee
+
+# Camera
+camera.disable_zsl_mode=true
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+
+# CNE
+persist.vendor.cne.feature=1
+
+# Data modules
+persist.data.df.dev_name=rmnet_usb0
+persist.vendor.data.mode=concurrent
+ro.vendor.use_data_netmgrd=true
+
+# Display post-processing
+ro.qualcomm.cabl=0
+ro.vendor.display.ad=1
+ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
+ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
+ro.vendor.display.sensortype=2
+
+# DPM
+persist.vendor.dpm.feature=1
+persist.vendor.dpm.loglevel=0
+persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# Graphics
+debug.sf.disable_backpressure=1
+debug.sf.early_app_phase_offset_ns=500000
+debug.sf.early_gl_app_phase_offset_ns=15000000
+debug.sf.early_gl_phase_offset_ns=3000000
+debug.sf.early_phase_offset_ns=500000
+debug.sf.enable_gl_backpressure=1
+debug.sf.enable_hwc_vds=1
+debug.sf.latch_unsignaled=1
+persist.demo.hdmirotationlock=false
+persist.sys.sf.native_mode=0
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+ro.surface_flinger.max_frame_buffer_acquired_buffers=2
+ro.surface_flinger.max_virtual_display_dimension=4096
+ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+sdm.debug.disable_inline_rotator=1
+sdm.debug.disable_inline_rotator_secure=1
+
+# IMS
+persist.vendor.ims.disableUserAgent=0
+
+# Media
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
+
+# Netflix custom property
+ro.netflix.bsp_rev=Q845-05000-1
+
+# QC framework value-adds
+ro.vendor.qti.va_aosp.support=1
+
+# RCS
+persist.rcs.supported=0
+
+# RIL
+DEVICE_PROVISIONED=1
+persist.radio.multisim.config=dsds
+persist.vendor.radio.apm_sim_not_pwdn=1
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.flexmap_type=none
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.procedure_bytes=SKIP
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.redir_party_num=1
+persist.vendor.radio.report_codec=1
+persist.vendor.radio.sib16_support=1
+ril.subscription.types=NV,RUIM
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+ro.com.android.dataroaming=true
+ro.telephony.default_network=22,22
+telephony.lteOnCdmaDevice=1
+
+# SSR
+persist.vendor.ssr.enable_ramdumps=0
+persist.vendor.ssr.restart_level=ALL_ENABLE
