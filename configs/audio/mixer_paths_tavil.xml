@@ -2475,8 +2475,10 @@
         <ctl name="EAR PA Gain" value="G_6_DB" />
     </path>
 
+    <!-- TX Main-mic D:0 dB -->
     <path name="handset-mic">
         <path name="dmic3" />
+        <ctl name="DEC7 Volume" value="84"/>
     </path>
 
     <path name="handset-mic-db">
@@ -2739,8 +2741,10 @@
         <path name="display-port" />
     </path>
 
+    <!-- VR MIC 1st D:22 dB -->
     <path name="voice-rec-mic">
         <path name="handset-mic" />
+        <ctl name="DEC7 Volume" value="106"/>
     </path>
 
     <path name="camcorder-dmic">
@@ -2755,8 +2759,10 @@
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
 
+    <!-- CC MIC D:5 dB -->
     <path name="camcorder-mic">
         <path name="handset-mic" />
+        <ctl name="DEC7 Volume" value="89"/>
     </path>
 
     <path name="bt-sco-headset">
@@ -2826,9 +2832,12 @@
         <ctl name="SLIM_0_TX Channels" value="Two" />
     </path>
 
+    <!-- TX Dual-mic 1st MIC D:0 dB, 2nd MIC:0 dB -->
     <path name="dmic-endfire">
         <path name="handset-dmic-endfire" />
         <ctl name="IIR0 INP0 MUX" value="DEC7" />
+        <ctl name="DEC7 Volume" value="88"/>
+        <ctl name="DEC8 Volume" value="88"/>
     </path>
 
     <path name="dmic-endfire-liquid">
@@ -2844,20 +2853,29 @@
         <path name="speaker-dmic-endfire" />
     </path>
 
+    <!-- Phone RCV TX Dual-mic 1st MIC D:13 dB, 2nd MIC:13 dB -->
     <path name="voice-dmic-ef-tmus">
         <path name="dmic-endfire" />
+        <ctl name="DEC7 Volume" value="97"/>
+        <ctl name="DEC8 Volume" value="97"/>
     </path>
 
+    <!-- Phone RCV TX Dual-mic 1st MIC D:13 dB, 2nd MIC:13 dB -->
     <path name="voice-dmic-ef">
         <path name="dmic-endfire" />
+        <ctl name="DEC7 Volume" value="97"/>
+        <ctl name="DEC8 Volume" value="97"/>
     </path>
 
     <path name="voice-speaker-dmic-ef">
         <path name="speaker-dmic-endfire" />
     </path>
 
+    <!-- VR Dual-MIC 1st D:22 dB -->
     <path name="voice-rec-dmic-ef">
         <path name="dmic-endfire" />
+        <ctl name="DEC7 Volume" value="106"/>
+        <ctl name="DEC8 Volume" value="106"/>
     </path>
 
     <path name="voice-rec-dmic-ef-fluence">
@@ -2999,24 +3017,36 @@
         <path name="handset-mic" />
     </path>
 
+    <!-- Unprocessed MIC 1st D:5 dB -->
     <path name="unprocessed-mic">
         <path name="unprocessed-handset-mic" />
+        <ctl name="DEC7 Volume" value="89"/>
     </path>
 
+    <!-- Unprocessed-stereo-mic 1st D:5 dB, 2nd D:5 dB -->
     <path name="unprocessed-stereo-mic">
         <path name="voice-rec-dmic-ef" />
+        <ctl name="DEC7 Volume" value="89"/>
+        <ctl name="DEC8 Volume" value="89"/>
     </path>
 
     <path name="unprocessed-three-mic">
         <path name="three-mic" />
     </path>
 
+    <!-- Ch1: 3rd mic DEC7/TX7, Ch2: 2nd mic DEC6/TX6, Ch3: 1st mic DEC5/TX5, Ch4 4th mic DEC8/TX8 -->
     <path name="unprocessed-quad-mic">
         <path name="quad-mic" />
+        <ctl name="DEC5 Volume" value="89"/>
+        <ctl name="DEC6 Volume" value="89"/>
+        <ctl name="DEC7 Volume" value="89"/>
+        <ctl name="DEC8 Volume" value="89"/>
     </path>
 
+    <!-- Unprocessed Handset MIC 1st D:5 dB -->
     <path name="unprocessed-headset-mic">
         <path name="headset-mic" />
+        <ctl name="DEC7 Volume" value="89"/>
     </path>
 
     <!-- USB TTY start -->
