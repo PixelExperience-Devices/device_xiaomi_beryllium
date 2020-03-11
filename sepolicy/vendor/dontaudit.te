@@ -1,5 +1,6 @@
 # Ignore harmless QCOM denials
 dontaudit {
+  gmscore_app
   init
   priv_app
 } {
