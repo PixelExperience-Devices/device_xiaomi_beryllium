@@ -1,1 +1,0 @@
-require version-baseband=4.0.c2.6-00327-SDM845_GEN_PACK-1,V11.0.4.0.QEJMIXM
