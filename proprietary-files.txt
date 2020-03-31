@@ -298,10 +298,6 @@ vendor/lib/libkeymasterdeviceutils.so
 vendor/lib/libkeymasterprovision.so
 vendor/lib/libkeymasterutils.so
 
-# QDCM calibration data
-vendor/etc/qdcm_calib_data_ebbg_fhd_video_dsi_panel.xml
-vendor/etc/qdcm_calib_data_tianma_fhd_video_dsi_panel.xml
-
 # Snapdragon Computer Vision Engine
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
