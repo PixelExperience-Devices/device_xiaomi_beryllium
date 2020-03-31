@@ -929,10 +929,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|74675e4f720d75db031a0db4ca21463ebd
 # Power-off charging daemon - from vayu - SKQ1.211006.001
 system/bin/charger:system/bin/chargeonlymode|bc8f81390ab691ddd815d27644b49afd988f8e47
 
-# QDCM calibration data
-vendor/etc/qdcm_calib_data_ebbg_fhd_video_dsi_panel.xml
-vendor/etc/qdcm_calib_data_tianma_fhd_video_dsi_panel.xml
-
 # QMI (system) - from LA.QSSI.13.0.r1-08200-qssi.0
 system_ext/etc/permissions/qti_libpermissions.xml|593bcb72cce68ceb0a70f50bcae7d460114e7c62
 system_ext/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
