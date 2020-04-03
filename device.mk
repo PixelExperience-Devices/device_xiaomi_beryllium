@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 $(call inherit-product-if-exists, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 
 # Firmware
-$(call inherit-product, vendor/xiaomi/firmware/beryllium/firmware.mk)
+$(call inherit-product, vendor/xiaomi-firmware/beryllium/firmware.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2246
