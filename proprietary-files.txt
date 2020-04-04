@@ -549,15 +549,6 @@ vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
 vendor/lib/libsmwrapper.so
 
-# Mirrorlink
-vendor/bin/hw/vendor.qti.hardware.mlshal@1.0-service
-vendor/etc/init/vendor.qti.hardware.mlshal@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.mlshal@1.0-impl.so
-vendor/lib64/libmls_utils_vendor.so
-vendor/lib64/libmls_v4l2enc_vendor.so
-vendor/lib64/vendor.qti.hardware.mlshal@1.0-halimpl.so
-vendor/lib64/vendor.qti.hardware.mlshal@1.0.so
-
 # Media
 system/lib64/libFileMux.so
 system/lib64/libmmosal.so
