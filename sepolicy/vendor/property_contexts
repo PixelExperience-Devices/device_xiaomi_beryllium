@@ -26,7 +26,6 @@ ro.vendor.camera.                        u:object_r:camera_ro_prop:s0
 ro.boot.factorybuild       u:object_r:exported_default_prop:s0
 ro.boot.hwversion          u:object_r:exported_default_prop:s0
 ro.carrier.name            u:object_r:exported_default_prop:s0
-ro.cust.test               u:object_r:exported_default_prop:s0
 ro.miui.cust_variant       u:object_r:exported_default_prop:s0
 
 # Mlipay
