@@ -1,3 +1,10 @@
+# IMEI
+persist.radio.imei             u:object_r:deviceid_prop:s0
+persist.radio.meid             u:object_r:deviceid_prop:s0
+ro.ril.miui.imei               u:object_r:deviceid_prop:s0
+ro.ril.oem.imei                u:object_r:deviceid_prop:s0
+ro.ril.oem.meid                u:object_r:deviceid_prop:s0
+
 # MIUI specific
 ro.cust.test                   u:object_r:exported_system_prop:s0
 ro.boot.hwc                    u:object_r:exported_default_prop:s0
