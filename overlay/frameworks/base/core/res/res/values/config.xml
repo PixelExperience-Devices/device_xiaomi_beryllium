@@ -215,7 +215,6 @@
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">86.0px</dimen>
     <dimen name="status_bar_height_landscape">24.0dp</dimen>
-    <dimen name="rounded_corner_radius_top">104px</dimen>
 
     <!-- Default value for proximity check on screen wake
      NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
