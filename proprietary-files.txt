@@ -1,3 +1,5 @@
+# Common proprietary files - from polaris' MIUI package V11.0.4.0.QDGMIXM global stable version, unless pinned
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
