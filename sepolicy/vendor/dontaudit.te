@@ -1,0 +1,8 @@
+# Ignore harmless QCOM denials
+dontaudit {
+  init
+  priv_app
+} {
+  bt_firmware_file
+  firmware_file
+}:filesystem getattr;
