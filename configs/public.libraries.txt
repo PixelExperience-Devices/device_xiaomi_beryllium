@@ -29,3 +29,5 @@ libarcsoft_supernight.so
 libmisegment_front_845.so
 libalCFR.so
 libbeauty.so
+libprotobuf-cpp-full.so
+libprotobuf-cpp-lite.so
