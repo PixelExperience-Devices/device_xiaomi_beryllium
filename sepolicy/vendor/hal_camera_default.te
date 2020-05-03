@@ -1,0 +1,1 @@
+get_prop(hal_camera_default, persist_camera_prop)
