@@ -144,9 +144,6 @@ on enable-low-power
     # Limit the min frequency to 825MHz
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 825000
 
-    # Enable oom_reaper
-    write /sys/module/lowmemorykiller/parameters/oom_reaper 1
-
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
     write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
@@ -231,9 +228,6 @@ on enable-low-power
 
     write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/watermark_scale_factor 120
-
-    # Set LMK minfree
-    write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,85296,120640"
 
     # Post-setup services
     setprop vendor.post_boot.parsed 1
