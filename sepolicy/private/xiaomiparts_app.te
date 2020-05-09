@@ -2,4 +2,19 @@ type xiaomiparts_app, domain;
 
 app_domain(xiaomiparts_app)
 
+# Access standard system services
+allow xiaomiparts_app app_api_service:service_manager find;
 allow xiaomiparts_app audioserver_service:service_manager find;
+
+# Allow reading and writing shared prefs
+allow xiaomiparts_app system_app_data_file:dir create_dir_perms;
+allow xiaomiparts_app system_app_data_file:{ file lnk_file } create_file_perms;
+
+# Allow binder communication with gpuservice
+binder_call(xiaomiparts_app, gpuservice)
+
+# Allow XiaomiParts to read and write to cgroup
+allow xiaomiparts_app cgroup:file rw_file_perms;
+
+# Allow XiaomiParts to write to sysfs_thermal
+allow xiaomiparts_app sysfs_thermal:file w_file_perms;
