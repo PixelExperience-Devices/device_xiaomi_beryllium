@@ -44,8 +44,6 @@ on early-init
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
-    symlink /data/tombstones /tombstones
-
 on init
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
@@ -264,12 +262,6 @@ on boot
 
 # MSM specific files that need to be created on /data
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
     mkdir /data/vendor/diag 2771 root log
     mkdir /data/vendor/mac_addr 0770 system wifi
     mkdir /data/vendor/misc 01771 system system
@@ -308,7 +300,6 @@ on post-fs-data
     mkdir /data/vendor/camera 0770 camera camera
 
     # Create directory for tftp
-    mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
 
     mkdir /data/vendor/ramdump 0771 root system
