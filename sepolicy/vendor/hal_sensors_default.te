@@ -3,3 +3,5 @@ allow hal_sensors_default sound_device:chr_file rw_file_perms;
 
 allow hal_sensors_default audio_socket:sock_file rw_file_perms;
 unix_socket_connect(hal_sensors_default, audio, hal_audio_default)
+
+get_prop(hal_sensors_default, adsprpc_prop)
