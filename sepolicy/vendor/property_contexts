@@ -25,5 +25,8 @@ ro.vendor.camera.                        u:object_r:camera_ro_prop:s0
 # Mlipay
 persist.vendor.sys.pay.ifaa              u:object_r:vendor_tee_listener_prop:s0
 
+# Sensors
+persist.sensor.sardisable  u:object_r:sensors_prop:s0
+
 # Thermal
 persist.sys.thermal.       u:object_r:thermal_engine_prop:s0
