@@ -2,7 +2,6 @@
 camera.                     u:object_r:camera_prop:s0
 persist.camera.             u:object_r:camera_prop:s0
 persist.vendor.camera.      u:object_r:camera_prop:s0
-vendor.camera.              u:object_r:camera_prop:s0
 vidhance.                   u:object_r:camera_prop:s0
 
 # Display post processing
