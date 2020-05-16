@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2018,2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ public final class DiracUtils {
 
     public static void initialize() {
         if (!mInitialized) {
-            mInitialized = true;
             mDiracSound = new DiracSound(0, 0);
             mDiracSound.setMusic(mDiracSound.getMusic());
             mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
             setLevel(getLevel());
+            mInitialized = true;
         }
     }
 
@@ -38,7 +38,7 @@ public final class DiracUtils {
     }
 
     protected static boolean isDiracEnabled(Context context) {
-        return mDiracSound.getMusic() == 1;
+        return mDiracSound != null && mDiracSound.getMusic() == 1;
     }
 
     protected static void setLevel(String preset) {
