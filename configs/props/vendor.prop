@@ -99,7 +99,6 @@ ro.soc.model=SDM845
 persist.vendor.cne.feature=1
 
 # Display post-processing
-persist.ppd.fde.config=0
 ro.vendor.display.cabl=2
 vendor.display.enable_default_color_mode=1
 
