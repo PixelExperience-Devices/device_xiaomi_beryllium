@@ -137,6 +137,14 @@ public final class ThermalUtils {
         return state;
     }
 
+    protected void setDefaultThermalProfile() {
+        try {
+            FileUtils.stringToFile(THERMAL_SCONFIG, THERMAL_STATE_DEFAULT);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to write to " + THERMAL_SCONFIG, e);
+        }
+    }
+
     protected void setThermalProfile(String packageName) {
         String value = getValue();
         String modes[];
