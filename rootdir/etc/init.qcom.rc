@@ -419,6 +419,9 @@ on post-fs-data
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
+    # Default enable uicc_se
+    setprop persist.vendor.radio.uicc_se_enabled true
+
     # Create dir for TUI
     mkdir /data/vendor/tui 0700 system system
 
