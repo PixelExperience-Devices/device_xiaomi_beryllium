@@ -5,7 +5,7 @@
     "branch": "ten"
   },
   {
-    "repository": "kernel_xiaomi_dipper",
+    "repository": "PixelExperience-Devices/kernel_xiaomi_beryllium",
     "target_path": "kernel/xiaomi/beryllium",
     "branch": "ten"
   },
