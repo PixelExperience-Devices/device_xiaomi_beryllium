@@ -354,7 +354,6 @@
         <!-- A2DP Audio HAL -->
         <module name="a2dp" halVersion="2.0">
             <mixPorts>
-                <mixPort name="a2dp output" role="source"/>
                 <mixPort name="a2dp input" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
@@ -362,21 +361,6 @@
             </mixPorts>
 
             <devicePorts>
-                <devicePort tagName="BT A2DP Out" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" role="sink" address="lhdc_a2dp">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
-                <devicePort tagName="BT A2DP Headphones" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" role="sink" address="lhdc_a2dp">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
-                <devicePort tagName="BT A2DP Speaker" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" role="sink" address="lhdc_a2dp">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                            samplingRates="44100,48000,96000"
-                            channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
-                </devicePort>
                 <devicePort tagName="BT A2DP In" type="AUDIO_DEVICE_IN_BLUETOOTH_A2DP" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
@@ -384,12 +368,6 @@
             </devicePorts>
 
             <routes>
-                <route type="mix" sink="BT A2DP Out"
-                        sources="a2dp output"/>
-                <route type="mix" sink="BT A2DP Headphones"
-                        sources="a2dp output"/>
-                <route type="mix" sink="BT A2DP Speaker"
-                        sources="a2dp output"/>
                 <route type="mix" sink="a2dp input"
                        sources="BT A2DP In"/>
             </routes>
