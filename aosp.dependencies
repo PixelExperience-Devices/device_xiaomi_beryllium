@@ -20,5 +20,11 @@
     "target_path": "packages/apps/PixelLiveWallpaper",
     "branch": "ten",
     "remote": "pixel-gitlab"
+  },
+  {
+    "repository": "vendor_xiaomi_beryllium",
+    "target_path": "vendor/xiaomi/beryllium",
+    "branch": "ten",
+    "remote": "pixel-devices-bitbucket"
   }
 ]
