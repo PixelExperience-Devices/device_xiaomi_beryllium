@@ -713,6 +713,12 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
     group system
     disabled
 
+service vendor.power-hal-1-2 /vendor/bin/hw/android.hardware.power@1.2-service-qti
+    override
+    class hal
+    user system
+    group system input
+
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.audio-hal-2-0
     start vendor-sensor-sh

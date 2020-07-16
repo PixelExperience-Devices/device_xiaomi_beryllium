@@ -44,7 +44,6 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm845                   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845                                     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.1-service-qti                                       u:object_r:hal_neuralnetworks_default_exec:s0
-/vendor/bin/hw/android\.hardware\.power@1\.2-service\.xiaomi_sdm845                                     u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm845            u:object_r:hal_lineage_fod_sdm845_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm845                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
 
