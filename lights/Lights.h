@@ -33,8 +33,9 @@ class Lights : public BnLights {
       ndk::ScopedAStatus getLights(std::vector<HwLight>* types) override;
 
     private:
-      std::map<LightType, light_device_t*> mLights;
+      std::map<int, light_device_t*> mLights;
       std::vector<HwLight> mAvailableLights;
+      int maxLights;
 };
 
 }  // namespace light
