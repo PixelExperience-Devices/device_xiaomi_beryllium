@@ -48,7 +48,8 @@
             android:disableDependentsState="true"
             android:key="gesture_raise_to_wake"
             android:summary="@string/raise_to_wake_gesture_summary"
-            android:title="@string/raise_to_wake_gesture_title" />
+            android:title="@string/raise_to_wake_gesture_title"
+            android:icon="@drawable/ic_raise" />
 
     </PreferenceCategory>
 
