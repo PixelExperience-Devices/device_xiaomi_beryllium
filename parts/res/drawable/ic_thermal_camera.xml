@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
     android:width="24dp"
     android:height="24dp"
-    android:viewportHeight="24"
-    android:viewportWidth="24">
-    <group
-        android:scaleX="0.879929"
-        android:scaleY="0.883309"
-        android:translateX="1.44085"
-        android:translateY="0.746289">
-        <path
-            android:fillColor="?android:attr/colorAccent"
-            android:fillType="evenOdd"
-            android:pathData="M20.764 21.26l-17.528 0c-1.07 0 -1.939 -0.868 -1.939 -1.939l0 -11.324c0 -1.07 0.869 -1.939 1.939 -1.939l4.534 0C7.982 5.01 8.91 4.22 10.02 4.22l3.96 0c1.11 0 2.037 0.79 2.25 1.838l4.534 0c1.07 0 1.939 0.869 1.939 1.939l0 11.324c0 1.071 -0.869 1.939 -1.939 1.939zM12 8.646c2.767 0 5.013 2.246 5.013 5.013 0 2.767 -2.246 5.013 -5.013 5.013 -2.767 0 -5.013 -2.246 -5.013 -5.013 0 -2.767 2.246 -5.013 5.013 -5.013zM3.674 7.257c0.624 0 1.131 0.507 1.131 1.131 0 0.624 -0.507 1.131 -1.131 1.131 -0.624 0 -1.131 -0.507 -1.131 -1.131 0 -0.624 0.507 -1.131 1.131 -1.131z"
-            android:strokeLineJoin="round"
-            android:strokeMiterLimit="1.41421" />
-    </group>
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="path"
+        android:pathData="M 9 3 L 7.17 5 L 4 5 C 2.9 5 2 5.9 2 7 L 2 19 C 2 20.1 2.9 21 4 21 L 20 21 C 21.1 21 22 20.1 22 19 L 22 7 C 22 5.9 21.1 5 20 5 L 16.83 5 L 15 3 L 9 3 Z M 12 18 C 9.24 18 7 15.76 7 13 C 7 10.24 9.24 8 12 8 C 14.76 8 17 10.24 17 13 C 17 15.76 14.76 18 12 18 Z"
+        android:fillColor="?android:attr/colorAccent"
+        android:strokeWidth="1"/>
 </vector>
