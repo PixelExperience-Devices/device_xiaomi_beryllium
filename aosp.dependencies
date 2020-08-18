@@ -26,5 +26,11 @@
     "target_path": "vendor/xiaomi/beryllium",
     "branch": "ten",
     "remote": "pixel-devices-bitbucket"
+  },
+  {
+    "repository": "kdrag0n/proton-clang",
+    "target_path": "prebuilts/clang/host/linux-x86/clang-proton-12",
+    "branch": "master",
+    "remote": "github"
   }
 ]
