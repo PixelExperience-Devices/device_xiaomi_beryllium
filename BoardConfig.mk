@@ -30,7 +30,7 @@ TARGET_KERNEL_CONFIG := beryllium_defconfig
 ifeq ($(TARGET_PREBUILT_KERNEL),)
   TARGET_KERNEL_CLANG_COMPILE := true
   TARGET_KERNEL_CLANG_VERSION := 12
-  TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
+  TARGET_KERNEL_SOURCE := kernel/xiaomi/beryllium
   KERNEL_SUPPORTS_LLVM_TOOLS := true
 endif
 
