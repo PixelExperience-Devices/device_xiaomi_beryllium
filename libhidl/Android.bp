@@ -1,0 +1,5 @@
+cc_library {
+    name: "android.hidl.base@1.0",
+    shared_libs: ["libhidltransport"],
+    vendor_available: true,
+}
