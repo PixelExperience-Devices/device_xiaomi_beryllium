@@ -25,7 +25,7 @@
     "repository": "vendor_xiaomi_beryllium",
     "target_path": "vendor/xiaomi/beryllium",
     "branch": "ten",
-    "remote": "pixel-devices-bitbucket"
+    "remote": "pixel-devices-blobs"
   },
   {
     "repository": "kdrag0n/proton-clang",
