@@ -192,11 +192,7 @@ vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
--vendor/lib64/libplatformconfig.so
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
-vendor/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
--vendor/lib/libplatformconfig.so
 
 # Display (HDR)
 vendor/lib64/libhdr_tm.so
