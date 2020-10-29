@@ -115,6 +115,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     XiaomiPocketMode
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 #Secure element
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0 \
