@@ -8,3 +8,6 @@ ro.face.moto_unlock_service.cam_id=5
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
+
+# LMKD
+ro.lmk.use_minfree_levels=true
