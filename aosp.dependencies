@@ -10,12 +10,6 @@
     "branch": "ten"
   },
   {
-    "repository": "packages_apps_GoogleCameraMod",
-    "target_path": "packages/apps/GoogleCameraMod",
-    "branch": "pie",
-    "remote": "pixel-gitlab"
-  },
-  {
     "repository": "packages_apps_PixelLiveWallpaper",
     "target_path": "packages/apps/PixelLiveWallpaper",
     "branch": "ten",
