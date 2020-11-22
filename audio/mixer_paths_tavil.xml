@@ -1087,6 +1087,7 @@
     </path>
 
     <path name="deep-buffer-playback bt-sco-wb">
+        <path name="deep-buffer-playback bt-sco" />
     </path>
 
     <path name="deep-buffer-playback afe-proxy">
