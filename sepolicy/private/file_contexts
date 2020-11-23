@@ -1,2 +1,3 @@
 # Executables
 /system/bin/chargeonlymode                    u:object_r:charger_exec:s0
+/system/product/bin/dpmd                      u:object_r:vendor_dpmd_exec:s0
