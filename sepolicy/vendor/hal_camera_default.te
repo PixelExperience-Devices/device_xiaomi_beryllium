@@ -1,4 +1,0 @@
-get_prop(hal_camera_default, persist_camera_prop)
-
-allow hal_camera_default persist_debug_prop:file { read };
-allow hal_camera_default sysfs_thermal:file { write };
