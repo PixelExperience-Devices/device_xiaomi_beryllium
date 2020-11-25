@@ -22,7 +22,22 @@ source "${HELPER}"
 
 function blob_fixup() {
     case "${1}" in
-        product/lib64/libdpmframework.so)
+        system_ext/etc/init/dpmd.rc)
+            sed -i "s/\/system\/product\/bin\//\/system\/system_ext\/bin\//g" "${2}"
+            ;;
+        system_ext/etc/permissions/com.qti.dpmframework.xml)
+            ;&
+        system_ext/etc/permissions/dpmapi.xml)
+            ;&
+        system_ext/etc/permissions/qcrilhook.xml)
+            ;&
+        system_ext/etc/permissions/telephonyservice.xml)
+            sed -i "s/\/product\/framework\//\/system_ext\/framework\//g" "${2}"
+            ;;
+        system_ext/etc/permissions/qti_libpermissions.xml)
+            sed -i "s/name=\"android.hidl.manager-V1.0-java/name=\"android.hidl.manager@1.0-java/g" "${2}"
+            ;;
+        system_ext/lib64/libdpmframework.so)
             sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
             ;;
     esac
