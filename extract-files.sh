@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # Copyright (C) 2018-2019 The LineageOS Project
 #
@@ -8,12 +7,6 @@
 # Sourced by the common device repo when extracting device-specific blobs
 function blob_fixup() {
     case "${1}" in
-    vendor/etc/qdcm_calib_data_ebbg_fhd_video_dsi_panel.xml)
-        sed -i "s/\"hdr\"/\"sdr\"/" "${2}"
-        ;;
-    vendor/etc/qdcm_calib_data_tianma_fhd_video_dsi_panel.xml)
-        sed -i "s/\"hdr\"/\"sdr\"/" "${2}"
-        ;;
     vendor/lib/libmorpho_video_refiner.so)
         patchelf --replace-needed "libstdc++.so"  "libc++.so" "${2}"
         ;;
