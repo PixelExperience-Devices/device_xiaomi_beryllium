@@ -2,7 +2,7 @@
   {
     "repository": "device_xiaomi_sdm845-common",
     "target_path": "device/xiaomi/sdm845-common",
-    "branch": "ten"
+    "branch": "eleven"
   },
   {
     "repository": "kernel_xiaomi_polaris",
@@ -10,15 +10,9 @@
     "branch": "eleven"
   },
   {
-    "repository": "packages_apps_PixelLiveWallpaper",
-    "target_path": "packages/apps/PixelLiveWallpaper",
-    "branch": "ten",
-    "remote": "pixel-gitlab"
-  },
-  {
     "repository": "vendor_xiaomi_beryllium",
     "target_path": "vendor/xiaomi/beryllium",
-    "branch": "ten",
+    "branch": "eleven",
     "remote": "pixel-devices-blobs"
   },
   {
