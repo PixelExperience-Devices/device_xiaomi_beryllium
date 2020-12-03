@@ -56,16 +56,11 @@ on init
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/read_ahead_kb 2048
     write /sys/block/sda/queue/nr_requests 256
     write /sys/block/sdf/queue/iostats 0
     write /sys/block/sdf/queue/scheduler cfq
     write /sys/block/sdf/queue/iosched/slice_idle 0
-    write /sys/block/sdf/queue/read_ahead_kb 2048
     write /sys/block/sdf/queue/nr_requests 256
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/block/dm-2/queue/read_ahead_kb 2048
 
     chown system camera /dev/mi-camera-vendor2hal
     chown system camera /dev/mi-camera-hal2vendor
@@ -85,10 +80,6 @@ on fs
     mkdir /mnt/vendor/persist/fdsd 0777 root root
     mkdir /mnt/vendor/persist/stability 0755 system system
     mkdir /mnt/vendor/persist/wlan_bt 0755 system system
-
-on late-fs
-    # Boot time FS tune
-    write /sys/block/dm-3/queue/read_ahead_kb 2048
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
@@ -411,11 +402,6 @@ on post-fs-data
     mkdir /data/vendor/swap 0770 root system
     chmod 2770 /data/vendor/swap
 
-    # Set aggressive read ahead for dm-0 and dm-1 during boot up
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/block/dm-2/queue/read_ahead_kb 2048
-
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
@@ -469,18 +455,11 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
 
     # Runtime FS tuning: as we have init boottime setting and kernel patch setting
-    # default readahead to 2048KB. We should adjust the setting upon boot_complete
-    # for runtime performance
-    write /sys/block/sda/queue/read_ahead_kb 128
+    # we should adjust the setting upon boot_complete for runtime performance
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
-    write /sys/block/sdf/queue/read_ahead_kb 128
     write /sys/block/sdf/queue/nr_requests 128
     write /sys/block/sdf/queue/iostats 1
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/dm-1/queue/read_ahead_kb 128
-    write /sys/block/dm-2/queue/read_ahead_kb 128
-    write /sys/block/dm-3/queue/read_ahead_kb 128
 
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.qcom
