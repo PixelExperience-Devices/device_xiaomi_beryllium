@@ -10,6 +10,12 @@
     "branch": "eleven"
   },
   {
+    "repository": "lakgarg/packages_apps_GoogleCamera-beryllium",
+    "target_path": "packages/apps/GoogleCamera",
+    "branch": "master",
+    "remote": "gitlab"
+  },
+  {
     "repository": "vendor_xiaomi_beryllium",
     "target_path": "vendor/xiaomi/beryllium",
     "branch": "eleven",
