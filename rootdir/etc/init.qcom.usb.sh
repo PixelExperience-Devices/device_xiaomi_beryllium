@@ -65,7 +65,7 @@ if [ -d /config/usb_gadget/g1/functions/uvc.0 ]; then
     cd /config/usb_gadget/g1/functions/uvc.0
 
     echo 3072 > streaming_maxpacket
-    echo 1 > streaming_maxburst
+    echo 10 > streaming_maxburst
     mkdir control/header/h
     ln -s control/header/h control/class/fs/
     ln -s control/header/h control/class/ss
