@@ -75,30 +75,58 @@ if [ -d /config/usb_gadget/g1/functions/uvc.0 ]; then
 
     mkdir -p streaming/uncompressed/u/720p
     echo 1280 > streaming/uncompressed/u/720p/wWidth
-    echo 720 > streaming/uncompressed/u/720p/wWidth
+    echo 720 > streaming/uncompressed/u/720p/wHeight
     echo 29491200 > streaming/uncompressed/u/720p/dwMinBitRate
     echo 29491200 > streaming/uncompressed/u/720p/dwMaxBitRate
     echo 1843200 > streaming/uncompressed/u/720p/dwMaxVideoFrameBufferSize
     echo 5000000 > streaming/uncompressed/u/720p/dwDefaultFrameInterval
     echo "5000000\n" > streaming/uncompressed/u/720p/dwFrameInterval
 
+    #mkdir -p streaming/mjpeg/m/360p
+    #echo "666666\n1000000\n5000000\n" > streaming/mjpeg/m/360p/dwFrameInterval
     mkdir -p streaming/mjpeg/m/360p
-    echo "666666\n1000000\n5000000\n" > streaming/mjpeg/m/360p/dwFrameInterval
+    echo 640 > streaming/mjpeg/m/360p/wWidth
+    echo 360 > streaming/mjpeg/m/360p/wHeight
+    echo 460800   > streaming/mjpeg/m/360p/dwMaxVideoFrameBufferSize
+    echo 18432000  > streaming/mjpeg/m/360p/dwMinBitRate
+    echo 55296000 > streaming/mjpeg/m/360p/dwMaxBitRate
+    echo "333333\n666666\n1000000\n5000000\n" > streaming/mjpeg/m/360p/dwFrameInterval
+    echo 333333 > streaming/mjpeg/m/360p/dwDefaultFrameInterval
 
     mkdir -p streaming/mjpeg/m/720p
     echo 1280 > streaming/mjpeg/m/720p/wWidth
-    echo 720 > streaming/mjpeg/m/720p/wWidth
+    echo 720 > streaming/mjpeg/m/720p/wHeight
     echo 29491200 > streaming/mjpeg/m/720p/dwMinBitRate
     echo 29491200 > streaming/mjpeg/m/720p/dwMaxBitRate
     echo 1843200 > streaming/mjpeg/m/720p/dwMaxVideoFrameBufferSize
-    echo 5000000 > streaming/mjpeg/m/720p/dwDefaultFrameInterval
-    echo "5000000\n" > streaming/mjpeg/m/720p/dwFrameInterval
+    echo 333333 > streaming/mjpeg/m/720p/dwDefaultFrameInterval
+    echo "333333\n666666\n1000000\n5000000\n" > streaming/mjpeg/m/720p/dwFrameInterval
+    #echo 5000000 > streaming/mjpeg/m/720p/dwDefaultFrameInterval
+    #echo "5000000\n" > streaming/mjpeg/m/720p/dwFrameInterval
+
+    mkdir -p streaming/mjpeg/m/1080p
+    echo 1920 > streaming/mjpeg/m/1080p/wWidth
+    echo 1080 > streaming/mjpeg/m/1080p/wHeight
+    echo 66355200 > streaming/mjpeg/m/1080p/dwMinBitRate
+    echo 995328000 > streaming/mjpeg/m/1080p/dwMaxBitRate
+    echo 4147200 > streaming/mjpeg/m/1080p/dwMaxVideoFrameBufferSize
+    echo 333333 > streaming/mjpeg/m/1080p/dwDefaultFrameInterval
+    echo "333333\n666666\n1000000\n5000000\n" > streaming/mjpeg/m/1080p/dwFrameInterval
+
+    mkdir -p streaming/mjpeg/m/2160p
+    echo 3840 > streaming/mjpeg/m/2160p/wWidth
+    echo 2160 > streaming/mjpeg/m/2160p/wHeight
+    echo 265420800 > streaming/mjpeg/m/2160p/dwMinBitRate
+    echo 3981312000 > streaming/mjpeg/m/2160p/dwMaxBitRate
+    echo 16588800 > streaming/mjpeg/m/2160p/dwMaxVideoFrameBufferSize
+    echo 333333 > streaming/mjpeg/m/2160p/dwDefaultFrameInterval
+    echo "333333\n666666\n1000000\n5000000\n" > streaming/mjpeg/m/2160p/dwFrameInterval
 
     echo 0x04 > /config/usb_gadget/g1/functions/uvc.0/streaming/mjpeg/m/bmaControls
 
     mkdir -p streaming/h264/h/960p
     echo 1920 > streaming/h264/h/960p/wWidth
-    echo 960 > streaming/h264/h/960p/wWidth
+    echo 960 > streaming/h264/h/960p/wHeight
     echo 40 > streaming/h264/h/960p/bLevelIDC
     echo "333667\n" > streaming/h264/h/960p/dwFrameInterval
 
