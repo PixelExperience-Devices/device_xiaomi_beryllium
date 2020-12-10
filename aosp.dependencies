@@ -5,7 +5,7 @@
     "branch": "ten"
   },
   {
-    "repository": "PixelExperience-Devices/kernel_xiaomi_beryllium",
+    "repository": "PixelExperience-Devices/kernel_xiaomi_polaris",
     "target_path": "kernel/xiaomi/beryllium",
     "branch": "ten"
   },
