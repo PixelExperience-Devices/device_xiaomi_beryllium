@@ -1,4 +1,4 @@
-# Common proprietary files - from polaris' MIUI package V11.0.5.0.QDGMIXM global stable version, unless pinned
+# Common proprietary files - from beryllium's MIUI package V12.0.2.0.QEJMIXM global stable version, unless pinned
 
 # ADSP
 vendor/bin/adsprpcd
@@ -12,7 +12,6 @@ vendor/lib/libadsprpc.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
-vendor/lib/rfsa/adsp/libSuperSensor_skel.so
 vendor/lib/rfsa/adsp/libVC1Dec.so
 vendor/lib/rfsa/adsp/libVC1DecDsp_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
