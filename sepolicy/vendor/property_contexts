@@ -1,6 +1,7 @@
 # Camera
 camera.                     u:object_r:camera_prop:s0
 persist.camera.             u:object_r:camera_prop:s0
+persist.debug.sf.showfps    u:object_r:camera_dbg_prop:s0
 persist.vendor.camera.      u:object_r:camera_prop:s0
 vidhance.                   u:object_r:camera_prop:s0
 

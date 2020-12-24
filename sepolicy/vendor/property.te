@@ -1,3 +1,4 @@
+type camera_dbg_prop, property_type;
 type camera_ro_prop, property_type;
 
 type thermal_engine_prop, property_type;
