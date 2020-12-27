@@ -171,7 +171,6 @@ vendor/lib64/vendor.qti.latency@2.0.so
 
 # Configstore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
-vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
@@ -456,66 +455,6 @@ vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
 vendor/lib/libsmwrapper.so
 
-# Media
-vendor/bin/vppservice
-vendor/etc/init/vppservice.rc
-vendor/lib64/libOmxVpp.so
-vendor/lib64/libswvdec.so
-vendor/lib64/libvppclient.so
-vendor/lib64/libvpphcp.so
-vendor/lib64/libvpphvx.so
-vendor/lib64/libvpplibrary.so
-vendor/lib64/vendor.qti.hardware.vpp@1.1.so
-vendor/lib64/vendor.qti.hardware.vpp@1.2.so
-vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxMux_proprietary.so
-vendor/lib/libOmxVideoDSMode.so
-vendor/lib/libOmxVpp.so
-vendor/lib/libdsd2pcm.so
-vendor/lib/libswvdec.so
-vendor/lib/libvppclient.so
-vendor/lib/libvpphcp.so
-vendor/lib/libvpphvx.so
-vendor/lib/libvpplibrary.so
-vendor/lib/vendor.qti.hardware.vpp@1.1.so
-vendor/lib/vendor.qti.hardware.vpp@1.2.so
-
-# Media codecs
-vendor/lib64/libAlacSwDec.so
-vendor/lib64/libApeSwDec.so
-vendor/lib64/libFlacSwDec.so
-vendor/lib64/libMpeg4SwEncoder.so
-vendor/lib64/libOmxAacDec.so
-vendor/lib64/libOmxAlacDec.so
-vendor/lib64/libOmxAlacDecSw.so
-vendor/lib64/libOmxAmrDec.so
-vendor/lib64/libOmxAmrwbplusDec.so
-vendor/lib64/libOmxApeDec.so
-vendor/lib64/libOmxApeDecSw.so
-vendor/lib64/libOmxEvrcDec.so
-vendor/lib64/libOmxG711Dec.so
-vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libOmxSwVdec.so
-vendor/lib64/libOmxSwVencMpeg4.so
-vendor/lib64/libOmxWmaDec.so
-vendor/lib/libAlacSwDec.so
-vendor/lib/libApeSwDec.so
-vendor/lib/libFlacSwDec.so
-vendor/lib/libMpeg4SwEncoder.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAlacDec.so
-vendor/lib/libOmxAlacDecSw.so
-vendor/lib/libOmxAmrDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxApeDec.so
-vendor/lib/libOmxApeDecSw.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxG711Dec.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxSwVdec.so
-vendor/lib/libOmxSwVencMpeg4.so
-vendor/lib/libOmxWmaDec.so
-
 # Mlipay
 vendor/bin/mlipayd@1.1
 vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
@@ -533,6 +472,49 @@ vendor/lib64/unnhal-acc-adreno.so
 vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hvx.so
 vendor/lib/rfsa/adsp/libhexagon_nn_skel.so
+
+# OMX - from PNX - RKQ1.200906.002
+vendor/lib/libAlacSwDec.so|e49062c9fd9377e8264bf8f7901394653b9f02dc
+vendor/lib/libApeSwDec.so|f14f08a55b32cc252417e3970b1d2cb296d48fa0
+vendor/lib/libFlacSwDec.so|bba6d4155029b2fd1a3d2dfe9f75f422f0d8a35e
+vendor/lib/libMpeg4SwEncoder.so|631e5c91aa89a1f0d60755f3dcea7d74e57af262
+vendor/lib/libOmxAacDec.so|3d90cded7de2423503025d115e2788e0eff7390f
+vendor/lib/libOmxAlacDec.so|0f0e8be4b1558fb7ab87c3b8dfa7f7a2cf33fe75
+vendor/lib/libOmxAlacDecSw.so|a8491930e40b32ae4f2f195b93847ad20e5a6275
+vendor/lib/libOmxAmrDec.so|942bb36c76ff125849b947acd1dbb8edcfee8b16
+vendor/lib/libOmxAmrwbplusDec.so|6869d09e4499824a476d3b036e025b5d70a83c70
+vendor/lib/libOmxApeDec.so|8de514dddfbd5a09f740cecbaf73bfb8c290ca9a
+vendor/lib/libOmxApeDecSw.so|cc1bec67919a9bfe899dd5c2b52f8a3ca6186262
+vendor/lib/libOmxDsdDec.so|5a58c8b54578c6c7520666df4040a422fea67df9
+vendor/lib/libOmxEvrcDec.so|58d55a09798ae13c90829c7ced2e7fee1c61d8b1
+vendor/lib/libOmxG711Dec.so|254245293c12e4d32217b0704bff5f676f4bb5de
+vendor/lib/libOmxQcelp13Dec.so|6c55114663ba69f2c2a7e6c69989fc79d67977b3
+vendor/lib/libOmxSwVdec.so|326fcf4174103efbd926fb046d12ba7d9121a312
+vendor/lib/libOmxSwVencMpeg4.so|cc082e75a01390e392e962a87b4a0dccf228585a
+vendor/lib/libOmxVideoDSMode.so|5862b9d707ca00cd87b70a7f581df49fa3304d2c
+vendor/lib/libOmxVpp.so|7a9a96445b55f28013ea8f4ed767c7e245420c4f
+vendor/lib/libOmxWmaDec.so|eab25fd58910bbeb57812c75fd3c5511c60fa592
+vendor/lib/libdsd2pcm.so|427be2997fcd72e94c33d08b2cf1fde5bf969fd4
+vendor/lib/libswvdec.so|0ebbd44d40c83333e99e47d64509a970a4052859
+vendor/lib64/libAlacSwDec.so|bfd2eb75d733c99d7c0b46f3016834f6f3ebcbdc
+vendor/lib64/libApeSwDec.so|96b957bd6d993737483d9d8705229b406d616ec7
+vendor/lib64/libFlacSwDec.so|720f8497fcbc3d98aa8ff333ed55ca575eb08815
+vendor/lib64/libMpeg4SwEncoder.so|1fc7361424c655ed94c1ac9280c4fe33903a65f6
+vendor/lib64/libOmxAacDec.so|98b894101c87beb61f0f1e5a9e3c6ea430441bdd
+vendor/lib64/libOmxAlacDec.so|3298ac6565f5362e7ed5c4196cfacc1c8811fa72
+vendor/lib64/libOmxAlacDecSw.so|934b495a864087b82b17a493ac498924701aa9e5
+vendor/lib64/libOmxAmrDec.so|f5302be684af636aa4b3101f268856fc7706a2a0
+vendor/lib64/libOmxAmrwbplusDec.so|a98845715e128e6c2649289988e4ff4de1ef9f8b
+vendor/lib64/libOmxApeDec.so|61416c5ed237a741e524b36c2b5c58a067896e9b
+vendor/lib64/libOmxApeDecSw.so|0c597c5ceb031322f2b6d8472c1c946ec4aabdea
+vendor/lib64/libOmxEvrcDec.so|e4d98d61ad8588956b7f4f937dd720164d584f7e
+vendor/lib64/libOmxG711Dec.so|53675a26d5386c868127304c6dfe9dd130f106f8
+vendor/lib64/libOmxQcelp13Dec.so|65952f3680f9865ea601de764037637d6ee8c990
+vendor/lib64/libOmxSwVdec.so|f891c5cb584e317ad0cb855c266100658406f556
+vendor/lib64/libOmxSwVencMpeg4.so|91f7a60674477b067d36493ddb44ea6c044b16ac
+vendor/lib64/libOmxVpp.so|a87440c7838b6f03726d97a4a52b695bb4c6e8f8
+vendor/lib64/libOmxWmaDec.so|7b2a714a74fea03a403a7d0edef61db2f70d7d4e
+vendor/lib64/libswvdec.so|ae1f55c7094e2a006e28dcfb0f2b9c32634fb849
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -824,6 +806,21 @@ vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
+
+# VPP - from PNX - RKQ1.200906.002
+vendor/bin/vppservice|555301b19a86374900159423c88efd7bd9cea2f9
+vendor/etc/configstore/vpp.configstore.xml|d5095f33c326017a21fff186d19a2ce146b85d94
+vendor/etc/init/vppservice.rc|9daea1a00124d65ecb6978936785273edb74a8ed
+vendor/lib/libvppclient.so|3ec875c9813494878d3bbea32d65070fa68af0f1
+vendor/lib/libvpphvx.so|a3869a611414316250b71be42b69638c31e9a8f9
+vendor/lib/libvpplibrary.so|c7c2e2a64ef4a1d4d4103130835da94f58eb2f4b
+vendor/lib/vendor.qti.hardware.vpp@1.1.so|8df356bc93951b2072590ff17c5d7af08b4e8299
+vendor/lib/vendor.qti.hardware.vpp@1.2.so|edd5e3b33c51c31c8e9e54912269e893c4e3c730
+vendor/lib64/libvppclient.so|3cf0dc7ce3fa3adf9d05e674e3359fadd02a730c
+vendor/lib64/libvpphvx.so|e1cfc643118f32a73d45c78929edc9815705229d
+vendor/lib64/libvpplibrary.so|3cdb980f51d0c0eecdb878eb869102c038b2f803
+vendor/lib64/vendor.qti.hardware.vpp@1.1.so|f7769685d9c0c74f8c8419db028a5d5c3f65a9da
+vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308e6cf
 
 # WiFi
 vendor/bin/cnss-daemon
