@@ -99,6 +99,8 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # Graphics
 debug.egl.hw=0
 debug.sf.hw=0
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno
 ro.opengles.version=196610
 
 # IMS
