@@ -38,7 +38,6 @@ on init
     write /dev/stune/top-app/schedtune.colocate 1
 
     # Disable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 0
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 0
 
@@ -83,7 +82,6 @@ on property:init.svc.vendor.charger=running
     wait /dev/block/bootdevice
 
     # Enable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
 
@@ -223,7 +221,6 @@ on enable-low-power
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
     # Enable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkscale_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
 
