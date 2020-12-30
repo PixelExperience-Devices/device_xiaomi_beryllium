@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2018-2020 The LineageOS Project
+ * Copyright (C) 2020 The PixelExperience Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,49 +38,19 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
-static constexpr int kDefaultMaxBrightness = 255;
-static constexpr int kRampSteps = 8;
-static constexpr int kRampMaxStepDurationMs = 50;
-
-static uint32_t getBrightness(const LightState& state) {
-    uint32_t alpha, red, green, blue;
-
-    // Extract brightness from AARRGGBB
-    alpha = (state.color >> 24) & 0xff;
-
-    // Retrieve each of the RGB colors
-    red = (state.color >> 16) & 0xff;
-    green = (state.color >> 8) & 0xff;
-    blue = state.color & 0xff;
-
-    // Scale RGB colors if a brightness has been applied by the user
-    if (alpha != 0xff) {
-        red = red * alpha / 0xff;
-        green = green * alpha / 0xff;
-        blue = blue * alpha / 0xff;
-    }
-
-    return (77 * red + 150 * green + 29 * blue) >> 8;
-}
+static constexpr uint32_t kBrightnessNoBlink = 5;
 
 Light::Light() {
-    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 2));
-    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 1));
+    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification, this, std::placeholders::_1, 0));
+    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification, this, std::placeholders::_1, 1));
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleNotification, this, std::placeholders::_1, 2));
 }
 
-void Light::handleWhiteLed(const LightState& state, size_t index) {
-    mLightStates.at(index) = state;
+void Light::handleBattery(const LightState& state) {
+    uint32_t whiteBrightness = getBrightness(state);
 
-    LightState stateToUse = mLightStates.front();
-    for (const auto& lightState : mLightStates) {
-        if (lightState.color & 0xffffff) {
-            stateToUse = lightState;
-            break;
-        }
-    }
-
-    uint32_t whiteBrightness = getBrightness(stateToUse);
+    uint32_t onMs = state.flashMode == Flash::TIMED ? state.flashOnMs : 0;
+    uint32_t offMs = state.flashMode == Flash::TIMED ? state.flashOffMs : 0;
 
     auto getScaledDutyPercent = [](int brightness) -> std::string {
         std::string output;
@@ -87,7 +58,12 @@ void Light::handleWhiteLed(const LightState& state, size_t index) {
             if (i != 0) {
                 output += ",";
             }
-            output += std::to_string(i * 100 * brightness / (kDefaultMaxBrightness * kRampSteps));
+            if (i <= kRampSteps / 2) {
+                output += "0";
+            } else {
+                output += std::to_string((i - kRampSteps / 2) * 100 * brightness /
+                                         (kDefaultMaxBrightness * (kRampSteps/2)));
+            }
         }
         return output;
     };
@@ -95,16 +71,14 @@ void Light::handleWhiteLed(const LightState& state, size_t index) {
     // Disable blinking to start
     set("/sys/class/leds/white/blink", 0);
 
-    if (stateToUse.flashMode == Flash::TIMED) {
-        // If the flashOnMs duration is not long enough to fit ramping up and down
-        // at the default step duration, step duration is modified to fit.
-        int32_t stepDuration = kRampMaxStepDurationMs;
-        int32_t pauseHi = stateToUse.flashOnMs - (stepDuration * kRampSteps * 2);
-        int32_t pauseLo = stateToUse.flashOffMs;
-
-        if (pauseHi < 0) {
-            stepDuration = stateToUse.flashOnMs / (kRampSteps * 2);
+    if (onMs > 0 && offMs > 0) {
+        uint32_t pauseLo, pauseHi, stepDuration;
+        stepDuration = 10;
+        if (stepDuration * kRampSteps > onMs) {
             pauseHi = 0;
+        } else {
+            pauseHi = onMs - kRampSteps * stepDuration;
+            pauseLo = offMs - kRampSteps * stepDuration;
         }
 
         set("/sys/class/leds/white/start_idx", 0);
@@ -113,6 +87,33 @@ void Light::handleWhiteLed(const LightState& state, size_t index) {
         set("/sys/class/leds/white/pause_hi", pauseHi);
         set("/sys/class/leds/white/ramp_step_ms", stepDuration);
 
+        // Start blinking
+        set("/sys/class/leds/white/blink", 1);
+    } else {
+        set("/sys/class/leds/white/brightness", whiteBrightness);
+    }
+}
+
+void Light::handleNotification(const LightState& state, size_t index) {
+    mLightStates.at(index) = state;
+
+    uint32_t whiteBrightness = 0;
+    LightState stateToUse = mLightStates.front();
+    for (const auto& lightState : mLightStates) {
+        if (lightState.color & 0xffffff) {
+            stateToUse = lightState;
+            whiteBrightness = kBrightnessNoBlink;
+            break;
+        }
+    }
+
+    uint32_t onMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOnMs : 0;
+    uint32_t offMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOffMs : 0;
+
+    // Disable blinking to start
+    set("/sys/class/leds/white/blink", 0);
+
+    if (onMs > 0 && offMs > 0) {
         // Start blinking
         set("/sys/class/leds/white/blink", 1);
     } else {
