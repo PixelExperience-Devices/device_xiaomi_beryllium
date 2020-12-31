@@ -1,4 +1,5 @@
 // Copyright (C) 2018,2020 The LineageOS Project
+// Copyright (C) 2020 The PixelExperience Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -27,5 +28,24 @@ cc_binary {
         "libhidlbase",
         "liblog",
         "libutils",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.lights-service.beryllium",
+    relative_install_path: "hw",
+    init_rc: ["aidl/android.hardware.lights-beryllium.rc"],
+    vintf_fragments: ["aidl/android.hardware.lights-beryllium.xml"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libhardware",
+        "libbinder_ndk",
+        "android.hardware.light-ndk_platform",
+    ],
+    srcs: [
+        "aidl/Lights.cpp",
+        "aidl/main.cpp",
     ],
 }

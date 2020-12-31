@@ -1,0 +1,22 @@
+on boot
+    chown system system /sys/class/leds/white/brightness
+
+    chown system system /sys/class/leds/white/blink
+    chown system system /sys/class/leds/white/duty_pcts
+    chown system system /sys/class/leds/white/pause_hi
+    chown system system /sys/class/leds/white/pause_lo
+    chown system system /sys/class/leds/white/ramp_step_ms
+    chown system system /sys/class/leds/white/start_idx
+
+    chmod 660 /sys/class/leds/white/blink
+    chmod 660 /sys/class/leds/white/duty_pcts
+    chmod 660 /sys/class/leds/white/pause_hi
+    chmod 660 /sys/class/leds/white/pause_lo
+    chmod 660 /sys/class/leds/white/ramp_step_ms
+    chmod 660 /sys/class/leds/white/start_idx
+
+service vendor.light-beryllium /vendor/bin/hw/android.hardware.lights-service.beryllium
+    class hal
+    user system
+    group system
+    shutdown critical
