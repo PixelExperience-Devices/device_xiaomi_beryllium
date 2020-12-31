@@ -37,19 +37,6 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
-/*
- * Read from path and close file.
- * Return def in case of any failure.
- */
-template <typename T>
-static T get(const std::string& path, const T& def) {
-    std::ifstream file(path);
-    T result;
-
-    file >> result;
-    return file.fail() ? def : result;
-}
-
 static constexpr int kDefaultMaxBrightness = 255;
 static constexpr int kRampSteps = 50;
 static constexpr int kRampMaxStepDurationMs = 5;
