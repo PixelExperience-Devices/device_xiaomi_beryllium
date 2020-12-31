@@ -191,7 +191,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.beryllium
+    android.hardware.lights-service.beryllium
 
 # Media
 PRODUCT_PACKAGES += \

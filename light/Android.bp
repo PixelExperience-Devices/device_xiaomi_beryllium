@@ -18,7 +18,6 @@ cc_binary {
     defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.beryllium",
     init_rc: ["hidl/android.hardware.light@2.0-service.beryllium.rc"],
-    vintf_fragments: ["android.hardware.light@2.0-service.beryllium.xml"],
     srcs: ["hidl/service.cpp", "hidl/Light.cpp"],
     vendor: true,
     shared_libs: [
