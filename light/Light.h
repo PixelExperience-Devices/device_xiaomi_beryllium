@@ -45,12 +45,11 @@ class Light : public ILight {
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
   private:
-    void handleBattery(const LightState& state);
-    void handleNotification(const LightState& state, size_t index);
+    void handleWhiteLed(const LightState& state, size_t index);
 
     std::mutex mLock;
     std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
-    std::array<LightState, 2> mLightStates;
+    std::array<LightState, 3> mLightStates;
 };
 
 }  // namespace implementation
