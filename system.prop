@@ -22,9 +22,6 @@ vendor.bluetooth.soc=cherokee
 camera.disable_zsl_mode=true
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
-# CNE
-persist.vendor.cne.feature=1
-
 # Data modules
 persist.data.df.dev_name=rmnet_usb0
 persist.vendor.data.mode=concurrent
@@ -36,11 +33,6 @@ ro.vendor.display.ad=1
 ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
 ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
 ro.vendor.display.sensortype=2
-
-# DPM
-persist.vendor.dpm.feature=1
-persist.vendor.dpm.loglevel=0
-persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Graphics
 debug.sf.disable_backpressure=1
