@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2015-2016 The CyanogenMod Project
-                   2017-2020 The LineageOS Project
+                   2017-2021 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -32,8 +32,10 @@
         android:targetSdkVersion="24"/>
 
     <application
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
-        android:persistent="true">
+        android:persistent="true"
+        android:theme="@style/Theme.Main">
 
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
@@ -44,8 +46,7 @@
 
         <activity
             android:name=".dirac.DiracActivity"
-            android:label="@string/dirac_title"
-            android:theme="@style/Theme.Main">
+            android:label="@string/dirac_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -59,8 +60,7 @@
 
         <activity
             android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_title"
-            android:theme="@style/Theme.Main">
+            android:label="@string/ambient_display_title">
             <intent-filter>
                 <action android:name="org.lineageos.settings.device.DOZE_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -69,8 +69,7 @@
 
         <activity
             android:name=".thermal.ThermalActivity"
-            android:label="@string/thermal_title"
-            android:theme="@style/Theme.Main">
+            android:label="@string/thermal_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
