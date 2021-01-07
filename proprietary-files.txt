@@ -722,7 +722,7 @@ vendor/lib/libkeymasterprovision.so
 vendor/lib/libkeymasterutils.so
 
 # Listen
-vendor/lib64/hw/sound_trigger.primary.sdm845.so
+vendor/lib64/hw/sound_trigger.primary.sdm845.so|36f4868c560deaffc07e661893e145167d707fbe
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libgcs-calwrapper.so
@@ -733,7 +733,7 @@ vendor/lib64/libjnihelper.so
 vendor/lib64/liblistenjni.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
-vendor/lib/hw/sound_trigger.primary.sdm845.so
+vendor/lib/hw/sound_trigger.primary.sdm845.so|5454d56f9e19a8bcc00c1f3cd0bf305406c125a5
 vendor/lib/libadpcmdec.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
