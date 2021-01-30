@@ -68,7 +68,7 @@ ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
     }
     if (id == (int)LightType::BACKLIGHT) {
         ALOGD("Do nothing for screen backlight brightness.");
-        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        return ndk::ScopedAStatus::ok();
     }
 
     std::lock_guard<std::mutex> lock(mLock);
