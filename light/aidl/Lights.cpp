@@ -36,7 +36,7 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
-static constexpr uint32_t kBrightnessNoBlink = 5;
+static constexpr uint32_t kBrightnessNoBlink = 90;
 
 const static std::map<LightType, int> kSupportedLights = {
     {LightType::BACKLIGHT, 3},
