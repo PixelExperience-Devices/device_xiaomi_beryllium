@@ -1,0 +1,6 @@
+runtime_resource_overlay {
+    name: "BerylliumFaceUnlockOverlay",
+    sdk_version: "current",
+    resource_dirs: ["res"],
+    vendor: true,
+}

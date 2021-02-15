@@ -1,0 +1,2 @@
+# Face Unlock
+get_prop(platform_app, camera_prop)
