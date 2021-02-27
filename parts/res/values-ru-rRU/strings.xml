@@ -56,4 +56,14 @@
     <string name="dirac_preset_country">Кантри</string>
     <string name="dirac_preset_dance">Танцевальная</string>
     <string name="dirac_preset_metal">Металл</string>
+    <!-- Thermal profiles -->
+    <string name="thermal_title">Профили оптимизации</string>
+    <string name="thermal_summary">Установите профили температуры для оптимальной производительности приложений</string>
+    <string name="thermal_default">Без оптимизации</string>
+    <string name="thermal_benchmark">Производительность</string>
+    <string name="thermal_browser">Браузер</string>
+    <string name="thermal_camera">Камера</string>
+    <string name="thermal_dialer">Звонки</string>
+    <string name="thermal_gaming">Игры</string>
+    <string name="thermal_streaming">Стриминг</string>
 </resources>
