@@ -143,6 +143,9 @@ ro.vendor.audio.soundtrigger.vop.adsp.level=10
 ro.vendor.audio.soundtrigger.training.level=60
 ro.vendor.audio.soundtrigger.hist.duration=1500
 
+# Netflix custom property
+ro.netflix.bsp_rev=Q845-14477-1
+
 # Network manager
 persist.vendor.data.iwlan.enable=true
 ro.telephony.iwlan_operation_mode=legacy

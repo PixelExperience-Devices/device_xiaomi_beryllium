@@ -56,9 +56,6 @@ media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 # Memory optimizations
 ro.vendor.qti.sys.fw.bservice_enable=true
 
-# Netflix custom property
-ro.netflix.bsp_rev=Q845-05000-1
-
 # QC framework value-adds
 ro.vendor.qti.va_aosp.support=1
 
