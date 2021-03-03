@@ -87,6 +87,10 @@ vendor.qcom.bluetooth.soc=cherokee
 # Charger
 ro.charger.enable_suspend=true
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SDM845
+
 # CNE
 persist.vendor.cne.feature=1
 
