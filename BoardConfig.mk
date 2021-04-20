@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018-2020 The LineageOS Project
+# Copyright (C) 2018-2021 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -145,7 +145,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/scripts
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2020-09-01
+VENDOR_SECURITY_PATCH := 2020-12-01
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
