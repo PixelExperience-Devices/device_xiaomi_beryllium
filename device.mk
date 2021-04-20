@@ -52,6 +52,10 @@ PRODUCT_PACKAGES += \
     Snap \
     vendor.qti.hardware.camera.device@1.0.vendor
 
+# Charger
+PRODUCT_PACKAGES += \
+    libsuspend
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.target.rc \
