@@ -652,7 +652,7 @@ service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
     group system input
 
 on property:vold.decrypt=trigger_restart_framework
-    restart vendor.audio-hal-2-0
+    restart vendor.audio-hal
     start vendor-sensor-sh
 
 on boot && property:persist.vendor.usb.controller.default=*
