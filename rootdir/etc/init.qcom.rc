@@ -79,7 +79,6 @@ on fs
     mkdir /mnt/vendor/persist 0771 root system
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
-    swapon_all /vendor/etc/fstab.qcom
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/audio 0755 system system
     mkdir /mnt/vendor/persist/data 0700 system system
@@ -479,6 +478,9 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 128
     write /sys/block/dm-2/queue/read_ahead_kb 128
     write /sys/block/dm-3/queue/read_ahead_kb 128
+
+    # Enable ZRAM
+    swapon_all /vendor/etc/fstab.qcom
 
     start qcom-post-boot
 
