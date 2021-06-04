@@ -139,7 +139,6 @@ on property:init.svc.vendor.charger=running
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
 
     start vendor.power_off_alarm
-    start vendor.poweroffm64
     mount tmpfs tmpfs /data
     start vendor.thermal-engine
     setprop vendor.usb.controller a600000.dwc3
@@ -284,8 +283,3 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     disabled
     oneshot
-
-service vendor.poweroffm64 /vendor/bin/poweroffm64
-    class late_start
-    oneshot
-    seclabel u:r:poweroffm64:s0
