@@ -133,7 +133,7 @@ $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 
 # GNSS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0.vendor
+    android.hardware.gnss@2.1.vendor
 
 # GPS
 PRODUCT_COPY_FILES += \
