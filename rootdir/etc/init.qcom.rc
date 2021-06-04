@@ -573,11 +573,6 @@ service time_daemon /vendor/bin/time_daemon
 on property:ro.vendor.radio.noril=*
     setprop ro.radio.noril ${ro.vendor.radio.noril}
 
-service seemp_healthd /vendor/bin/seemp_healthd
-    class late_start
-    user system
-    group system
-
 # Set GPU OpenGL ES version
 on property:vendor.opengles.version=*
     setprop ro.opengles.version ${vendor.opengles.version}
