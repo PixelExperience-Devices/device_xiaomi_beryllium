@@ -312,10 +312,6 @@ on post-fs-data
     mkdir /data/vendor/port_bridge 0770 radio radio
     chmod 0770 /data/vendor/port_bridge
 
-    # Create netmgr log dir
-    mkdir /data/vendor/netmgr 0770 radio radio
-    chmod 0770 /data/vendor/netmgr
-
     # Create the directories used by CnE subsystem
     mkdir /data/vendor/connectivity 0771 radio radio
     chown radio radio /data/vendor/connectivity
@@ -500,9 +496,6 @@ service vendor.port-bridge /system/vendor/bin/port-bridge
     user radio
     group radio system inet
     oneshot
-
-service vendor.netmgrd /system/vendor/bin/netmgrd
-    class main
 
 service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class early_hal
