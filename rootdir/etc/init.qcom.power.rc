@@ -127,6 +127,10 @@ on property:init.svc.vendor.charger=running
     # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    # Enable charging LED indicator
+    chown system system /sys/class/leds/white/brightness
+    write /sys/class/leds/white/brightness 255
+
     write /sys/module/msm_thermal/parameters/enabled "N"
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
     mkdir /mnt/vendor/persist
