@@ -80,10 +80,25 @@
          Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">128</integer>
 
-	<!-- Screen brightness used to dim the screen when the user activity
+    <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">1</integer>
+
+    <!-- Minimum screen brightness setting allowed by power manager.
+         The user is forbidden from setting the brightness below this level.
+         Equivalent to 1/255. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.003921569</item>
+
+
+    <!-- The user is forbidden from setting the brightness above this level.
+         Equivalent to 255/255. -->
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting set.
+         Must be in the range specified by minimum and maximum.
+         Equivalent to 128/255. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.5</item>
 
     <!-- Array of output values for LCD backlight corresponding to the lux values
          in the config_autoBrightnessLevels array.  This array should have size one greater
