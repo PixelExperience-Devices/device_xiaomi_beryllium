@@ -579,4 +579,14 @@
         <ctl name="ADC3 Volume" value="8" />
         <ctl name="ADC1 Volume" value="8" />
     </path>
+
+    <path name="audio-record">
+        <ctl name="MultiMedia1 Mixer SLIM_0_TX" value="1" />
+        <ctl name="DEC7 Volume" value="106"/>
+    </path>
+
+    <path name="audio-record-voip">
+        <ctl name="MultiMedia10 Mixer SLIM_0_TX" value="1" />
+        <ctl name="DEC7 Volume" value="106"/>
+    </path>
 </mixer>
