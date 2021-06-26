@@ -67,6 +67,9 @@ on init
     chmod 0660 /dev/mi-camera-vendor2hal
     chmod 0660 /dev/mi-camera-hal2vendor
 
+    # Change permissions for /dev/diag
+    chmod 0666 /dev/diag
+
 on fs
     wait /dev/block/platform/soc/1d84000.ufshc
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
