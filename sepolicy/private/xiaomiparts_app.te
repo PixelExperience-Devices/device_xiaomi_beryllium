@@ -10,6 +10,8 @@ allow xiaomiparts_app audioserver_service:service_manager find;
 allow xiaomiparts_app system_app_data_file:dir create_dir_perms;
 allow xiaomiparts_app system_app_data_file:{ file lnk_file } create_file_perms;
 
+allow xiaomiparts_app mediaserver_service:service_manager { find } ;
+
 # Allow binder communication with gpuservice
 binder_call(xiaomiparts_app, gpuservice)
 
