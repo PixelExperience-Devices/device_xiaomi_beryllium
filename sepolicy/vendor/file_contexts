@@ -44,6 +44,7 @@
 /vendor/bin/hw/android\.hardware\.lights-service\.beryllium                                      u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.beryllium                                     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                                   u:object_r:hal_neuralnetworks_default_exec:s0
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.beryllium                               u:object_r:hal_vibrator_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0

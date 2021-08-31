@@ -1,0 +1,42 @@
+Common_CFlags = ["-Wall"]
+Common_CFlags += ["-Werror"]
+
+cc_library_shared {
+    name: "vendor.qti.hardware.vibrator.impl.beryllium",
+    vendor: true,
+    cflags: Common_CFlags,
+    srcs: [
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libqtivibratoreffect.beryllium",
+        "libbinder_ndk",
+        "android.hardware.vibrator-ndk_platform",
+    ],
+    export_include_dirs: ["include"]
+}
+
+cc_binary {
+    name: "vendor.qti.hardware.vibrator.service.beryllium",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.qti.hardware.vibrator.service.beryllium.rc"],
+    vintf_fragments: [
+        "vendor.qti.hardware.vibrator.service.beryllium.xml",
+    ],
+    cflags: Common_CFlags,
+    srcs: [
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.vibrator-ndk_platform",
+        "vendor.qti.hardware.vibrator.impl.beryllium",
+    ],
+}
