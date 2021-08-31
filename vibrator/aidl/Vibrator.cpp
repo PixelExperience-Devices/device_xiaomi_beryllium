@@ -64,6 +64,16 @@ namespace vibrator {
 
 #define test_bit(bit, array)    ((array)[(bit)/8] & (1<<((bit)%8)))
 
+// all Xiaomi SDM845 vibrators have 4878 as WAVE_PLAY_RATE_US
+#define WAVE_PLAY_RATE_US       4878
+// from LED based QPNP Haptics driver
+#define HAP_WAVE_SAMP_LEN       8
+// assume 2 repetitions to accommodate for effects like double click
+#define WF_REPEAT               2
+
+// based on get_play_length() function from upstream qti-haptics driver
+static const long dummyPlayMs = WAVE_PLAY_RATE_US * HAP_WAVE_SAMP_LEN * WF_REPEAT / 1000;
+
 static const char LED_DEVICE[] = "/sys/class/leds/vibrator";
 
 InputFFDevice::InputFFDevice()
@@ -405,6 +415,34 @@ int LedVibratorDevice::off()
     return ret;
 }
 
+int LedVibratorDevice::playEffect(Effect effect, long *playLengthMs) {
+    // default to the second effect in the predefined effect array
+    int32_t timeoutMs = 6;
+    char file[PATH_MAX];
+    int ret;
+
+    *playLengthMs = dummyPlayMs;
+
+    // QPNP haptics driver calculates the index as timeoutMs / 5
+    if (effect == Effect::CLICK || effect == Effect::DOUBLE_CLICK || effect == Effect::THUD || effect == Effect::POP) {
+        timeoutMs = 6;
+    } else if (effect == Effect::TICK) {
+        timeoutMs = 1;
+    } else if (effect == Effect::HEAVY_CLICK) {
+        timeoutMs = 11;
+    }
+
+    // repeat twice for double click
+    snprintf(file, sizeof(file), "%s/%s", LED_DEVICE, "wf_rep_count");
+    if (effect == Effect::DOUBLE_CLICK) {
+        ret = write_value(file, "2");
+    } else {
+        ret = write_value(file, "1");
+    }
+
+    return on(timeoutMs);
+}
+
 ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
     *_aidl_return = IVibrator::CAP_ON_CALLBACK;
 
@@ -470,9 +508,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es, const std
     long playLengthMs;
     int ret;
 
-    if (ledVib.mDetected)
-        return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
-
     ALOGD("Vibrator perform effect %d", effect);
 
     if (effect < Effect::CLICK ||
@@ -482,7 +517,12 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es, const std
     if (es != EffectStrength::LIGHT && es != EffectStrength::MEDIUM && es != EffectStrength::STRONG)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 
-    ret = ff.playEffect((static_cast<int>(effect)), es, &playLengthMs);
+    if (ledVib.mDetected) {
+        ret = ledVib.playEffect(effect, &playLengthMs);
+    } else {
+        ret = ff.playEffect((static_cast<int>(effect)), es, &playLengthMs);
+    }
+
     if (ret != 0)
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_SERVICE_SPECIFIC));
 
@@ -500,9 +540,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es, const std
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect>* _aidl_return) {
-    if (ledVib.mDetected)
-        return ndk::ScopedAStatus::ok();
-
     *_aidl_return = {Effect::CLICK, Effect::DOUBLE_CLICK, Effect::TICK, Effect::THUD,
                      Effect::POP, Effect::HEAVY_CLICK};
 

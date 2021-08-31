@@ -59,6 +59,7 @@ public:
     LedVibratorDevice();
     int on(int32_t timeoutMs);
     int off();
+    int playEffect(Effect effect, long *playLengthMs);
     bool mDetected;
 private:
     int write_value(const char *file, const char *value);

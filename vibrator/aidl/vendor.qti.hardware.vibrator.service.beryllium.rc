@@ -1,3 +1,6 @@
+on boot
+    chown system system /sys/class/leds/vibrator/wf_rep_count
+
 service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service.beryllium
     class hal
     user system
