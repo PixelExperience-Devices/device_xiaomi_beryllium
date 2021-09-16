@@ -68,11 +68,12 @@ namespace vibrator {
 #define WAVE_PLAY_RATE_US       4878
 // from LED based QPNP Haptics driver
 #define HAP_WAVE_SAMP_LEN       8
-// assume 2 repetitions to accommodate for effects like double click
-#define WF_REPEAT               2
+// sleep duration for double click
+#define DOUBLE_CLICK_SLEEP_MS   100
 
 // based on get_play_length() function from upstream qti-haptics driver
-static const long dummyPlayMs = WAVE_PLAY_RATE_US * HAP_WAVE_SAMP_LEN * WF_REPEAT / 1000;
+static const long dummyPlayMs = WAVE_PLAY_RATE_US * HAP_WAVE_SAMP_LEN / 1000;
+static const long dummyDoubleClickPlayMs = WAVE_PLAY_RATE_US * HAP_WAVE_SAMP_LEN / 1000 * 2 + DOUBLE_CLICK_SLEEP_MS;
 
 static const char LED_DEVICE[] = "/sys/class/leds/vibrator";
 
@@ -418,8 +419,6 @@ int LedVibratorDevice::off()
 int LedVibratorDevice::playEffect(Effect effect, long *playLengthMs) {
     // default to the second effect in the predefined effect array
     int32_t timeoutMs = 6;
-    char file[PATH_MAX];
-    int ret;
 
     *playLengthMs = dummyPlayMs;
 
@@ -432,12 +431,11 @@ int LedVibratorDevice::playEffect(Effect effect, long *playLengthMs) {
         timeoutMs = 11;
     }
 
-    // repeat twice for double click
-    snprintf(file, sizeof(file), "%s/%s", LED_DEVICE, "wf_rep_count");
+    // vibrate twice for double click
     if (effect == Effect::DOUBLE_CLICK) {
-        ret = write_value(file, "2");
-    } else {
-        ret = write_value(file, "1");
+        on(timeoutMs);
+        usleep(DOUBLE_CLICK_SLEEP_MS * 1000);
+        *playLengthMs = dummyDoubleClickPlayMs;
     }
 
     return on(timeoutMs);
