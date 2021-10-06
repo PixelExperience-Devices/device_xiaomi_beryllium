@@ -17,6 +17,8 @@
 <resources>
     <!-- Ambient settings -->
     <string name="ambient_enable">Use ambient display</string>
+    <string name="doze_summary">Advanced Ambient Display Preferences</string>
+
 
     <!-- Dirac settings -->
     <string name="dirac_enable">Enable Mi Sound</string>
