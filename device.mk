@@ -125,8 +125,16 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor
+
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
+
+# GNSS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.0.vendor
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -140,6 +148,8 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    android.hidl.allocator@1.0 \
+    android.hidl.allocator@1.0.vendor \
     android.hidl.base@1.0 \
     android.hidl.base@1.0.vendor \
     libhidltransport \
@@ -183,6 +193,10 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0.vendor
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.beryllium
@@ -218,6 +232,10 @@ PRODUCT_COPY_FILES += \
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
+# Neural Network
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
 
 # Net
 PRODUCT_PACKAGES += \
@@ -273,7 +291,8 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.0.vendor
+    vendor.qti.hardware.perf@2.0.vendor \
+    android.hardware.power@1.2.vendor 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -296,6 +315,10 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0.vendor \
+    android.hardware.radio@1.4.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
     libjson \
     librmnetctl
 
@@ -351,7 +374,9 @@ PRODUCT_USE_VNDK_OVERRIDE := true
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb.gadget@1.1 \
+    android.hardware.usb.gadget@1.1.vendor
+    android.hardware.usb@1.0-service 
 
 # Vibrator
 PRODUCT_PACKAGES += \
