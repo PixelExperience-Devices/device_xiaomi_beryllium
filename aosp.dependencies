@@ -16,12 +16,6 @@
     "remote": "pixel-devices-blobs"
   },
   {
-    "repository": "lakgarg/packages_apps_GoogleCameraGo",
-    "target_path": "packages/apps/GoogleCameraGo",
-    "branch": "master",
-    "remote": "gitlab"
-  },
-  {
     "repository": "jjpprrrr/prelude-clang",
     "target_path": "prebuilts/clang/host/linux-x86/clang-prelude",
     "branch": "master",
