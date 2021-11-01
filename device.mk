@@ -30,7 +30,7 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay
+    BerylliumNoCutoutOverlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
