@@ -35,3 +35,11 @@ service remosaic_daemon /vendor/bin/remosaic_daemon
     class late_start
     user camera
     group camera
+
+on late-init
+    # Start services for bootanim
+    start surfaceflinger
+    start bootanim
+    start vendor.hwcomposer-2-3
+    start vendor.configstore-hal
+    start vendor.qti.hardware.display.allocator
