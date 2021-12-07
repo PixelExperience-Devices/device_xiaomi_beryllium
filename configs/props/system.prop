@@ -30,7 +30,6 @@ ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
 ro.vendor.display.sensortype=2
 
 # Graphics
-debug.sf.disable_backpressure=1
 debug.sf.early_app_phase_offset_ns=500000
 debug.sf.early_gl_app_phase_offset_ns=15000000
 debug.sf.early_gl_phase_offset_ns=3000000
