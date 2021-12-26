@@ -82,6 +82,9 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.8.vendor \
     vendor.display.config@1.9.vendor
 
+# GoogleCameraGo
+$(call inherit-product, packages/apps/GoogleCameraGo/gcam.mk)
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845
