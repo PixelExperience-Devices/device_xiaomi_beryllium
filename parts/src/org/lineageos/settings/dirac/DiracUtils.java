@@ -107,7 +107,9 @@ public class DiracUtils {
         }
     }
 
-    public void setEnabled(boolean enable) {
+    public void setEnabled(boolean enable) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         mDiracSound.setEnabled(enable);
         mDiracSound.setMusic(enable ? 1 : 0);
         if (enable) {
@@ -115,11 +117,15 @@ public class DiracUtils {
         }
     }
 
-    public boolean isDiracEnabled() {
+    public boolean isDiracEnabled() throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         return mDiracSound != null && mDiracSound.getMusic() == 1;
     }
 
-    public void setLevel(String preset) {
+    public void setLevel(String preset) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         String[] level = preset.split("\\s*,\\s*");
 
         for (int band = 0; band <= level.length - 1; band++) {
@@ -127,7 +133,9 @@ public class DiracUtils {
         }
     }
 
-    public void setHeadsetType(int paramInt) {
+    public void setHeadsetType(int paramInt) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         mDiracSound.setHeadsetType(paramInt);
     }
 }

@@ -35,31 +35,36 @@ public class DiracSound extends AudioEffect {
     }
 
     public int getMusic() throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         int[] value = new int[1];
         checkStatus(getParameter(DIRACSOUND_PARAM_MUSIC, value));
         return value[0];
     }
 
     public void setMusic(int enable) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
     }
 
     public int getHeadsetType() throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         int[] value = new int[1];
         checkStatus(getParameter(DIRACSOUND_PARAM_HEADSET_TYPE, value));
         return value[0];
     }
 
     public void setHeadsetType(int type) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         checkStatus(setParameter(DIRACSOUND_PARAM_HEADSET_TYPE, type));
     }
 
     public float getLevel(int band) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         int[] param = new int[2];
         byte[] value = new byte[10];
         param[0] = DIRACSOUND_PARAM_EQ_LEVEL;
@@ -69,7 +74,8 @@ public class DiracSound extends AudioEffect {
     }
 
     public void setLevel(int band, float level) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
+            IllegalArgumentException, UnsupportedOperationException,
+            RuntimeException {
         checkStatus(setParameter(new int[]{DIRACSOUND_PARAM_EQ_LEVEL, band},
                 String.valueOf(level).getBytes()));
     }
