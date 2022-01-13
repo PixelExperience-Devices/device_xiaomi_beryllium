@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2020-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_BIOMETRICS_FINGERPRINT_V2_1_BIOMETRICSFINGERPRINT_H
-#define ANDROID_HARDWARE_BIOMETRICS_FINGERPRINT_V2_1_BIOMETRICSFINGERPRINT_H
+#pragma once
 
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 #include <android/log.h>
@@ -90,5 +89,3 @@ struct BiometricsFingerprint : public IBiometricsFingerprint, public IXiaomiFing
 }  // namespace biometrics
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_BIOMETRICS_FINGERPRINT_V2_1_BIOMETRICSFINGERPRINT_H
