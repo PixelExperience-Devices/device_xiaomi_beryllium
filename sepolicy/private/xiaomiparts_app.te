@@ -21,3 +21,6 @@ allow xiaomiparts_app cgroup:file rw_file_perms;
 
 # Allow XiaomiParts to write to sysfs_thermal
 allow xiaomiparts_app sysfs_thermal:file w_file_perms;
+
+# Allow XiaomiParts to get settingsdebug.instant.packages prop
+get_prop(xiaomiparts_app, settingslib_prop)
