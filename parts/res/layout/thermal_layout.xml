@@ -14,15 +14,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ListView
-        android:id="@+id/thermal_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:fastScrollEnabled="true" />
-</RelativeLayout>
+<androidx.recyclerview.widget.RecyclerView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/thermal_rv_view"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
