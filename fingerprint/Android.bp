@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2017-2021 The LineageOS Project
+// Copyright (C) 2017-2022 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.beryllium",
+    name: "android.hardware.biometrics.fingerprint@2.3-service.beryllium",
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.beryllium.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.beryllium.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.beryllium.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.beryllium.xml"],
     srcs: ["service.cpp", "BiometricsFingerprint.cpp"],
     shared_libs: [
         "libbase",
@@ -28,6 +28,8 @@ cc_binary {
         "libutils",
         "libcutils",
         "android.hardware.biometrics.fingerprint@2.1",
+        "android.hardware.biometrics.fingerprint@2.2",
+        "android.hardware.biometrics.fingerprint@2.3",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
     ],
     proprietary: true,
