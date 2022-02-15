@@ -43,7 +43,7 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.beryllium                   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.lights-service\.beryllium                                      u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.beryllium                                     u:object_r:hal_light_default_exec:s0
-/vendor/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                                   u:object_r:hal_neuralnetworks_default_exec:s0
+/vendor/bin/hw/android\.hardware\.neuralnetworks@1\.3-service-qti                                   u:object_r:hal_neuralnetworks_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.beryllium                               u:object_r:hal_vibrator_default_exec:s0
 
 # Persist files
