@@ -8,6 +8,8 @@
 #       /proc/device-tree/firmware/android/fstab/vendor
 
 #<src>                                      <mnt_point>             <type>  <mnt_flags and options>                                                                           <fs_mgr_flags>
+system                                       /system                 ext4    ro,barrier=1                                                                                      wait,logical,first_stage_mount
+vendor                                       /vendor                 ext4    ro,barrier=1                                                                                      wait,logical,first_stage_mount
 /dev/block/bootdevice/by-name/userdata       /data                   ext4    noatime,nosuid,nodev,barrier=0,noauto_da_alloc                                                    wait,check,fileencryption=ice,quota
 /dev/block/bootdevice/by-name/userdata       /data                   f2fs    nosuid,nodev,noatime,discard,background_gc=off,fsync_mode=nobarrier                               wait,fileencryption=ice,quota
 /dev/block/bootdevice/by-name/modem          /vendor/firmware_mnt    vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0         wait
@@ -19,9 +21,7 @@
 /dev/block/bootdevice/by-name/misc           /misc                   emmc    defaults                                                                                          defaults
 /dev/block/bootdevice/by-name/boot           /boot                   emmc    defaults                                                                                          recoveryonly
 /dev/block/bootdevice/by-name/recovery       /recovery               emmc    defaults                                                                                          recoveryonly
-/dev/block/bootdevice/by-name/system         /system                 ext4    ro,barrier=1                                                                                      wait,recoveryonly
 /dev/block/bootdevice/by-name/cust           /system_ext             ext4    ro,barrier=1                                                                                      wait,recoveryonly
-/dev/block/bootdevice/by-name/vendor         /vendor                 ext4    ro,barrier=1                                                                                      wait,recoveryonly
 /dev/block/by-name/cust                      /metadata               ext4    noatime,nosuid,nodev,discard,data=journal,commit=1                                                wait,formattable
 /dev/block/zram0                             none                    swap    defaults                                                                                          zramsize=3221225472,max_comp_streams=8,zram_backingdev_size=512M
 
