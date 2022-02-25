@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="override_front_cam_id">5</integer>
+    <bool name="use_alternative_vendor_impl">true</bool>
 </resources>
