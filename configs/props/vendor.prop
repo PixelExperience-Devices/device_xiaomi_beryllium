@@ -134,6 +134,9 @@ drm.service.enabled=true
 # FM
 vendor.hw.fm.init=0
 
+# USB
+vendor.usb.product_string=Xiaomi Pocophone F1
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
