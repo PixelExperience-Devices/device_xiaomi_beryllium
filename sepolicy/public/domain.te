@@ -1,0 +1,2 @@
+# Allow apps to get aux camera prop
+get_prop(domain, vendor_persist_camera_prop)
