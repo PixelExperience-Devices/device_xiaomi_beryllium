@@ -70,6 +70,7 @@
     <string name="dirac_preset_treble_reduction">Treble Reduction</string>
     <string name="dirac_preset_soft_bass">Soft Bass</string>
     <string name="dirac_preset_soft_treble">Soft Treble</string>
+    <string name="dirac_preset_custom">Basreble</string>
 
     <!-- Dirac : QS tile  -->
     <string name="dirac_qs_tile_title">Dirac sound</string>
