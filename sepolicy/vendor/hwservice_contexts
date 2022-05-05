@@ -9,6 +9,5 @@ vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemonExt    u:
 vendor.synaptics.fingerprints.interfaces.extensions::ISensorTest              u:object_r:hal_fingerprint_hwservice:s0
 vendor.synaptics.fingerprints.interfaces.extensions::INavigation              u:object_r:hal_fingerprint_hwservice:s0
 vendor.synaptics.fingerprints.interfaces.extensions::IFpCollection            u:object_r:hal_fingerprint_hwservice:s0
-vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint               u:object_r:hal_fingerprint_hwservice:s0
 
 vendor.xiaomi.hardware.mlipay::IMlipayService                                 u:object_r:hal_mlipay_hwservice:s0

@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2020-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,37 +27,12 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
 // Generated HIDL files
+using android::hardware::biometrics::fingerprint::V2_3::IBiometricsFingerprint;
 using android::hardware::biometrics::fingerprint::V2_3::implementation::BiometricsFingerprint;
 
-using android::status_t;
-
-status_t BiometricsFingerprint::registerAsSystemService() {
-    status_t ret = 0;
-
-    ret = IBiometricsFingerprint::registerAsService();
-    if (ret != 0) {
-        ALOGE("Failed to register IBiometricsFingerprint (%d)", ret);
-        goto fail;
-    } else {
-        ALOGI("Successfully registered IBiometricsFingerprint");
-    }
-
-    ret = IXiaomiFingerprint::registerAsService();
-    if (ret != 0) {
-        ALOGE("Failed to register IXiaomiFingerprint (%d)", ret);
-        goto fail;
-    } else {
-        ALOGI("Successfully registered IXiaomiFingerprint");
-    }
-
-fail:
-    return ret;
-}
-
 int main() {
-    android::sp<BiometricsFingerprint> service = nullptr;
+    android::sp<IBiometricsFingerprint> service = BiometricsFingerprint::getInstance();
 
-    service = new BiometricsFingerprint();
     if (service == nullptr) {
         ALOGE("Instance of BiometricsFingerprint is null");
         return 1;
@@ -65,9 +40,9 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status_t status = service->registerAsSystemService();
+    android::status_t status = service->registerAsService();
     if (status != android::OK) {
-        ALOGE("Cannot register service for Fingerprint HAL(%d).", status);
+        ALOGE("Cannot register BiometricsFingerprint service");
         return 1;
     }
 
