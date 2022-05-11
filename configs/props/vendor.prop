@@ -117,6 +117,9 @@ persist.vendor.cne.feature=1
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
 
+# Dalvik
+dalvik.vm.systemuicompilerfilter=speed
+
 # Display post-processing
 ro.vendor.display.cabl=2
 vendor.display.enable_default_color_mode=1
