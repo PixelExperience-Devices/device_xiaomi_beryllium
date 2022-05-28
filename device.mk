@@ -222,10 +222,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
-# Net
-PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0
-
 # Overlays
 PRODUCT_PACKAGES += \
     BerylliumCarrierConfigOverlay \
