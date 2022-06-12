@@ -31,10 +31,10 @@ import java.util.List;
 public class DiracUtils {
 
     private static DiracUtils mInstance;
-    private DiracSound mDiracSound;
+    protected static DiracSound mDiracSound;
     private MediaSessionManager mMediaSessionManager;
     private Handler mHandler = new Handler();
-    private Context mContext;
+    private static Context mContext;
 
     public DiracUtils(Context context) {
         mContext = context;
