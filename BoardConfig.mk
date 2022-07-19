@@ -65,6 +65,7 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_dis>
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
+BOARD_KERNEL_CMDLINE += cgroup_disable=pressure
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
