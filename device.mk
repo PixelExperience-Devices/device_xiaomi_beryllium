@@ -32,7 +32,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio@2.1-impl:32 \
+    android.hardware.bluetooth.audio-impl:32 \
+    android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0.vendor \
+    android.hardware.bluetooth@1.1 \
+    android.hardware.bluetooth@1.1.vendor \
     audio.bluetooth.default \
     libbthost_if \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
@@ -353,7 +357,7 @@ PRODUCT_USE_VNDK_OVERRIDE := true
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb.gadget@1.1 \
-    android.hardware.usb.gadget@1.1.vendor
+    android.hardware.usb.gadget@1.1.vendor \
     android.hardware.usb@1.0-service 
 
 # Vibrator
