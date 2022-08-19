@@ -1,0 +1,16 @@
+//
+// Copyright (C) 2022 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libpiex_shim",
+
+    shared_libs: [
+        "libpiex",
+        "libutils",
+    ],
+
+    proprietary: true,
+    srcs: ["libpiex_shim.cpp"],
+}

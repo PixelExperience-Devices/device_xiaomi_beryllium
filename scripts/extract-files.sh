@@ -72,6 +72,14 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/lib/camera/components/com.mi.node.watermark.so )
+            $PATCHELF --add-needed "libpiex_shim.so" "${2}"
+            ;;
+    esac
+}
+
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 

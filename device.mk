@@ -53,6 +53,9 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     vendor.qti.hardware.camera.device@1.0.vendor
 
+PRODUCT_PACKAGES += \
+    libpiex_shim
+
 # Charger
 PRODUCT_PACKAGES += \
     libsuspend
