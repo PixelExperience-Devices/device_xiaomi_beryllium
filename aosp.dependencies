@@ -2,17 +2,17 @@
   {
     "repository": "device_xiaomi_sdm845-common",
     "target_path": "device/xiaomi/sdm845-common",
-    "branch": "twelve"
+    "branch": "thirteen"
   },
   {
     "repository": "kernel_xiaomi_polaris",
     "target_path": "kernel/xiaomi/beryllium",
-    "branch": "twelve"
+    "branch": "thirteen"
   },
   {
     "repository": "vendor_xiaomi_beryllium",
     "target_path": "vendor/xiaomi/beryllium",
-    "branch": "eleven",
+    "branch": "thirteen",
     "remote": "pixel-devices-blobs"
   },
   {
