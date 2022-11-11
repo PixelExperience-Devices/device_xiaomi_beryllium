@@ -77,6 +77,8 @@ vendor.audio.safx.pbe.enabled=false
 vendor.audio.tunnel.encode=false
 vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
+persist.bt.enableAptXHD=true
+persist.service.btui.use_aptx=1
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
