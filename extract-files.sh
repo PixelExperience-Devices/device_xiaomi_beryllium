@@ -18,7 +18,7 @@ function blob_fixup() {
         patchelf --replace-needed "libstdc++.so"  "libc++.so" "${2}"
         ;;
     vendor/lib/camera/components/com.qti.node.watermark.so)
-        patchelf --add-needed "libpiex_shim.so" "${2}"
+        patchelf --add-needed "libpiex_shim_beryllium.so" "${2}"
         ;;
     esac
 }
