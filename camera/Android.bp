@@ -4,7 +4,7 @@
 //
 
 cc_library_shared {
-    name: "libpiex_shim",
+    name: "libpiex_shim_beryllium",
 
     shared_libs: [
         "libpiex",

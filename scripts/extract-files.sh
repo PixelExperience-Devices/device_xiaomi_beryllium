@@ -75,7 +75,7 @@ fi
 function blob_fixup() {
     case "${1}" in
         vendor/lib/camera/components/com.mi.node.watermark.so )
-            $PATCHELF --add-needed "libpiex_shim.so" "${2}"
+            $PATCHELF --add-needed "libpiex_shim_beryllium.so" "${2}"
             ;;
     esac
 }
