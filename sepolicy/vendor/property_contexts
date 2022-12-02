@@ -31,9 +31,6 @@ ro.boot.hwversion          u:object_r:exported_default_prop:s0
 ro.carrier.name            u:object_r:exported_default_prop:s0
 ro.miui.cust_variant       u:object_r:exported_default_prop:s0
 
-# Mlipay
-persist.vendor.sys.pay.ifaa              u:object_r:vendor_tee_listener_prop:s0
-
 # Sensors
 persist.sensor.sardisable  u:object_r:sensors_prop:s0
 
