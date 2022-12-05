@@ -14,8 +14,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.0-service.xiaomi_sdm845",
-    init_rc: ["vendor.lineage.livedisplay@2.0-service.xiaomi_sdm845.rc"],
+    name: "vendor.lineage.livedisplay@2.0-service.beryllium",
+    init_rc: ["vendor.lineage.livedisplay@2.0-service.beryllium.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [

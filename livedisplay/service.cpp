@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lineage.livedisplay@2.0-service.xiaomi_sdm845"
+#define LOG_TAG "lineage.livedisplay@2.0-service.beryllium"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>

@@ -41,11 +41,11 @@
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds/ir(/.*)?                         u:object_r:sysfs_leds:s0
 
 # HALs
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm845                   u:object_r:hal_fingerprint_default_exec:s0
-/vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm845                                     u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.beryllium                   u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.light@2\.0-service\.beryllium                                     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                                       u:object_r:hal_neuralnetworks_default_exec:s0
-/vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm845            u:object_r:hal_lineage_fod_sdm845_exec:s0
-/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm845                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.beryllium            u:object_r:hal_lineage_fod_sdm845_exec:s0
+/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.beryllium                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
 
 # Persist files
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0

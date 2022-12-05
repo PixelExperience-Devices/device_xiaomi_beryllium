@@ -14,11 +14,11 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.beryllium",
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm845.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.beryllium.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.beryllium.xml"],
     srcs: ["service.cpp", "BiometricsFingerprint.cpp"],
     shared_libs: [
         "libbase",

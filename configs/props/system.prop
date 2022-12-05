@@ -20,6 +20,7 @@ vendor.bluetooth.soc=cherokee
 
 # Camera
 camera.disable_zsl_mode=true
+persist.vendor.camera.perfcapture=1
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # Data modules
@@ -69,6 +70,9 @@ ro.vendor.qti.va_aosp.support=1
 
 # RCS
 persist.rcs.supported=0
+
+# Recovery
+ro.recovery.ui.margin_height=87
 
 # RIL
 DEVICE_PROVISIONED=1

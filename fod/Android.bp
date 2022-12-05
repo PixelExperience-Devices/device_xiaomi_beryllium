@@ -16,9 +16,9 @@
 cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_sdm845",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_sdm845.rc"],
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_sdm845.xml"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.beryllium",
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.beryllium.rc"],
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.beryllium.xml"],
     srcs: [
         "service.cpp",
         "FingerprintInscreen.cpp",
