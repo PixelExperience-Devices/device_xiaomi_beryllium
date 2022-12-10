@@ -1,2 +1,0 @@
-# Grant LiveDisplay access over the control nodes
-allow hal_lineage_livedisplay_qti sysfs_graphics:file rw_file_perms;
