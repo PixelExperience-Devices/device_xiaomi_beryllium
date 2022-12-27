@@ -65,7 +65,6 @@ persist.rcs.supported=0
 ro.recovery.ui.margin_height=87
 
 # RIL
-DEVICE_PROVISIONED=1
 persist.radio.multisim.config=dsds
 persist.sys.fflag.override.settings_provider_model=false
 persist.vendor.radio.apm_sim_not_pwdn=1
@@ -78,8 +77,6 @@ persist.vendor.radio.report_codec=1
 persist.vendor.radio.sib16_support=1
 ril.subscription.types=NV,RUIM
 ro.com.android.dataroaming=true
-ro.telephony.default_network=22,22
-telephony.lteOnCdmaDevice=1
 
 # Zram
 ro.zram.first_wb_delay_mins=1440
