@@ -16,9 +16,9 @@ cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.beryllium",
-    init_rc: ["android.hardware.light@2.0-service.beryllium.rc"],
+    init_rc: ["hidl/android.hardware.light@2.0-service.beryllium.rc"],
     vintf_fragments: ["android.hardware.light@2.0-service.beryllium.xml"],
-    srcs: ["service.cpp", "Light.cpp"],
+    srcs: ["hidl/service.cpp", "hidl/Light.cpp"],
     vendor: true,
     shared_libs: [
         "android.hardware.light@2.0",
