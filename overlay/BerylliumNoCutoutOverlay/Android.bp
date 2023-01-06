@@ -1,0 +1,12 @@
+//
+// Copyright (C) 2022 The Android Open Source Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+runtime_resource_overlay {
+    name: "BerylliumNoCutoutOverlay",
+    theme: "DisplayCutoutNoCutout",
+    sdk_version: "current",
+    product_specific: true,
+}

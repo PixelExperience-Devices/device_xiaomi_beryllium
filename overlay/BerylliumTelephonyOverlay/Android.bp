@@ -1,0 +1,11 @@
+//
+// Copyright (C) 2022 The Android Open Source Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+runtime_resource_overlay {
+    name: "BerylliumTelephonyOverlay",
+    sdk_version: "current",
+    vendor: true,
+}
