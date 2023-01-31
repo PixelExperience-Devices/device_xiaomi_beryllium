@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 ArrowOS
+# Copyright (C) 2022 PixelOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_beryllium.mk
+    $(LOCAL_DIR)/aosp_beryllium.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_beryllium-user \
-    arrow_beryllium-userdebug \
-    arrow_beryllium-eng
+    aosp_beryllium-user \
+    aosp_beryllium-userdebug \
+    aosp_beryllium-eng
