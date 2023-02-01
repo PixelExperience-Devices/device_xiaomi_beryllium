@@ -86,6 +86,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# KProfiles
+PRODUCT_PACKAGES += \
+    KProfiles
+
 # Device fstab
 PRODUCT_PACKAGES += \
     fstab.qcom
