@@ -125,6 +125,7 @@ dalvik.vm.systemuicompilerfilter=speed
 # Display post-processing
 ro.vendor.display.cabl=2
 vendor.display.enable_default_color_mode=1
+debug.sf.enable_egl_image_tracker=1
 
 # DRM
 drm.service.enabled=true
