@@ -250,7 +250,8 @@ PRODUCT_PACKAGES += \
     BerylliumSystemUIOverlay \
     BerylliumTelephonyOverlay \
     TetheringConfigOverlay \
-    WifiOverlay
+    WifiOverlay \
+    ApertureBeryllium
 
 # Perf
 PRODUCT_COPY_FILES += \

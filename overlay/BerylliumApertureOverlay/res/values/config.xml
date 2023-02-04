@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2022 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- An array of triplets made of (camera ID, qualities, framerates).
+         These video modes will be added to the available
+         quality/framerate combinations of a camera device.
+         Make sure the device is able to handle those configurations
+         and maintain a stable framerate at any condition.
+         Note that you can't add video qualities that aren't
+         exposed by the camera, only new framerates.
+         Valid values of resolution are:
+          - "sd" (480p)
+          - "hd" (720p)
+          - "fhd" (1080p)
+          - "uhd" (2160p)
+         Valid values of framerate are:
+          - "24"
+          - "30"
+          - "60"
+          - "120"
+         Example:
+             <string-array name="config_additionalVideoConfigurations">
+                 <item>0</item> <item>sd|hd|fhd</item> <item>60|120</item>
+                 <item>1</item> <item>sd|hd|fhd</item> <item>60</item>
+             </string-array>
+    -->
+    <string-array name="config_additionalVideoConfigurations">
+        <item>0</item> <item>sd|hd|fhd|uhd</item> <item>60</item>
+    </string-array>
+</resources>

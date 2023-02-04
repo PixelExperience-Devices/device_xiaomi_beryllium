@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "ApertureBeryllium",
+    sdk_version: "current",
+    system_ext_specific: true,
+}
