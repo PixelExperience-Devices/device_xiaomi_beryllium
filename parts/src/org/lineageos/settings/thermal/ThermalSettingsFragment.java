@@ -194,20 +194,6 @@ public class ThermalSettingsFragment extends PreferenceFragment
         mSession.rebuild(mActivityFilter, ApplicationsState.ALPHA_COMPARATOR);
     }
 
-    private int getStateDrawable(int state) {
-        switch (state) {
-            case ThermalUtils.STATE_BENCHMARK:
-                return R.drawable.ic_thermal_benchmark;
-            case ThermalUtils.STATE_GAMING:
-                return R.drawable.ic_thermal_gaming;
-            case ThermalUtils.STATE_STREAMING:
-                return R.drawable.ic_thermal_streaming;
-            case ThermalUtils.STATE_DEFAULT:
-            default:
-                return R.drawable.ic_thermal_default;
-        }
-    }
-
     private class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private Spinner mode;
@@ -321,7 +307,6 @@ public class ThermalSettingsFragment extends PreferenceFragment
             int packageState = mThermalUtils.getStateForPackage(entry.info.packageName);
             holder.mode.setSelection(packageState, false);
             holder.mode.setTag(entry);
-            holder.stateIcon.setImageResource(getStateDrawable(packageState));
         }
 
         private void setEntries(List<ApplicationsState.AppEntry> entries,

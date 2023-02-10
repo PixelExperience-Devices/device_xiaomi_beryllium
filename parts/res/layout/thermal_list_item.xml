@@ -18,10 +18,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingBottom="4dp"
+    android:paddingBottom="0dp"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingTop="4dp">
+    android:paddingTop="0dp">
 
     <ImageView
         android:id="@+id/app_icon"
@@ -40,13 +40,13 @@
         <TextView
             android:id="@+id/app_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginTop="2dp"
             android:ellipsize="marquee"
             android:singleLine="true"
             android:textAlignment="viewStart"
-            android:textAppearance="@style/TextAppearance.Medium"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="?android:attr/textColorPrimary" />
 
         <Spinner
@@ -62,6 +62,5 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="8dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_thermal_default" />
+        android:scaleType="centerInside" />
 </LinearLayout>
