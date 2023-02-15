@@ -676,3 +676,7 @@ on property:init.svc.vendor.hwcomposer-2-3=running
 
 on property:init.svc.vendor.hwcomposer-2-3=restarting
     stop ppd
+
+    # Restrict permissions to socket file
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
