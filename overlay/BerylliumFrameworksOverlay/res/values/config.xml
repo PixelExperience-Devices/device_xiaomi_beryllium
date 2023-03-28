@@ -689,7 +689,7 @@
     <dimen name="rounded_corner_content_padding">2dp</dimen>
     
     <!-- Statusbar Icon Size -->
-    <dimen name="status_bar_icon_size">16dp</dimen>
+    <dimen name="status_bar_icon_size">18dp</dimen>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
