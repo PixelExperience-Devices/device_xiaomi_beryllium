@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bluetooth Audio HAL Audio Policy Configuration file -->
+<module name="bluetooth" halVersion="2.0">
+    <mixPorts>
+        <!-- A2DP Audio Ports -->
+        <mixPort name="a2dp output" role="source"/>
+        <!-- Hearing AIDs Audio Ports -->
+        <mixPort name="hearing aid output" role="source">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="24000,16000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+        </mixPort>
+        <!-- Le Audio Audio Ports -->
+        <mixPort name="le audio output" role="source">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="8000,16000,24000,32000,44100,48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO,AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="8000,16000,24000,32000,44100,48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO,AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="8000,16000,24000,32000,44100,48000"
+                     channelMasks="AUDIO_CHANNEL_OUT_MONO,AUDIO_CHANNEL_OUT_STEREO"/>
+        </mixPort>
+    </mixPorts>
+    <devicePorts>
+        <!-- A2DP Audio Ports -->
+        <devicePort tagName="BT A2DP Out" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" role="sink">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="44100,48000,88200,96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+        </devicePort>
+        <devicePort tagName="BT A2DP Headphones" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" role="sink">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="44100,48000,88200,96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+        </devicePort>
+        <devicePort tagName="BT A2DP Speaker" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" role="sink">
+            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                     samplingRates="44100,48000,88200,96000"
+                     channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+        </devicePort>
+        <!-- Hearing AIDs Audio Ports -->
+        <devicePort tagName="BT Hearing Aid Out" type="AUDIO_DEVICE_OUT_HEARING_AID" role="sink"/>
+        <!-- BLE Audio Ports -->
+        <!-- Note that these device types are not valid in HAL versions < 7. Any device
+             running pre-V7 HAL and using this file will not pass VTS. Need to use
+             bluetooth_audio_policy_configuration_7_0.xml instead.
+        -->
+        <devicePort tagName="BLE Headset Out" type="AUDIO_DEVICE_OUT_BLE_HEADSET" role="sink"/>
+        <devicePort tagName="BLE Speaker Out" type="AUDIO_DEVICE_OUT_BLE_SPEAKER" role="sink"/>
+    </devicePorts>
+    <routes>
+        <route type="mix" sink="BT A2DP Out"
+               sources="a2dp output"/>
+        <route type="mix" sink="BT A2DP Headphones"
+               sources="a2dp output"/>
+        <route type="mix" sink="BT A2DP Speaker"
+               sources="a2dp output"/>
+        <route type="mix" sink="BT Hearing Aid Out"
+               sources="hearing aid output"/>
+        <route type="mix" sink="BLE Headset Out"
+               sources="le audio output"/>
+        <route type="mix" sink="BLE Speaker Out"
+               sources="le audio output"/>
+    </routes>
+</module>
