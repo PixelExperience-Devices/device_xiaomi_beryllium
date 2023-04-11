@@ -15,7 +15,7 @@ VENDOR=xiaomi
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-ANDROID_ROOT="${MY_DIR}/../../../.."
+ANDROID_ROOT="${MY_DIR}/../../../../.."
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -83,7 +83,7 @@ function blob_fixup() {
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/../proprietary-files.txt" "${SRC}" \
+extract "${MY_DIR}/../../proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

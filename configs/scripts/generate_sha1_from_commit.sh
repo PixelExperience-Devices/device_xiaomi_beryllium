@@ -27,7 +27,7 @@ set -e
 
 MY_DIR="${PWD}"
 
-VENDOR_DIR="${MY_DIR}"/../../../../vendor/xiaomi/beryllium
+VENDOR_DIR="${MY_DIR}"/../../../../../vendor/xiaomi/beryllium
 DEVICE=beryllium
 DIR_PREFIX="proprietary/"
 
@@ -60,7 +60,7 @@ do
     # blob status is deleted
     if [[ "$status" == "D" ]]; then
         echo "deleting ${file_stripped}"
-        sed -i "\%^${file_stripped}%d" "${MY_DIR}/../proprietary-files.txt"
+        sed -i "\%^${file_stripped}%d" "${MY_DIR}/../../proprietary-files.txt"
         continue
     fi
 
@@ -72,14 +72,14 @@ do
     # blob is newly added
     if [[ "$status" == "A" ]]; then
         echo "adding ${file_stripped}"
-        echo "${file_stripped}|${sha1}" >> "${MY_DIR}/../proprietary-files.txt"
+        echo "${file_stripped}|${sha1}" >> "${MY_DIR}/../../proprietary-files.txt"
         continue
     fi
 
     # the rest files already exist in the list and are modified
     # iterate through lines in proprietary-files.txt until the first
     # non-comment match
-    for line in $(grep "$file_stripped" "${MY_DIR}/../proprietary-files.txt")
+    for line in $(grep "$file_stripped" "${MY_DIR}/../../proprietary-files.txt")
     do
         # continue if this line starts with #
         [[ $line =~ ^#.* ]] && continue
@@ -98,7 +98,7 @@ do
 
         # use % as delimiter because file path contains "/"
         sedstr="s%^$line\$%$newline%" 
-        sed -i "$sedstr" "${MY_DIR}/../proprietary-files.txt"
+        sed -i "$sedstr" "${MY_DIR}/../../proprietary-files.txt"
 
         # exit after the first replacement
         break

@@ -117,7 +117,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_xiaomi
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/scripts
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/configs/scripts
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
