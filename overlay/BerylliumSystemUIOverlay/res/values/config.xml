@@ -46,5 +46,9 @@
 
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">false</bool>
+
+    <!-- Whether the combined qs shows in status bar when true, the combined qs will not be available
+         if set it to false  -->
+    <bool name="flag_combined_qs_headers">false</bool>
 </resources>
 
