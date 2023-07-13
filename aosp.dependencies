@@ -1,0 +1,13 @@
+[
+  {
+    "repository": "kernel_xiaomi_beryllium",
+    "target_path": "kernel/xiaomi/beryllium",
+    "branch": "thirteen"
+  },
+  {
+    "repository": "vendor_xiaomi_beryllium",
+    "target_path": "vendor/xiaomi/beryllium",
+    "branch": "thirteen",
+    "remote": "pixel-devices-blobs"
+  }
+]
