@@ -861,6 +861,7 @@ vendor/lib/libOmxAmrDec.so|3cd7ffbdcda001167fd080648f4306f3aacf8cdb
 vendor/lib/libOmxAmrwbplusDec.so|e93283715c8a7ba64668eb05c377da1489240e41
 vendor/lib/libOmxApeDec.so|cb1c77e42eb234406158aed859873bb16806dcd8
 vendor/lib/libOmxApeDecSw.so|78a34535d624308e26c59502721c355efdf597d9
+vendor/lib/libOmxCore.so|851f1adf21abcd7b98db7d1bf6a83f984e492280
 vendor/lib/libOmxDsdDec.so|4cd599f9192eaf2c70d7e6da9d5a54dbb8b0fbff
 vendor/lib/libOmxEvrcDec.so|60cafcf07bc5bff81bcd24a223fac1ce9237361f
 vendor/lib/libOmxG711Dec.so|a8c5cd42984bfae80363bdfa27b41eadb1bab06d
@@ -883,6 +884,7 @@ vendor/lib64/libOmxAmrDec.so|76286e67a74fa4264754e3cf3070252eef5339c0
 vendor/lib64/libOmxAmrwbplusDec.so|9d1c6c8e167e1817e59ee38f811f362f7ecc908c
 vendor/lib64/libOmxApeDec.so|ddc6e487b4fd12b89bf32af9ab8d0e772a17ac3a
 vendor/lib64/libOmxApeDecSw.so|a7327f1f4f163ed5a3b2fdb4d574fc494ea6e89c
+vendor/lib64/libOmxCore.so|bcdbed66daadb116dcee0df77659310ef3d7c0dc
 vendor/lib64/libOmxEvrcDec.so|7cb89457d5f6c952b6d31c54a01ada9a169ad3ad
 vendor/lib64/libOmxG711Dec.so|42ed1199b68a18458857b7e6e3a68fa12b1e56c0
 vendor/lib64/libOmxQcelp13Dec.so|73cb57acd1c743ceb900fa4757d2ef0aae41b233
